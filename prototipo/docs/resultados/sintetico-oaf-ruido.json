@@ -1,0 +1,560 @@
+{
+  "motor": "onsets-frames",
+  "conRuido": true,
+  "filas": [
+    {
+      "nombre": "C mayor (C4 E4 G4)",
+      "comparacion": {
+        "esperadas": [
+          60,
+          64,
+          67
+        ],
+        "detectadas": [
+          60,
+          64,
+          67
+        ],
+        "aciertos": [
+          60,
+          64,
+          67
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 160,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "F mayor (F4 A4 C5)",
+      "comparacion": {
+        "esperadas": [
+          65,
+          69,
+          72
+        ],
+        "detectadas": [
+          65,
+          69,
+          72
+        ],
+        "aciertos": [
+          65,
+          69,
+          72
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 161,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "G mayor (G4 B4 D5)",
+      "comparacion": {
+        "esperadas": [
+          67,
+          71,
+          74
+        ],
+        "detectadas": [
+          67
+        ],
+        "aciertos": [
+          67
+        ],
+        "faltantes": [
+          71,
+          74
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 159,
+      "detalle": "1 notas"
+    },
+    {
+      "nombre": "A menor (A3 C4 E4)",
+      "comparacion": {
+        "esperadas": [
+          57,
+          60,
+          64
+        ],
+        "detectadas": [
+          57,
+          60,
+          64
+        ],
+        "aciertos": [
+          57,
+          60,
+          64
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 155,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "D menor (D4 F4 A4)",
+      "comparacion": {
+        "esperadas": [
+          62,
+          65,
+          69
+        ],
+        "detectadas": [
+          62,
+          65,
+          69
+        ],
+        "aciertos": [
+          62,
+          65,
+          69
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 157,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "E menor (E4 G4 B4)",
+      "comparacion": {
+        "esperadas": [
+          64,
+          67,
+          71
+        ],
+        "detectadas": [
+          67,
+          71
+        ],
+        "aciertos": [
+          67,
+          71
+        ],
+        "faltantes": [
+          64
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 150,
+      "detalle": "2 notas"
+    },
+    {
+      "nombre": "C mayor 4 notas (C4 E4 G4 C5)",
+      "comparacion": {
+        "esperadas": [
+          60,
+          64,
+          67,
+          72
+        ],
+        "detectadas": [
+          64,
+          67
+        ],
+        "aciertos": [
+          64,
+          67
+        ],
+        "faltantes": [
+          60,
+          72
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 158,
+      "detalle": "2 notas"
+    },
+    {
+      "nombre": "C dos manos (C3 G3 E4 G4)",
+      "comparacion": {
+        "esperadas": [
+          48,
+          55,
+          64,
+          67
+        ],
+        "detectadas": [
+          64,
+          67
+        ],
+        "aciertos": [
+          64,
+          67
+        ],
+        "faltantes": [
+          48,
+          55
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 156,
+      "detalle": "2 notas"
+    },
+    {
+      "nombre": "G dos manos (G2 D3 B3 D4)",
+      "comparacion": {
+        "esperadas": [
+          43,
+          50,
+          59,
+          62
+        ],
+        "detectadas": [
+          43,
+          50,
+          59,
+          62
+        ],
+        "aciertos": [
+          43,
+          50,
+          59,
+          62
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 156,
+      "detalle": "4 notas"
+    },
+    {
+      "nombre": "F dos manos (F2 C3 A3 C4)",
+      "comparacion": {
+        "esperadas": [
+          41,
+          48,
+          57,
+          60
+        ],
+        "detectadas": [
+          48,
+          57,
+          60
+        ],
+        "aciertos": [
+          48,
+          57,
+          60
+        ],
+        "faltantes": [
+          41
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 157,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "C menor (C4 Eb4 G4)",
+      "comparacion": {
+        "esperadas": [
+          60,
+          63,
+          67
+        ],
+        "detectadas": [
+          63,
+          67
+        ],
+        "aciertos": [
+          63,
+          67
+        ],
+        "faltantes": [
+          60
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 156,
+      "detalle": "2 notas"
+    },
+    {
+      "nombre": "D mayor (D4 F#4 A4)",
+      "comparacion": {
+        "esperadas": [
+          62,
+          66,
+          69
+        ],
+        "detectadas": [
+          62,
+          66,
+          69
+        ],
+        "aciertos": [
+          62,
+          66,
+          69
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 157,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "G7 (G3 B3 D4 F4)",
+      "comparacion": {
+        "esperadas": [
+          55,
+          59,
+          62,
+          65
+        ],
+        "detectadas": [
+          55,
+          59,
+          62,
+          65
+        ],
+        "aciertos": [
+          55,
+          59,
+          62,
+          65
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 154,
+      "detalle": "4 notas"
+    },
+    {
+      "nombre": "F mayor grave (F3 A3 C4 E4)",
+      "comparacion": {
+        "esperadas": [
+          53,
+          57,
+          60,
+          64
+        ],
+        "detectadas": [
+          57,
+          60,
+          64
+        ],
+        "aciertos": [
+          57,
+          60,
+          64
+        ],
+        "faltantes": [
+          53
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 155,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "C 5 notas (C3 E3 G3 C4 E4)",
+      "comparacion": {
+        "esperadas": [
+          48,
+          52,
+          55,
+          60,
+          64
+        ],
+        "detectadas": [
+          48,
+          52,
+          55,
+          60,
+          64
+        ],
+        "aciertos": [
+          48,
+          52,
+          55,
+          60,
+          64
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 154,
+      "detalle": "5 notas"
+    },
+    {
+      "nombre": "A menor abierto (A2 E3 C4 E4)",
+      "comparacion": {
+        "esperadas": [
+          45,
+          52,
+          60,
+          64
+        ],
+        "detectadas": [
+          45,
+          60,
+          64
+        ],
+        "aciertos": [
+          45,
+          60,
+          64
+        ],
+        "faltantes": [
+          52
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 155,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "D menor abierto (D3 A3 F4 A4)",
+      "comparacion": {
+        "esperadas": [
+          50,
+          57,
+          65,
+          69
+        ],
+        "detectadas": [
+          50,
+          57,
+          65
+        ],
+        "aciertos": [
+          50,
+          57,
+          65
+        ],
+        "faltantes": [
+          69
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 155,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "G mayor grave (B3 D4 G4)",
+      "comparacion": {
+        "esperadas": [
+          59,
+          62,
+          67
+        ],
+        "detectadas": [
+          59,
+          62
+        ],
+        "aciertos": [
+          59,
+          62
+        ],
+        "faltantes": [
+          67
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 155,
+      "detalle": "2 notas"
+    },
+    {
+      "nombre": "C 1ª inversión grave (E3 G3 C4)",
+      "comparacion": {
+        "esperadas": [
+          52,
+          55,
+          60
+        ],
+        "detectadas": [
+          52,
+          55,
+          60
+        ],
+        "aciertos": [
+          52,
+          55,
+          60
+        ],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 155,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "G grave (B2 D3 G3 B3)",
+      "comparacion": {
+        "esperadas": [
+          47,
+          50,
+          55,
+          59
+        ],
+        "detectadas": [
+          47,
+          50,
+          55
+        ],
+        "aciertos": [
+          47,
+          50,
+          55
+        ],
+        "faltantes": [
+          59
+        ],
+        "extras": [],
+        "exacto": false
+      },
+      "msProceso": 156,
+      "detalle": "3 notas"
+    },
+    {
+      "nombre": "silencio (solo piso de ruido)",
+      "comparacion": {
+        "esperadas": [],
+        "detectadas": [],
+        "aciertos": [],
+        "faltantes": [],
+        "extras": [],
+        "exacto": true
+      },
+      "msProceso": 0,
+      "detalle": "silencio (bajo la compuerta)"
+    }
+  ],
+  "totales": {
+    "acordes": 21,
+    "acordesExactos": 10,
+    "porcentajeExactos": 47.6,
+    "notasEsperadas": 71,
+    "notasDetectadas": 57,
+    "aciertos": 57,
+    "recall": 80.3,
+    "precision": 100,
+    "msProcesoMedio": 149
+  }
+}

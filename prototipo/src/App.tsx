@@ -1,0 +1,259 @@
+// ============================================================================
+// App.tsx — La pantalla. Une los módulos; no contiene lógica musical propia.
+//
+//   pieza.ts      → el MusicXML fijo
+//   generador.ts  → MusicXML generado (ruta 2 de B3)
+//   partitura.ts  → OSMD: dibuja, extrae notas, oculta compases
+//   metronomo.ts  → click con Web Audio + reloj musical (pulsos)
+//   midi.ts       → notas del teclado (Web MIDI o teclado de PC de prueba)
+//   comparador.ts → nota tocada vs nota esperada
+//   medicion/     → pantalla B2 (basic-pitch)
+//
+// Flujo de una sesión:
+//   Iniciar → metrónomo cuenta 1 compás → en cada pulso:
+//     (a) se ocultan los compases que ya "tocan" según el desfase elegido,
+//     (b) el comparador marca como fallidas las notas cuyo momento pasó.
+//   Cada nota MIDI → se convierte a pulso (con decimales) → comparador.
+//   Al terminar → resumen por compás y total.
+// ============================================================================
+
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Partitura } from './partitura';
+import { Metronomo, type Pulso } from './metronomo';
+import { activarTecladoDePrueba, conectarMidi, nombreNota, suscribirNotas, type NotaMidi } from './midi';
+import { Comparador, type NotaEsperada, type Resumen } from './comparador';
+import { PIEZA_MUSICXML, PIEZA_TOTAL_NOTAS, TEMPO_BPM } from './pieza';
+import { NIVELES, generarEjercicio, medirDificultad } from './generador';
+import Medicion from './medicion/Medicion';
+
+export default function App() {
+  const [vista, setVista] = useState<'prototipo' | 'medicion'>('prototipo');
+  return (
+    <div>
+      <h2>Prototipo lectura a primera vista (Tarea B)</h2>
+      <p>
+        <button onClick={() => setVista('prototipo')} disabled={vista === 'prototipo'}>B1 · Prototipo</button>
+        <button id="btn-vista-medicion" onClick={() => setVista('medicion')} disabled={vista === 'medicion'}>B2 · Medición por micrófono</button>
+      </p>
+      {vista === 'prototipo' ? <Prototipo /> : <Medicion />}
+    </div>
+  );
+}
+
+type Estado = 'cargando' | 'listo' | 'tocando' | 'terminado';
+
+interface Fuente {
+  nombre: string;
+  /** Texto MusicXML, o un Blob si es un .mxl comprimido. */
+  musicXml: string | Blob;
+  /** Si la pieza fue generada, las notas que el generador dice haber escrito. */
+  notasGeneradas?: NotaEsperada[];
+}
+
+function Prototipo() {
+  const contenedorRef = useRef<HTMLDivElement>(null);
+  const partituraRef = useRef<Partitura | null>(null);
+  const metronomoRef = useRef<Metronomo | null>(null);
+  const comparadorRef = useRef<Comparador | null>(null);
+  const tocandoRef = useRef(false);
+
+  const [fuente, setFuente] = useState<Fuente>({ nombre: 'pieza fija (pieza.ts)', musicXml: PIEZA_MUSICXML });
+  const [notasEsperadas, setNotasEsperadas] = useState<NotaEsperada[]>([]);
+  const [chequeo, setChequeo] = useState('');
+  const [estado, setEstado] = useState<Estado>('cargando');
+  const [bpm, setBpm] = useState(TEMPO_BPM);
+  const [desfase, setDesfase] = useState(0);
+  const [midiEstado, setMidiEstado] = useState('sin conectar');
+  const [tecladoPrueba, setTecladoPrueba] = useState(false);
+  const [pulso, setPulso] = useState<Pulso | null>(null);
+  const [resumen, setResumen] = useState<Resumen | null>(null);
+  const [porCompas, setPorCompas] = useState<Resumen[]>([]);
+  const [registro, setRegistro] = useState<{ texto: string; clase: string }[]>([]);
+  const [desvio, setDesvio] = useState<{ media: number; max: number; n: number } | null>(null);
+  const [nivel, setNivel] = useState(Object.keys(NIVELES)[0]);
+  const [semilla, setSemilla] = useState(1);
+
+  // Cargar (o recargar) la partitura cuando cambia la fuente.
+  useEffect(() => {
+    let cancelado = false;
+    setEstado('cargando');
+    Partitura.cargar(contenedorRef.current!, fuente.musicXml).then((p) => {
+      if (cancelado) return;
+      partituraRef.current = p;
+      const notas = p.notasEsperadas();
+      setNotasEsperadas(notas);
+      // Comprobación cruzada: lo que OSMD leyó vs lo que sabemos que escribimos.
+      if (fuente.notasGeneradas) {
+        const iguales = JSON.stringify(notas) === JSON.stringify(fuente.notasGeneradas);
+        setChequeo(iguales
+          ? `OK: OSMD extrajo las mismas ${notas.length} notas que escribió el generador`
+          : `ERROR: OSMD extrajo ${notas.length} notas; el generador escribió ${fuente.notasGeneradas.length}`);
+      } else if (fuente.musicXml === PIEZA_MUSICXML) {
+        setChequeo(notas.length === PIEZA_TOTAL_NOTAS
+          ? `OK: ${notas.length} notas extraídas de la partitura (esperadas ${PIEZA_TOTAL_NOTAS})`
+          : `ERROR: ${notas.length} notas extraídas, esperadas ${PIEZA_TOTAL_NOTAS}`);
+      } else {
+        setChequeo(`cargado: ${p.numCompases} compases, ${notas.length} notas extraídas`);
+      }
+      setResumen(null); setPorCompas([]); setRegistro([]); setPulso(null); setDesvio(null);
+      setEstado('listo');
+    });
+    return () => { cancelado = true; };
+  }, [fuente]);
+
+  const actualizarTablas = useCallback(() => {
+    const c = comparadorRef.current;
+    const p = partituraRef.current;
+    if (!c || !p) return;
+    setResumen(c.resumen());
+    setPorCompas(c.porCompas(p.numCompases));
+  }, []);
+
+  const agregarFila = (texto: string, clase: string) =>
+    setRegistro((r) => [{ texto, clase }, ...r].slice(0, 60));
+
+  // Cada nota (MIDI real o teclado de prueba) pasa por acá.
+  const alTocarNota = useCallback((n: NotaMidi) => {
+    const m = metronomoRef.current;
+    const c = comparadorRef.current;
+    if (!m || !c || !tocandoRef.current) {
+      agregarFila(`${nombreNota(n.midi)} (fuera del ejercicio)`, '');
+      return;
+    }
+    const pulsoTocado = m.tiempoAPulso(m.tiempoPerfATiempoAudio(n.tiempoPerfMs));
+    const r = c.registrar({ midi: n.midi, pulso: pulsoTocado });
+    if (r) {
+      const desvioMs = Math.round((r.desvioPulsos ?? 0) * m.segundosPorPulso * 1000);
+      agregarFila(`${nombreNota(n.midi)} en pulso ${pulsoTocado.toFixed(2)} → correcta (${desvioMs >= 0 ? '+' : ''}${desvioMs} ms)`, 'ok');
+    } else {
+      agregarFila(`${nombreNota(n.midi)} en pulso ${pulsoTocado.toFixed(2)} → extra`, 'extra');
+    }
+    actualizarTablas();
+  }, [actualizarTablas]);
+
+  useEffect(() => suscribirNotas(alTocarNota), [alTocarNota]);
+  useEffect(() => (tecladoPrueba ? activarTecladoDePrueba() : undefined), [tecladoPrueba]);
+
+  const conectar = async () => {
+    try {
+      const nombres = await conectarMidi();
+      setMidiEstado(nombres.length ? `conectado: ${nombres.join(', ')}` : 'acceso OK pero sin entradas MIDI; conecta el teclado');
+    } catch (e) {
+      setMidiEstado(String(e));
+    }
+  };
+
+  const iniciar = () => {
+    const p = partituraRef.current;
+    if (!p) return;
+    // El AudioContext se crea en un click (los navegadores lo exigen).
+    if (!metronomoRef.current) metronomoRef.current = new Metronomo(new AudioContext());
+    const m = metronomoRef.current;
+    void m.ctx.resume();
+    m.bpm = bpm;
+    p.mostrarTodo();
+    const c = new Comparador(notasEsperadas);
+    comparadorRef.current = c;
+    setRegistro([]); setDesvio(null);
+    m.onPulso = (pu) => {
+      setPulso(pu);
+      // Regla de ocultamiento: el compás i se tapa cuando llega el pulso i*4 + desfase.
+      // desfase 0 = al empezar a tocarlo; -4 = un compás antes; +4 = al terminarlo.
+      for (let i = 0; i < p.numCompases; i++) {
+        if (pu.indice >= i * m.pulsosPorCompas + desfase) p.ocultarCompas(i);
+      }
+      c.actualizar(pu.indice);
+      actualizarTablas();
+    };
+    m.onFin = () => {
+      c.cerrar();
+      tocandoRef.current = false;
+      setEstado('terminado');
+      actualizarTablas();
+      const d = m.desviosMs;
+      if (d.length) setDesvio({ media: Math.round(d.reduce((s, x) => s + x, 0) / d.length * 10) / 10, max: Math.round(Math.max(...d) * 10) / 10, n: d.length });
+    };
+    tocandoRef.current = true;
+    setEstado('tocando');
+    actualizarTablas();
+    m.iniciar(p.numCompases * m.pulsosPorCompas);
+  };
+
+  const detener = () => {
+    metronomoRef.current?.detener();
+    tocandoRef.current = false;
+    setEstado('listo');
+  };
+
+  const cargarGenerado = () => {
+    const ej = generarEjercicio({ ...NIVELES[nivel], semilla });
+    setFuente({ nombre: `generado: ${nivel}, semilla ${semilla}`, musicXml: ej.musicXml, notasGeneradas: ej.notas });
+  };
+
+  // Ruta 1 de B3: cargar una pieza de repertorio (.musicxml, .xml o .mxl comprimido).
+  const cargarArchivo = async (archivo: File | undefined) => {
+    if (!archivo) return;
+    const contenido = archivo.name.toLowerCase().endsWith('.mxl') ? archivo : await archivo.text();
+    setFuente({ nombre: `archivo: ${archivo.name}`, musicXml: contenido });
+  };
+
+  const numCompases = partituraRef.current?.numCompases ?? 8;
+  const dificultad = medirDificultad(notasEsperadas, numCompases);
+
+  return (
+    <div>
+      <p>
+        <button onClick={conectar}>Conectar MIDI</button> {midiEstado}
+        {' · '}
+        <label><input type="checkbox" checked={tecladoPrueba} onChange={(e) => setTecladoPrueba(e.target.checked)} /> teclado de PC como MIDI de prueba (a s d f g h j k = C4..C5; z x c v b n m = C3..B3)</label>
+      </p>
+      <p>
+        <button id="btn-iniciar" onClick={iniciar} disabled={estado !== 'listo' && estado !== 'terminado'}>Iniciar</button>
+        <button onClick={detener} disabled={estado !== 'tocando'}>Detener</button>
+        <label>bpm <input type="number" value={bpm} min={30} max={200} onChange={(e) => setBpm(Number(e.target.value))} disabled={estado === 'tocando'} /></label>
+        <label>desfase de ocultamiento (pulsos) <input id="desfase" type="number" value={desfase} min={-8} max={8} onChange={(e) => setDesfase(Number(e.target.value))} disabled={estado === 'tocando'} /></label>
+        estado: <b id="estado">{estado}</b>
+        {' · '}
+        {[0, 1, 2, 3].map((i) => <span key={i} className={`pulso${pulso && pulso.pulsoEnCompas === i ? ' activo' : ''}`} />)}
+        {pulso && <span> {pulso.compas < 0 ? 'cuenta de entrada' : `compás ${pulso.compas + 1}`}, pulso {pulso.pulsoEnCompas + 1}</span>}
+      </p>
+
+      <div id="partitura" ref={contenedorRef} />
+      <p className="mono" id="chequeo">{fuente.nombre} · {chequeo}</p>
+
+      {resumen && (
+        <table id="tabla-resultados">
+          <thead><tr><th>compás</th><th>esperadas</th><th>correctas</th><th>fallidas</th><th>pendientes</th><th>%</th></tr></thead>
+          <tbody>
+            {porCompas.map((r, i) => (
+              <tr key={i}><td>{i + 1}</td><td>{r.esperadas}</td><td className="ok">{r.correctas}</td><td className="mal">{r.fallidas}</td><td>{r.pendientes}</td><td>{r.porcentaje}</td></tr>
+            ))}
+            <tr><th>total</th><th>{resumen.esperadas}</th><th className="ok">{resumen.correctas}</th><th className="mal">{resumen.fallidas}</th><th>{resumen.pendientes}</th><th>{resumen.porcentaje}%</th></tr>
+            <tr><td colSpan={6}>notas extra (no estaban en la partitura): <span className="extra">{resumen.extras}</span>
+              {desvio && <> · desvío click→pantalla: media {desvio.media} ms, máx {desvio.max} ms ({desvio.n} pulsos)</>}</td></tr>
+          </tbody>
+        </table>
+      )}
+
+      <div className="caja">
+        <b>Últimas notas tocadas</b>
+        <div className="mono">{registro.map((f, i) => <div key={i} className={f.clase}>{f.texto}</div>)}</div>
+      </div>
+
+      <div className="caja">
+        <b>B3 · Ejercicio generado algorítmicamente</b>{' '}
+        <select value={nivel} onChange={(e) => setNivel(e.target.value)}>
+          {Object.keys(NIVELES).map((k) => <option key={k}>{k}</option>)}
+        </select>{' '}
+        <label>semilla <input type="number" value={semilla} onChange={(e) => setSemilla(Number(e.target.value))} /></label>
+        <button id="btn-generar" onClick={cargarGenerado} disabled={estado === 'tocando'}>Generar y cargar</button>
+        <button onClick={() => setFuente({ nombre: 'pieza fija (pieza.ts)', musicXml: PIEZA_MUSICXML })} disabled={estado === 'tocando'}>Volver a la pieza fija</button>
+        <label>o repertorio real: <input id="archivo-musicxml" type="file" accept=".xml,.musicxml,.mxl" onChange={(e) => cargarArchivo(e.target.files?.[0])} disabled={estado === 'tocando'} /></label>
+        <div className="mono" id="dificultad">
+          dificultad medida: {dificultad.notasPorCompas} notas/compás · salto medio {dificultad.saltoMedioSemitonos} semitonos ·
+          ámbito {dificultad.ambitoSemitonos} semitonos · {dificultad.figurasDistintas} figuras distintas · máx {dificultad.notasSimultaneasMax} notas simultáneas
+        </div>
+      </div>
+    </div>
+  );
+}

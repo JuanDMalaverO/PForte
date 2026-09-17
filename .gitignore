@@ -1,0 +1,15 @@
+# dependencias y builds
+node_modules/
+dist/
+*.tsbuildinfo
+prototipo/node_modules/.vite/
+
+# modelo Onsets and Frames (60 MB): se baja con `node scripts/descargar-modelo-oaf.mjs`
+prototipo/public/model-oaf/
+
+# audio regenerado por scripts/verificar.mjs
+prototipo/docs/resultados/*.wav
+
+# sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,1525 @@
+{
+  "resumen": {
+    "acordesExactos": 5,
+    "acordes": 20,
+    "notasEsperadas": 71,
+    "recall": 100,
+    "precision": 75.5,
+    "latenciaReal_medianaMs": 115,
+    "latenciaReal_p90Ms": 134,
+    "latenciaReal_minMs": 104,
+    "latenciaReal_maxMs": 134,
+    "inferencia_mediaMs": 46,
+    "detecciones": 110,
+    "deteccionesRepetidasOFantasma": 16,
+    "deteccionesFueraDeAcordes": 1,
+    "desfaseCapturaSeg": -0.26,
+    "continuo": {
+      "ventanaSeg": 1,
+      "intervaloMs": 100
+    },
+    "umbrales": {
+      "onset": 0.5,
+      "frame": 0.3,
+      "minFrames": 5,
+      "midiMin": 21,
+      "midiMax": 108
+    }
+  },
+  "filas": [
+    {
+      "k": 0,
+      "esperadas": [
+        60,
+        64,
+        67
+      ],
+      "detectadas": [
+        60,
+        64,
+        67,
+        72
+      ],
+      "faltantes": [],
+      "extras": [
+        72
+      ],
+      "exacto": false,
+      "detecciones": 4,
+      "latenciasPrimeraMs": [
+        104,
+        104,
+        104
+      ],
+      "latenciasMs": [
+        84,
+        84,
+        84,
+        181
+      ]
+    },
+    {
+      "k": 1,
+      "esperadas": [
+        65,
+        69,
+        72
+      ],
+      "detectadas": [
+        53,
+        65,
+        69,
+        72,
+        77
+      ],
+      "faltantes": [],
+      "extras": [
+        53,
+        77
+      ],
+      "exacto": false,
+      "detecciones": 5,
+      "latenciasPrimeraMs": [
+        115,
+        115,
+        115
+      ],
+      "latenciasMs": [
+        98,
+        98,
+        98,
+        196,
+        127
+      ]
+    },
+    {
+      "k": 2,
+      "esperadas": [
+        67,
+        71,
+        74
+      ],
+      "detectadas": [
+        67,
+        71,
+        74
+      ],
+      "faltantes": [],
+      "extras": [],
+      "exacto": true,
+      "detecciones": 6,
+      "latenciasPrimeraMs": [
+        114,
+        115,
+        114
+      ],
+      "latenciasMs": [
+        114,
+        114,
+        103,
+        71,
+        60,
+        154
+      ]
+    },
+    {
+      "k": 3,
+      "esperadas": [
+        57,
+        60,
+        64
+      ],
+      "detectadas": [
+        57,
+        60,
+        64
+      ],
+      "faltantes": [],
+      "extras": [],
+      "exacto": true,
+      "detecciones": 3,
+      "latenciasPrimeraMs": [
+        116,
+        116,
+        116
+      ],
+      "latenciasMs": [
+        141,
+        141,
+        118
+      ]
+    },
+    {
+      "k": 4,
+      "esperadas": [
+        62,
+        65,
+        69
+      ],
+      "detectadas": [
+        62,
+        65,
+        69
+      ],
+      "faltantes": [],
+      "extras": [],
+      "exacto": true,
+      "detecciones": 4,
+      "latenciasPrimeraMs": [
+        115,
+        115,
+        115
+      ],
+      "latenciasMs": [
+        111,
+        111,
+        111,
+        235
+      ]
+    },
+    {
+      "k": 5,
+      "esperadas": [
+        64,
+        67,
+        71
+      ],
+      "detectadas": [
+        64,
+        67,
+        71
+      ],
+      "faltantes": [],
+      "extras": [],
+      "exacto": true,
+      "detecciones": 3,
+      "latenciasPrimeraMs": [
+        115,
+        115,
+        116
+      ],
+      "latenciasMs": [
+        149,
+        114,
+        114
+      ]
+    },
+    {
+      "k": 6,
+      "esperadas": [
+        60,
+        64,
+        67,
+        72
+      ],
+      "detectadas": [
+        48,
+        60,
+        64,
+        67,
+        72
+      ],
+      "faltantes": [],
+      "extras": [
+        48
+      ],
+      "exacto": false,
+      "detecciones": 5,
+      "latenciasPrimeraMs": [
+        114,
+        114,
+        114,
+        114
+      ],
+      "latenciasMs": [
+        142,
+        130,
+        130,
+        130,
+        245
+      ]
+    },
+    {
+      "k": 7,
+      "esperadas": [
+        48,
+        55,
+        64,
+        67
+      ],
+      "detectadas": [
+        36,
+        48,
+        55,
+        60,
+        64,
+        67
+      ],
+      "faltantes": [],
+      "extras": [
+        36,
+        60
+      ],
+      "exacto": false,
+      "detecciones": 8,
+      "latenciasPrimeraMs": [
+        124,
+        124,
+        124,
+        123
+      ],
+      "latenciasMs": [
+        176,
+        142,
+        142,
+        142,
+        142,
+        267,
+        75,
+        136
+      ]
+    },
+    {
+      "k": 8,
+      "esperadas": [
+        43,
+        50,
+        59,
+        62
+      ],
+      "detectadas": [
+        31,
+        43,
+        50,
+        55,
+        59,
+        62
+      ],
+      "faltantes": [],
+      "extras": [
+        31,
+        55
+      ],
+      "exacto": false,
+      "detecciones": 10,
+      "latenciasPrimeraMs": [
+        104,
+        104,
+        104,
+        104
+      ],
+      "latenciasMs": [
+        159,
+        147,
+        147,
+        124,
+        235,
+        288,
+        161,
+        161,
+        150,
+        221
+      ]
+    },
+    {
+      "k": 9,
+      "esperadas": [
+        41,
+        48,
+        57,
+        60
+      ],
+      "detectadas": [
+        29,
+        41,
+        48,
+        53,
+        57,
+        60
+      ],
+      "faltantes": [],
+      "extras": [
+        29,
+        53
+      ],
+      "exacto": false,
+      "detecciones": 6,
+      "latenciasPrimeraMs": [
+        124,
+        124,
+        124,
+        123
+      ],
+      "latenciasMs": [
+        184,
+        173,
+        173,
+        150,
+        236,
+        222
+      ]
+    },
+    {
+      "k": 10,
+      "esperadas": [
+        60,
+        63,
+        67
+      ],
+      "detectadas": [
+        48,
+        60,
+        63,
+        67,
+        79
+      ],
+      "faltantes": [],
+      "extras": [
+        48,
+        79
+      ],
+      "exacto": false,
+      "detecciones": 7,
+      "latenciasPrimeraMs": [
+        114,
+        114,
+        114
+      ],
+      "latenciasMs": [
+        177,
+        177,
+        154,
+        263,
+        263,
+        188,
+        188
+      ]
+    },
+    {
+      "k": 11,
+      "esperadas": [
+        62,
+        66,
+        69
+      ],
+      "detectadas": [
+        62,
+        66,
+        69,
+        74
+      ],
+      "faltantes": [],
+      "extras": [
+        74
+      ],
+      "exacto": false,
+      "detecciones": 4,
+      "latenciasPrimeraMs": [
+        115,
+        115,
+        115
+      ],
+      "latenciasMs": [
+        161,
+        161,
+        161,
+        256
+      ]
+    },
+    {
+      "k": 12,
+      "esperadas": [
+        55,
+        59,
+        62,
+        65
+      ],
+      "detectadas": [
+        43,
+        55,
+        59,
+        62,
+        65,
+        67
+      ],
+      "faltantes": [],
+      "extras": [
+        43,
+        67
+      ],
+      "exacto": false,
+      "detecciones": 6,
+      "latenciasPrimeraMs": [
+        114,
+        114,
+        114,
+        114
+      ],
+      "latenciasMs": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        239
+      ]
+    },
+    {
+      "k": 13,
+      "esperadas": [
+        53,
+        57,
+        60,
+        64
+      ],
+      "detectadas": [
+        41,
+        53,
+        57,
+        60,
+        64
+      ],
+      "faltantes": [],
+      "extras": [
+        41
+      ],
+      "exacto": false,
+      "detecciones": 5,
+      "latenciasPrimeraMs": [
+        134,
+        134,
+        134,
+        134
+      ],
+      "latenciasMs": [
+        211,
+        176,
+        176,
+        176,
+        271
+      ]
+    },
+    {
+      "k": 14,
+      "esperadas": [
+        48,
+        52,
+        55,
+        60,
+        64
+      ],
+      "detectadas": [
+        48,
+        52,
+        55,
+        60,
+        64,
+        72
+      ],
+      "faltantes": [],
+      "extras": [
+        72
+      ],
+      "exacto": false,
+      "detecciones": 6,
+      "latenciasPrimeraMs": [
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "latenciasMs": [
+        173,
+        173,
+        173,
+        173,
+        173,
+        173
+      ]
+    },
+    {
+      "k": 15,
+      "esperadas": [
+        45,
+        52,
+        60,
+        64
+      ],
+      "detectadas": [
+        45,
+        52,
+        60,
+        64
+      ],
+      "faltantes": [],
+      "extras": [],
+      "exacto": true,
+      "detecciones": 4,
+      "latenciasPrimeraMs": [
+        134,
+        134,
+        134,
+        134
+      ],
+      "latenciasMs": [
+        196,
+        184,
+        184,
+        184
+      ]
+    },
+    {
+      "k": 16,
+      "esperadas": [
+        50,
+        57,
+        65,
+        69
+      ],
+      "detectadas": [
+        50,
+        57,
+        62,
+        65,
+        69
+      ],
+      "faltantes": [],
+      "extras": [
+        62
+      ],
+      "exacto": false,
+      "detecciones": 5,
+      "latenciasPrimeraMs": [
+        114,
+        114,
+        114,
+        114
+      ],
+      "latenciasMs": [
+        170,
+        170,
+        170,
+        170,
+        286
+      ]
+    },
+    {
+      "k": 17,
+      "esperadas": [
+        59,
+        62,
+        67
+      ],
+      "detectadas": [
+        55,
+        59,
+        62,
+        67
+      ],
+      "faltantes": [],
+      "extras": [
+        55
+      ],
+      "exacto": false,
+      "detecciones": 4,
+      "latenciasPrimeraMs": [
+        124,
+        124,
+        124
+      ],
+      "latenciasMs": [
+        182,
+        182,
+        182,
+        268
+      ]
+    },
+    {
+      "k": 18,
+      "esperadas": [
+        52,
+        55,
+        60
+      ],
+      "detectadas": [
+        48,
+        52,
+        55,
+        60
+      ],
+      "faltantes": [],
+      "extras": [
+        48
+      ],
+      "exacto": false,
+      "detecciones": 7,
+      "latenciasPrimeraMs": [
+        125,
+        125,
+        125
+      ],
+      "latenciasMs": [
+        189,
+        177,
+        177,
+        283,
+        136,
+        200,
+        200
+      ]
+    },
+    {
+      "k": 19,
+      "esperadas": [
+        47,
+        50,
+        55,
+        59
+      ],
+      "detectadas": [
+        43,
+        47,
+        50,
+        55,
+        59,
+        62,
+        67
+      ],
+      "faltantes": [],
+      "extras": [
+        43,
+        62,
+        67
+      ],
+      "exacto": false,
+      "detecciones": 7,
+      "latenciasPrimeraMs": [
+        124,
+        124,
+        124,
+        124
+      ],
+      "latenciasMs": [
+        213,
+        213,
+        190,
+        190,
+        276,
+        276,
+        249
+      ]
+    }
+  ],
+  "exportado": {
+    "fecha": "2026-09-15T21:45:21.428Z",
+    "backend": "webgl",
+    "umbrales": {
+      "onset": 0.5,
+      "frame": 0.3,
+      "minFrames": 5,
+      "midiMin": 21,
+      "midiMax": 108
+    },
+    "continuo": {
+      "ventanaSeg": 1,
+      "intervaloMs": 100
+    },
+    "sintetico": null,
+    "precisionMicrofono": {
+      "filas": [],
+      "totales": {
+        "acordes": 0,
+        "acordesExactos": 0,
+        "porcentajeExactos": 0,
+        "notasEsperadas": 0,
+        "notasDetectadas": 0,
+        "aciertos": 0,
+        "recall": 0,
+        "precision": 0,
+        "msInferenciaMedia": 0
+      }
+    },
+    "latencia": {
+      "muestras": 110,
+      "modelo_medianaMs": 173,
+      "modelo_p90Ms": 257,
+      "midi_muestras": 0,
+      "midi_medianaMs": 0,
+      "midi_p90Ms": 0,
+      "inferencia_mediaMs": 46,
+      "detecciones": [
+        {
+          "midi": 60,
+          "onsetSeg": 1.7560816326530613,
+          "latenciaModeloMs": 84,
+          "latenciaMidiMs": null,
+          "msInferencia": 39
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 1.7560816326530613,
+          "latenciaModeloMs": 84,
+          "latenciaMidiMs": null,
+          "msInferencia": 39
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 1.7560816326530613,
+          "latenciaModeloMs": 84,
+          "latenciaMidiMs": null,
+          "msInferencia": 39
+        },
+        {
+          "midi": 72,
+          "onsetSeg": 1.7601451247165532,
+          "latenciaModeloMs": 181,
+          "latenciaMidiMs": null,
+          "msInferencia": 36
+        },
+        {
+          "midi": 65,
+          "onsetSeg": 4.253968253968254,
+          "latenciaModeloMs": 98,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 69,
+          "onsetSeg": 4.253968253968254,
+          "latenciaModeloMs": 98,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 72,
+          "onsetSeg": 4.253968253968254,
+          "latenciaModeloMs": 98,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 77,
+          "onsetSeg": 4.254258503401361,
+          "latenciaModeloMs": 196,
+          "latenciaMidiMs": null,
+          "msInferencia": 52
+        },
+        {
+          "midi": 53,
+          "onsetSeg": 4.323918367346939,
+          "latenciaModeloMs": 127,
+          "latenciaMidiMs": null,
+          "msInferencia": 52
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 6.736471655328798,
+          "latenciaModeloMs": 114,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 74,
+          "onsetSeg": 6.736471655328798,
+          "latenciaModeloMs": 114,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 71,
+          "onsetSeg": 6.7480816326530615,
+          "latenciaModeloMs": 103,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 74,
+          "onsetSeg": 7.880634920634921,
+          "latenciaModeloMs": 71,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 71,
+          "onsetSeg": 7.892244897959184,
+          "latenciaModeloMs": 60,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 7.896308390022676,
+          "latenciaModeloMs": 154,
+          "latenciaMidiMs": null,
+          "msInferencia": 48
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 9.211138321995465,
+          "latenciaModeloMs": 141,
+          "latenciaMidiMs": null,
+          "msInferencia": 50
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 9.211138321995465,
+          "latenciaModeloMs": 141,
+          "latenciaMidiMs": null,
+          "msInferencia": 50
+        },
+        {
+          "midi": 57,
+          "onsetSeg": 9.234358276643992,
+          "latenciaModeloMs": 118,
+          "latenciaMidiMs": null,
+          "msInferencia": 50
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 11.74008163265306,
+          "latenciaModeloMs": 111,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 65,
+          "onsetSeg": 11.74008163265306,
+          "latenciaModeloMs": 111,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 69,
+          "onsetSeg": 11.74008163265306,
+          "latenciaModeloMs": 111,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 13.117315192743765,
+          "latenciaModeloMs": 235,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 71,
+          "onsetSeg": 14.203138321995466,
+          "latenciaModeloMs": 149,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 14.237968253968255,
+          "latenciaModeloMs": 114,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 14.237968253968255,
+          "latenciaModeloMs": 114,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 16.708861678004535,
+          "latenciaModeloMs": 142,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 16.7204716553288,
+          "latenciaModeloMs": 130,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 16.7204716553288,
+          "latenciaModeloMs": 130,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 72,
+          "onsetSeg": 16.7204716553288,
+          "latenciaModeloMs": 130,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 48,
+          "onsetSeg": 16.90681179138322,
+          "latenciaModeloMs": 245,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 19.183528344671203,
+          "latenciaModeloMs": 176,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 48,
+          "onsetSeg": 19.218358276643993,
+          "latenciaModeloMs": 142,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 19.218358276643993,
+          "latenciaModeloMs": 142,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 19.218358276643993,
+          "latenciaModeloMs": 142,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 19.218358276643993,
+          "latenciaModeloMs": 142,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 36,
+          "onsetSeg": 19.474648526077097,
+          "latenciaModeloMs": 267,
+          "latenciaMidiMs": null,
+          "msInferencia": 42
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 20.277188208616778,
+          "latenciaModeloMs": 75,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 48,
+          "onsetSeg": 20.3044716553288,
+          "latenciaModeloMs": 136,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 21.681414965986395,
+          "latenciaModeloMs": 159,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 43,
+          "onsetSeg": 21.693024943310657,
+          "latenciaModeloMs": 147,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 50,
+          "onsetSeg": 21.693024943310657,
+          "latenciaModeloMs": 147,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 59,
+          "onsetSeg": 21.716244897959182,
+          "latenciaModeloMs": 124,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 21.71653514739229,
+          "latenciaModeloMs": 235,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 31,
+          "onsetSeg": 21.86398185941043,
+          "latenciaModeloMs": 288,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 50,
+          "onsetSeg": 22.79074829931973,
+          "latenciaModeloMs": 161,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 22.79074829931973,
+          "latenciaModeloMs": 161,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 59,
+          "onsetSeg": 22.802358276643993,
+          "latenciaModeloMs": 150,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 43,
+          "onsetSeg": 22.82964172335601,
+          "latenciaModeloMs": 221,
+          "latenciaMidiMs": null,
+          "msInferencia": 49
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 24.1755283446712,
+          "latenciaModeloMs": 184,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 41,
+          "onsetSeg": 24.187138321995466,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 48,
+          "onsetSeg": 24.187138321995466,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 57,
+          "onsetSeg": 24.21035827664399,
+          "latenciaModeloMs": 150,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 53,
+          "onsetSeg": 24.214421768707485,
+          "latenciaModeloMs": 236,
+          "latenciaMidiMs": null,
+          "msInferencia": 52
+        },
+        {
+          "midi": 29,
+          "onsetSeg": 24.319201814058957,
+          "latenciaModeloMs": 222,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 26.673414965986396,
+          "latenciaModeloMs": 177,
+          "latenciaMidiMs": null,
+          "msInferencia": 48
+        },
+        {
+          "midi": 63,
+          "onsetSeg": 26.673414965986396,
+          "latenciaModeloMs": 177,
+          "latenciaMidiMs": null,
+          "msInferencia": 48
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 26.69663492063492,
+          "latenciaModeloMs": 154,
+          "latenciaMidiMs": null,
+          "msInferencia": 48
+        },
+        {
+          "midi": 48,
+          "onsetSeg": 26.696925170068027,
+          "latenciaModeloMs": 263,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 79,
+          "onsetSeg": 26.696925170068027,
+          "latenciaModeloMs": 263,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 27.782748299319728,
+          "latenciaModeloMs": 188,
+          "latenciaMidiMs": null,
+          "msInferencia": 56
+        },
+        {
+          "midi": 63,
+          "onsetSeg": 27.782748299319728,
+          "latenciaModeloMs": 188,
+          "latenciaMidiMs": null,
+          "msInferencia": 56
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 29.19074829931973,
+          "latenciaModeloMs": 161,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 66,
+          "onsetSeg": 29.19074829931973,
+          "latenciaModeloMs": 161,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 69,
+          "onsetSeg": 29.19074829931973,
+          "latenciaModeloMs": 161,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 74,
+          "onsetSeg": 29.19481179138322,
+          "latenciaModeloMs": 256,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 31.700244897959184,
+          "latenciaModeloMs": 150,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 59,
+          "onsetSeg": 31.700244897959184,
+          "latenciaModeloMs": 150,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 31.700244897959184,
+          "latenciaModeloMs": 150,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 65,
+          "onsetSeg": 31.700244897959184,
+          "latenciaModeloMs": 150,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 31.700244897959184,
+          "latenciaModeloMs": 150,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 43,
+          "onsetSeg": 32.02242176870748,
+          "latenciaModeloMs": 239,
+          "latenciaMidiMs": null,
+          "msInferencia": 49
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 34.1595283446712,
+          "latenciaModeloMs": 211,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 53,
+          "onsetSeg": 34.19435827664399,
+          "latenciaModeloMs": 176,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 57,
+          "onsetSeg": 34.19435827664399,
+          "latenciaModeloMs": 176,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 34.19435827664399,
+          "latenciaModeloMs": 176,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 41,
+          "onsetSeg": 34.710421768707484,
+          "latenciaModeloMs": 271,
+          "latenciaMidiMs": null,
+          "msInferencia": 57
+        },
+        {
+          "midi": 48,
+          "onsetSeg": 36.6884716553288,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 52,
+          "onsetSeg": 36.6884716553288,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 36.6884716553288,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 36.6884716553288,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 36.6884716553288,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 72,
+          "onsetSeg": 36.6884716553288,
+          "latenciaModeloMs": 173,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 52,
+          "onsetSeg": 39.17474829931973,
+          "latenciaModeloMs": 196,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 45,
+          "onsetSeg": 39.18635827664399,
+          "latenciaModeloMs": 184,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 39.18635827664399,
+          "latenciaModeloMs": 184,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 39.18635827664399,
+          "latenciaModeloMs": 184,
+          "latenciaMidiMs": null,
+          "msInferencia": 47
+        },
+        {
+          "midi": 50,
+          "onsetSeg": 41.6804716553288,
+          "latenciaModeloMs": 170,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 57,
+          "onsetSeg": 41.6804716553288,
+          "latenciaModeloMs": 170,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 65,
+          "onsetSeg": 41.6804716553288,
+          "latenciaModeloMs": 170,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 69,
+          "onsetSeg": 41.6804716553288,
+          "latenciaModeloMs": 170,
+          "latenciaMidiMs": null,
+          "msInferencia": 46
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 41.68453514739229,
+          "latenciaModeloMs": 286,
+          "latenciaMidiMs": null,
+          "msInferencia": 49
+        },
+        {
+          "midi": 59,
+          "onsetSeg": 44.17835827664399,
+          "latenciaModeloMs": 182,
+          "latenciaMidiMs": null,
+          "msInferencia": 52
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 44.17835827664399,
+          "latenciaModeloMs": 182,
+          "latenciaMidiMs": null,
+          "msInferencia": 52
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 44.17835827664399,
+          "latenciaModeloMs": 182,
+          "latenciaMidiMs": null,
+          "msInferencia": 52
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 44.18242176870748,
+          "latenciaModeloMs": 268,
+          "latenciaMidiMs": null,
+          "msInferencia": 45
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 46.6724716553288,
+          "latenciaModeloMs": 189,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 52,
+          "onsetSeg": 46.68408163265306,
+          "latenciaModeloMs": 177,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 46.68408163265306,
+          "latenciaModeloMs": 177,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 48,
+          "onsetSeg": 46.676535147392286,
+          "latenciaModeloMs": 283,
+          "latenciaMidiMs": null,
+          "msInferencia": 48
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 47.92518820861678,
+          "latenciaModeloMs": 136,
+          "latenciaMidiMs": null,
+          "msInferencia": 50
+        },
+        {
+          "midi": 52,
+          "onsetSeg": 47.9524716553288,
+          "latenciaModeloMs": 200,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 47.9524716553288,
+          "latenciaModeloMs": 200,
+          "latenciaMidiMs": null,
+          "msInferencia": 44
+        },
+        {
+          "midi": 47,
+          "onsetSeg": 49.14713832199547,
+          "latenciaModeloMs": 213,
+          "latenciaMidiMs": null,
+          "msInferencia": 51
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 49.14713832199547,
+          "latenciaModeloMs": 213,
+          "latenciaMidiMs": null,
+          "msInferencia": 51
+        },
+        {
+          "midi": 50,
+          "onsetSeg": 49.170358276643995,
+          "latenciaModeloMs": 190,
+          "latenciaMidiMs": null,
+          "msInferencia": 51
+        },
+        {
+          "midi": 59,
+          "onsetSeg": 49.170358276643995,
+          "latenciaModeloMs": 190,
+          "latenciaMidiMs": null,
+          "msInferencia": 51
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 49.17442176870748,
+          "latenciaModeloMs": 276,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 49.17442176870748,
+          "latenciaModeloMs": 276,
+          "latenciaMidiMs": null,
+          "msInferencia": 43
+        },
+        {
+          "midi": 43,
+          "onsetSeg": 49.783365079365076,
+          "latenciaModeloMs": 249,
+          "latenciaMidiMs": null,
+          "msInferencia": 26
+        },
+        {
+          "midi": 30,
+          "onsetSeg": 51.87403174603175,
+          "latenciaModeloMs": 257,
+          "latenciaMidiMs": null,
+          "msInferencia": 23
+        }
+      ]
+    }
+  }
+}

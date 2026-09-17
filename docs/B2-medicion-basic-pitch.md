@@ -1,0 +1,89 @@
+# B2 · Detección por micrófono: tres motores, mismos acordes
+
+**Resumen (16 sep 2026, ronda 3):** las pruebas de Juan con piano real mostraron los tres defectos de la primera versión (saturación a 10 cm, sin compuerta de silencio, captura que perdía bloques) y después un cuarto en el motor de huellas (confusión de octava hacia abajo). Los cuatro están corregidos. Hoy el prototipo tiene **tres motores intercambiables** medidos con la misma batería: basic-pitch (genérico), **huellas + NMF con selección dispersa** (nuestro, informado por la partitura, sin GPU) y **Onsets and Frames** (Magenta, específico de piano). En sintético, huellas da 100 % en todo; Onsets and Frames es el único con cero fantasmas pero pierde notas del sintetizador. **La decisión final requiere grabaciones del piano de Juan**; el protocolo está en §7.
+
+## 1. Qué se mide y cómo
+
+Pantalla "B2 · Medición por micrófono" (`prototipo/src/medicion/`). Números de `scripts/verificar.mjs` (Playwright + Chromium) en esta máquina: RTX 4080 Laptop, TensorFlow.js 3.21 backend `webgl`.
+
+Batería, idéntica para los tres motores: **20 acordes reales de piano** (tríadas y acordes de 4–5 notas a dos manos, Fa2–Re5; lista en `sintetizador.ts`) **más un clip de puro ruido de fondo** que debe dar "nada".
+
+| Condición | Qué pasa por el motor |
+|---|---|
+| Sintético limpio | acordes por suma de armónicos, silencio digital entre notas (irreal) |
+| Sintético con ruido | igual, con ruido blanco a −46 dB |
+| Micrófono falso, continuo | Chromium reproduce un WAV de 53 s (20 acordes, uno cada 2,5 s, con ruido) como si fuera el micrófono → AudioWorklet 48 kHz → buffer → motor. Es el producto salvo por el aire entre piano y micrófono |
+
+Métricas (`metricas.ts`): por acorde, conjunto esperado vs detectado. *Recall* = notas reales vistas; *precisión* = de lo dicho, cuánto era real; *exacto* = ni faltantes ni extras. *Latencia real* = primera detección de cada nota menos el ataque verdadero (conocido porque el WAV lo fabricamos nosotros).
+
+## 2. Los tres motores
+
+| Motor | Qué es | Cómputo | GPU |
+|---|---|---|---|
+| **basic-pitch** (Spotify, 2022) | red neuronal genérica, cualquier instrumento, 88 teclas. `detector.ts` | 40–70 ms por ventana | necesaria (sin GPU 1,2–1,4 s) |
+| **huellas + NMF** (nuestro) | huella espectral de cada tecla (por fórmula o **calibrada con el piano del alumno**), detector de ataques por flujo espectral, y NMF con **selección dispersa**: se agregan candidatas de a una, siempre la que mejor explica lo que falta, hasta que la siguiente no reduce el residuo un 1 %. Candidatas = notas esperadas y sus vecinas (±1, ±12). `fft.ts`, `huellas.ts`, `ataques.ts`, `nmf.ts` | **1–10 ms** | no |
+| **Onsets and Frames** (Magenta/Google, 2018) | red neuronal específica de piano entrenada con ~200 h de piano real (MAESTRO). 60 MB. `oaf.ts` | 130–230 ms por clip | necesaria |
+
+## 3. Lo que enseñaron las pruebas con piano real (Juan, laptop, 16 sep)
+
+**Prueba A, basic-pitch, 10 cm / 50 cm / 1 m + silencio.** Silencio → "bajo la compuerta" (bien). En las tres distancias las tres notas reales aparecieron (recall 100 %); los extras fueron **octavas de las notas tocadas** (C5, E5, G5, E6) y un subgrave a 1 m. Es el defecto propio de basic-pitch con piano real: armónicos tomados por notas.
+
+**Prueba B, huellas (primera versión), 50 cm.** Apareció la **confusión de octava hacia abajo** (C4→E3, F4→F3, A4→A3) y, en dos tomas, un segundo "ataque" durante el sostenido que encendió una docena de notas. Causa: un micrófono de laptop casi no capta la fundamental de las notas graves, así que la huella calibrada de Fa3 quedó hecha solo de sus armónicos, que son exactamente las frecuencias de Fa4; la regla de decisión original ("todo lo que supere el 20 % de la más fuerte") repartía la energía entre las dos. **Arreglos:** selección dispersa (si Fa4 explica el espectro, Fa3 no aporta y no entra), validación de ataques por subida de energía (un ataque real trae más energía que justo antes; una resonancia no), y umbrales contra el piso de ruido.
+
+Estas dos pruebas no pudieron repetirse todavía con las correcciones: por eso §7.
+
+## 4. Resultados de la batería automática (ronda 3, con todas las correcciones)
+
+| Condición | Motor | Exactos | Recall | Precisión | Latencia mediana / p90 | Proceso |
+|---|---|---|---|---|---|---|
+| Sintético con ruido | basic-pitch | 18/21 | 100 % | 93,4 % | — | 72 ms |
+| Sintético con ruido | huellas sin calibrar | **21/21** | 100 % | 100 % | — | 10 ms |
+| Sintético con ruido | huellas calibradas | **21/21** | 100 % | 100 % | — | 10 ms |
+| Sintético con ruido | huellas calibradas, todas las teclas (sin saber qué se espera) | **21/21** | 100 % | 100 % | — | 10 ms |
+| Sintético con ruido | Onsets and Frames | 10/21 | 80,3 % | **100 %** | — | 149 ms |
+| Micrófono falso | basic-pitch (cada 100 ms) | 18/20 | 100 % | 97,3 % | 235–455 ms (dos corridas) | 52 ms |
+| Micrófono falso | **huellas calibradas** | **20/20** | **100 %** | **100 %** | **209 / 230 ms** | **< 1 ms** |
+| Micrófono falso | Onsets and Frames (cada 250 ms) | 14/20 | 100 % | 91 % | 210 / 460 ms | 133 ms |
+| Clip de silencio | los tres | nada detectado | | | | |
+
+Lectura honesta:
+- Las huellas se calibraron con el mismo piano sintético que después se evaluó: mejor caso posible. Lo que vale es que la selección dispersa arregló en sintético el mismo tipo de error que Juan vio con el piano real; falta confirmarlo con el piano real.
+- Onsets and Frames **nunca inventa notas** (precisión 100 % en sintético) pero pierde notas del sintetizador, que no suena a piano real. Es esperable que con el piano de Juan vea más. Es el candidato serio si el motor de huellas no rinde con piano real.
+- basic-pitch queda como referencia: ve todo, inventa octavas.
+
+Archivos: `prototipo/docs/resultados/sintetico-*.json`, `basic-pitch-sintetico-*.json`, `basic-pitch-mic-falso.json`, `mic-falso-huellas.json`, `mic-falso-oaf.json`, capturas `04-` a `07-*.png`.
+
+## 5. Higiene de señal (vale para los tres motores)
+
+Implementada en `detector.ts` (clase `Microfono`) y `motores.ts` (`analizarClip`): captura por **AudioWorklet** (no pierde muestras cuando el hilo principal está ocupado; con `ScriptProcessorNode` las detecciones se adelantaban hasta 6 s), filtro pasa-altos 40 Hz, **piso de ruido calibrado** y **compuerta** (nada a menos de 10 dB del piso se analiza), **detector de saturación** ("SATURA: alejá el micrófono"), selector de micrófono, nivel en dB, y captura que arranca en el "1" de la cuenta para no perder el ataque.
+
+## 6. Qué significa para el producto
+
+- **MIDI sigue siendo la entrada principal** (exacta, 15 ms, sin fantasmas).
+- **El micrófono es viable como segunda vía** con higiene de señal y un motor informado por la partitura. ~200 ms de latencia alcanzan para puntuar después del pulso (tolerancia de medio pulso = 375 ms a 80 bpm), no para feedback dentro del pulso.
+- **La calibración es producto:** "tocá esta escala" como primer minuto de la app; permite decir "no te escucho bien" con datos (piso de ruido, saturación).
+- **Ruta de escalado si hace falta más precisión:** Onsets and Frames (o un modelo posterior tipo Kong 2021 vía ONNX) del lado del servidor, con la capa de decisión informada por la partitura encima. El código ya separa motor de decisión (`motores.ts`), así que cambiar el motor no toca el resto.
+
+## 7. Protocolo con piano real (lo hace Juan; 30 minutos)
+
+**Grabaciones para evaluar sin tocar cada vez** (lo más valioso): con el celular a 50 cm del piano, en un cuarto normal, grabar dos archivos (WAV o M4A):
+1. `escala.m4a`: la escala cromática de **Fa2 a Re5**, una nota por segundo, cada una sostenida ~0,7 s, en orden ascendente, sin pedal.
+2. `acordes.m4a`: los 20 acordes de la lista (bloque 5 muestra uno por uno con "siguiente"), en orden, 3 s entre cada uno, sostenidos ~1,5 s.
+
+Con esos dos archivos se corren los tres motores sobre *ese* piano de forma automática y repetible (bloque 2 "desde archivo" para calibrar; bloque 4 para analizar), y se ajustan umbrales con datos, no a ciegas.
+
+**Pruebas en vivo**, en la pantalla B2:
+1. Micrófono a **50 cm – 1 m**; Windows → Sonido → micrófono → desactivar "mejoras de audio". Al tocar, nivel entre −30 y −10 dB sin "SATURA".
+2. Bloque 2: "Calibrar silencio (2 s)".
+3. Motor huellas, bloque 2: "Calibrar teclas en vivo" (Fa2–Re5, ~1 minuto).
+4. Bloque 5 con **cada motor** (huellas, Onsets and Frames tras "Cargar modelo", basic-pitch): los 20 acordes, "Grabar (3 s)", tocar en el "1".
+5. Bloque 6 con cada motor: escucha continua, 20 notas sueltas y 10 acordes separados 2 s.
+6. Pegar el JSON del bloque final en `prototipo/docs/resultados/piano-real-<motor>.json`.
+
+| Motor | Exactos | Recall | Precisión | Latencia mediana / p90 | SATURA |
+|---|---|---|---|---|---|
+| huellas calibradas | | | | | |
+| Onsets and Frames | | | | | |
+| basic-pitch | | | | | |
+
+Criterio: recall ≥ 95 % y latencia ≤ 300 ms con el mejor motor → micrófono entra como segunda vía. Si no, MIDI única vía.

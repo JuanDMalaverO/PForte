@@ -1,0 +1,126 @@
+{
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027A0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "1-carga": {
+    "ok": true,
+    "detalle": "pieza fija (pieza.ts) · OK: 42 notas extraídas de la partitura (esperadas 42)"
+  },
+  "2-tocar-pieza": {
+    "ok": true,
+    "detalle": "correctas 42/42, compases ocultos 8, partituras dibujadas 1, fila total: total424200100%"
+  },
+  "2-desvio-metronomo": "desvío click→pantalla: media 9.4 ms, máx 40 ms (36 pulsos)",
+  "2-registro": [
+    "G4 en pulso 30.08 → correcta (+39 ms)",
+    "E4 en pulso 30.06 → correcta (+31 ms)",
+    "C4 en pulso 30.04 → correcta (+21 ms)",
+    "G3 en pulso 28.06 → correcta (+31 ms)",
+    "C3 en pulso 28.04 → correcta (+20 ms)",
+    "E4 en pulso 28.02 → correcta (+10 ms)",
+    "F4 en pulso 27.04 → correcta (+20 ms)",
+    "G4 en pulso 26.04 → correcta (+21 ms)",
+    "A4 en pulso 25.03 → correcta (+14 ms)",
+    "D3 en pulso 24.08 → correcta (+39 ms)",
+    "G2 en pulso 24.06 → correcta (+31 ms)",
+    "B4 en pulso 24.04 → correcta (+21 ms)",
+    "G3 en pulso 22.06 → correcta (+31 ms)",
+    "C5 en pulso 22.04 → correcta (+21 ms)",
+    "E3 en pulso 20.04 → correcta (+21 ms)",
+    "G4 en pulso 20.04 → correcta (+21 ms)",
+    "A4 en pulso 19.04 → correcta (+20 ms)",
+    "G4 en pulso 18.04 → correcta (+21 ms)",
+    "F4 en pulso 17.06 → correcta (+31 ms)",
+    "C3 en pulso 16.06 → correcta (+31 ms)",
+    "E4 en pulso 16.06 → correcta (+32 ms)",
+    "G4 en pulso 14.06 → correcta (+32 ms)",
+    "D3 en pulso 12.10 → correcta (+50 ms)",
+    "B2 en pulso 12.08 → correcta (+40 ms)",
+    "G2 en pulso 12.06 → correcta (+31 ms)",
+    "D4 en pulso 12.06 → correcta (+32 ms)",
+    "C4 en pulso 11.04 → correcta (+20 ms)",
+    "G2 en pulso 10.06 → correcta (+31 ms)",
+    "D4 en pulso 10.04 → correcta (+21 ms)",
+    "E4 en pulso 9.04 → correcta (+20 ms)",
+    "F2 en pulso 8.06 → correcta (+31 ms)",
+    "F4 en pulso 8.06 → correcta (+32 ms)",
+    "E4 en pulso 6.06 → correcta (+32 ms)",
+    "G3 en pulso 4.08 → correcta (+39 ms)",
+    "E3 en pulso 4.06 → correcta (+32 ms)",
+    "C3 en pulso 4.04 → correcta (+20 ms)",
+    "G4 en pulso 4.04 → correcta (+21 ms)",
+    "F4 en pulso 3.04 → correcta (+20 ms)",
+    "E4 en pulso 2.04 → correcta (+21 ms)",
+    "D4 en pulso 1.06 → correcta (+30 ms)",
+    "C3 en pulso 0.06 → correcta (+32 ms)",
+    "C4 en pulso 0.04 → correcta (+21 ms)"
+  ],
+  "2-desvio-notas": {
+    "n": 42,
+    "mediaAbsMs": 27,
+    "maxAbsMs": 50
+  },
+  "3-generador-nivel-1": {
+    "ok": true,
+    "detalle": "generado: Nivel 1: grados conjuntos, solo mano derecha, semilla 1 · OK: OSMD extrajo las mismas 20 notas que escribió el generador | dificultad medida: 2.5 notas/compás · salto medio 0.8 semitonos · ámbito 5 semitonos · 3 figuras distintas · máx 1 notas simultáneas"
+  },
+  "3-generador-nivel-2": {
+    "ok": true,
+    "detalle": "generado: Nivel 2: saltos de tercera, izquierda en redondas, semilla 1 · OK: OSMD extrajo las mismas 33 notas que escribió el generador | dificultad medida: 4.1 notas/compás · salto medio 1.6 semitonos · ámbito 24 semitonos · 3 figuras distintas · máx 2 notas simultáneas"
+  },
+  "3-generador-nivel-3": {
+    "ok": true,
+    "detalle": "generado: Nivel 3: saltos hasta quinta, izquierda con acordes, semilla 1 · OK: OSMD extrajo las mismas 49 notas que escribió el generador | dificultad medida: 6.1 notas/compás · salto medio 2.8 semitonos · ámbito 26 semitonos · 3 figuras distintas · máx 4 notas simultáneas"
+  },
+  "3-repertorio-Bach_Minuet_in_G_BWV_Anh114.mxl": {
+    "ok": true,
+    "detalle": "archivo: Bach_Minuet_in_G_BWV_Anh114.mxl · cargado: 32 compases, 204 notas extraídas | dificultad medida: 6.4 notas/compás · salto medio 4 semitonos · ámbito 40 semitonos · 4 figuras distintas · máx 4 notas simultáneas"
+  },
+  "3-repertorio-Satie_Gymnopedie_1.mxl": {
+    "ok": true,
+    "detalle": "archivo: Satie_Gymnopedie_1.mxl · cargado: 47 compases, 282 notas extraídas | dificultad medida: 6 notas/compás · salto medio 9.1 semitonos · ámbito 48 semitonos · 3 figuras distintas · máx 7 notas simultáneas"
+  },
+  "4-basic-pitch-limpio": {
+    "ok": true,
+    "detalle": "motor basic-pitch: exactos 1/21 (4.8%), recall 100%, precisión 67%, proceso media 104 ms (mín 58, máx 228); silencio → nada detectado (bien)"
+  },
+  "4-basic-pitch-ruido": {
+    "ok": true,
+    "detalle": "motor basic-pitch: exactos 18/21 (85.7%), recall 100%, precisión 93.4%, proceso media 72 ms (mín 60, máx 85); silencio → nada detectado (bien)"
+  },
+  "5-latencia-mic-falso": {
+    "ok": true,
+    "detalle": "acordes exactos 18/20, recall 100%, precisión 97.3%, latencia real (ataque→detección) mediana 455 ms, p90 476 ms, mín 426, máx 487; inferencia media 52 ms; 78 detecciones para 71 notas (5 repetidas/fantasma, 3 fuera de acordes)"
+  },
+  "6-huellas-sintetico-sin-calibrar": {
+    "ok": true,
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 10 ms"
+  },
+  "6-huellas-sintetico-calibrado": {
+    "ok": true,
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 9 ms"
+  },
+  "6-huellas-sintetico-calibrado-ruido": {
+    "ok": true,
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 10 ms"
+  },
+  "6-huellas-sintetico-calibrado-todas-las-teclas": {
+    "ok": true,
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 10 ms"
+  },
+  "6-huellas-latencia-mic-falso": {
+    "ok": true,
+    "detalle": "acordes exactos 20/20, recall 100%, precisión 100%, latencia real (ataque→detección) mediana 209 ms, p90 230 ms, mín 169, máx 240; inferencia media 0 ms; 71 detecciones para 71 notas (0 repetidas/fantasma, 0 fuera de acordes)"
+  },
+  "7-onsets-frames-sintetico-limpio": {
+    "ok": true,
+    "detalle": "exactos 9/21 (42.9%), recall 76.1%, precisión 100%, proceso medio 228 ms"
+  },
+  "7-onsets-frames-sintetico-ruido": {
+    "ok": true,
+    "detalle": "exactos 10/21 (47.6%), recall 80.3%, precisión 100%, proceso medio 149 ms"
+  },
+  "7-onsets-frames-latencia-mic-falso": {
+    "ok": true,
+    "detalle": "acordes exactos 14/20, recall 100%, precisión 91%, latencia real (ataque→detección) mediana 210 ms, p90 460 ms, mín 198, máx 491; inferencia media 133 ms; 78 detecciones para 71 notas (0 repetidas/fantasma, 0 fuera de acordes)"
+  },
+  "erroresConsola": []
+}

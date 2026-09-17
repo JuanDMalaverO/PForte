@@ -1,0 +1,16 @@
+/* Sin diseño a propósito. Solo lo mínimo para que se lea. */
+body { font-family: system-ui, sans-serif; margin: 16px; color: #111; background: #fff; }
+button { margin-right: 6px; }
+label { margin-right: 12px; }
+input[type="number"] { width: 60px; }
+table { border-collapse: collapse; margin-top: 8px; }
+td, th { border: 1px solid #999; padding: 2px 8px; font-size: 13px; text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+.ok { color: green; } .mal { color: #c00; } .extra { color: #b60; }
+#partitura { position: relative; border: 1px dashed #aaa; margin: 8px 0; overflow: hidden; }
+.tapa { position: absolute; background: #fff; border: 1px solid #e0e0e0; pointer-events: none; }
+.pulso { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #ddd; margin-right: 4px; vertical-align: middle; }
+.pulso.activo { background: #f33; }
+.caja { border: 1px solid #ccc; padding: 8px; margin: 8px 0; }
+.mono { font-family: monospace; font-size: 12px; white-space: pre-wrap; }
+.satura { color: #fff; background: #c00; padding: 0 4px; font-weight: bold; }
