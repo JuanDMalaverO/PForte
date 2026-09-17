@@ -39,6 +39,7 @@ Todo vive en `prototipo/src/`. Son 21 archivos de código; el más largo es la p
 Fuera de `src/`:
 
 - `public/model/` — el modelo de basic-pitch (model.json + pesos, 900 KB). `public/model-oaf/` — Onsets and Frames (60 MB). Se sirven como archivos estáticos.
+- `scripts/evaluar-grabacion.mjs` — pasa una grabación real de la escala por los tres motores y compara ataque por ataque con la nota esperada; calibra las huellas con esa misma grabación en el medio. Es la forma de ajustar con datos y no a ciegas.
 - `scripts/parchar-magenta.mjs` — corre en `npm install`: cambia tres `import * as X` por `import X` dentro de Magenta (paquetes CommonJS usados como funciones), que en ESM de verdad no funcionan. `vite.config.ts` además fuerza una sola copia de TensorFlow.js (basic-pitch y Magenta traen cada uno la suya) y define `global` para una dependencia de Magenta.
 - `scripts/verificar.mjs` — prueba automática con Playwright: toca la pieza con el teclado de prueba, genera ejercicios, carga repertorio real, corre los dos motores sobre acordes sintéticos, calibra huellas desde un WAV de escala y mide latencia con un WAV como micrófono falso. Escribe capturas y JSON en `docs/resultados/`.
 - `index.html`, `vite.config.ts`, `tsconfig*.json`, `package.json` — plantilla estándar de Vite + React + TypeScript.

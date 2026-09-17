@@ -57,5 +57,7 @@ public/model-oaf/     modelo Onsets and Frames (60 MB; no está en git: `node sc
 scripts/verificar.mjs prueba automática con Playwright
 scripts/parchar-magenta.mjs  parche a Magenta para Vite (corre en npm install)
 scripts/barrer-amplitud.mjs  barrido del filtro de amplitud de basic-pitch
+scripts/evaluar-grabacion.mjs  los tres motores sobre una grabación real de la escala (docs/resultados/muestras/)
+scripts/descargar-modelo-oaf.mjs  baja el modelo Onsets and Frames (no está en git)
 docs/resultados/      capturas y JSON de la última corrida
 ```

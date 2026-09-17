@@ -34,8 +34,12 @@ El metrónomo no deriva; una nota tocada a tiempo se registra con ~20 ms de erro
 | Pipeline completo de micrófono | **huellas + NMF** | **100 %** | **100 %** | **100 %** |
 | Pipeline completo de micrófono | Onsets and Frames | 70 % | 100 % | 91 % |
 | Clip de silencio | los tres | nada detectado (compuerta) | | |
+| **Piano real de Juan, escala de 34 notas sueltas (grabación)** | huellas sin calibrar | 65 % | 100 % | 74 % |
+| **Piano real de Juan, escala de 34 notas sueltas (grabación)** | **huellas calibradas** | **100 %** | **100 %** | **100 %** |
+| **Piano real de Juan, escala de 34 notas sueltas (grabación)** | basic-pitch | 76 % | 100 % | 81 % |
+| **Piano real de Juan, escala de 34 notas sueltas (grabación)** | Onsets and Frames | 97 % | 100 % | 97 % |
 
-Con piano real (Juan, 16 sep) basic-pitch vio todas las notas pero inventó octavas; la primera versión de huellas confundió octavas hacia abajo (F4→F3) porque el micrófono de laptop no capta la fundamental de los graves. Ese error se corrigió con selección dispersa y en sintético desapareció; **falta repetir con el piano real** (protocolo en B2 §7, con grabaciones para no tener que tocar cada vez).
+Con piano real, en notas sueltas, el motor de huellas calibrado es perfecto y Onsets and Frames casi (a 20 veces el costo); basic-pitch inventa octavas. **Falta la grabación de los 20 acordes** para cerrar la decisión: en vivo los acordes eran donde el motor de huellas fallaba antes de la corrección por selección dispersa.
 
 ### Medición 3 · Micrófono: latencia (ataque real → detección disponible)
 
@@ -57,7 +61,7 @@ Con piano real (Juan, 16 sep) basic-pitch vio todas las notas pero inventó octa
 
 | Pendiente | Quién | Tiempo |
 |---|---|---|
-| Grabar con el celular a 50 cm: la escala cromática Fa2–Re5 y los 20 acordes (B2 §7). Con eso los tres motores se evalúan sobre su piano de forma automática | Juan | 10 min |
+| Grabar con el celular a 50 cm los 20 acordes (B2 §7; la escala ya está hecha). Con eso los tres motores se evalúan sobre su piano de forma automática | Juan | 5 min |
 | Repetir la medición en vivo con el protocolo nuevo (B2 §7): mic a 50 cm – 1 m, calibrar silencio y teclas, 20 acordes con cada motor | Juan | 30 min |
 | Probar con teclado MIDI real conectado por USB | Juan | 5 min |
 | Correr `verificar.mjs` en una laptop sin GPU dedicada (el motor de huellas debería dar lo mismo; basic-pitch no) | Juan | 10 min |

@@ -1,5 +1,7 @@
 # B2 · Detección por micrófono: tres motores, mismos acordes
 
+**Novedad (16 sep, noche):** con la grabación real de la escala de Juan (34 notas), el motor de huellas **calibrado** dio 34/34 exactas sin extras; Onsets and Frames 33/34; basic-pitch 26/34 con 8 octavas fantasma (§4b). Falta la grabación de acordes.
+
 **Resumen (16 sep 2026, ronda 3):** las pruebas de Juan con piano real mostraron los tres defectos de la primera versión (saturación a 10 cm, sin compuerta de silencio, captura que perdía bloques) y después un cuarto en el motor de huellas (confusión de octava hacia abajo). Los cuatro están corregidos. Hoy el prototipo tiene **tres motores intercambiables** medidos con la misma batería: basic-pitch (genérico), **huellas + NMF con selección dispersa** (nuestro, informado por la partitura, sin GPU) y **Onsets and Frames** (Magenta, específico de piano). En sintético, huellas da 100 % en todo; Onsets and Frames es el único con cero fantasmas pero pierde notas del sintetizador. **La decisión final requiere grabaciones del piano de Juan**; el protocolo está en §7.
 
 ## 1. Qué se mide y cómo
@@ -53,6 +55,21 @@ Lectura honesta:
 
 Archivos: `prototipo/docs/resultados/sintetico-*.json`, `basic-pitch-sintetico-*.json`, `basic-pitch-mic-falso.json`, `mic-falso-huellas.json`, `mic-falso-oaf.json`, capturas `04-` a `07-*.png`.
 
+## 4b. Primera medición con el piano REAL de Juan (grabación, 16 sep)
+
+Juan grabó con el celular la escala cromática Fa2–Re5 (34 notas, una por vez) en `prototipo/docs/resultados/muestras/prueba1.mp3`. El script `scripts/evaluar-grabacion.mjs` la pasa por los tres motores y compara cada ataque con la nota esperada (ventana de tiempo alrededor de cada ataque; los instantes los fija el detector de ataques del motor de huellas, que encontró exactamente 34).
+
+| Motor | Notas vistas | Exactas (solo la nota tocada) | Extras | Tiempo para 2 min de audio |
+|---|---|---|---|---|
+| huellas sin calibrar (por fórmula) | 34/34 | 22/34 | 12 (todas la octava de arriba) | 0,6 s |
+| **huellas calibradas con esta misma grabación** | **34/34** | **34/34** | **0** | 0,6 s |
+| basic-pitch | 34/34 | 26/34 | 8 (octavas y armónicos) | 1,9 s |
+| Onsets and Frames | 34/34 | 33/34 | 1 (un Do#7 fantasma) | 11,8 s |
+
+Lectura: en notas sueltas con piano real, **la calibración convierte al motor de huellas en perfecto** (la huella por fórmula subestima los armónicos de un piano real, por eso sin calibrar agrega la octava). Onsets and Frames es casi perfecto sin calibrar nada, a 20 veces el costo. basic-pitch ve todo e inventa octavas, como en las pruebas en vivo. **Falta la grabación de acordes** (misma escala de evaluación) para cerrar la decisión: los acordes son donde el motor de huellas tuvo problemas en vivo.
+
+Advertencia: las huellas se calibraron y evaluaron sobre la misma grabación (mismas notas, mismo momento). La prueba justa es calibrar con la escala y evaluar con la grabación de acordes.
+
 ## 5. Higiene de señal (vale para los tres motores)
 
 Implementada en `detector.ts` (clase `Microfono`) y `motores.ts` (`analizarClip`): captura por **AudioWorklet** (no pierde muestras cuando el hilo principal está ocupado; con `ScriptProcessorNode` las detecciones se adelantaban hasta 6 s), filtro pasa-altos 40 Hz, **piso de ruido calibrado** y **compuerta** (nada a menos de 10 dB del piso se analiza), **detector de saturación** ("SATURA: alejá el micrófono"), selector de micrófono, nivel en dB, y captura que arranca en el "1" de la cuenta para no perder el ataque.
@@ -66,11 +83,11 @@ Implementada en `detector.ts` (clase `Microfono`) y `motores.ts` (`analizarClip`
 
 ## 7. Protocolo con piano real (lo hace Juan; 30 minutos)
 
-**Grabaciones para evaluar sin tocar cada vez** (lo más valioso): con el celular a 50 cm del piano, en un cuarto normal, grabar dos archivos (WAV o M4A):
-1. `escala.m4a`: la escala cromática de **Fa2 a Re5**, una nota por segundo, cada una sostenida ~0,7 s, en orden ascendente, sin pedal.
-2. `acordes.m4a`: los 20 acordes de la lista (bloque 5 muestra uno por uno con "siguiente"), en orden, 3 s entre cada uno, sostenidos ~1,5 s.
+**Grabaciones para evaluar sin tocar cada vez** (lo más valioso): con el celular a 50 cm del piano, en un cuarto normal:
+1. ✅ `prueba1.mp3`: la escala cromática de **Fa2 a Re5** (hecha; resultados en §4b).
+2. ⬜ `acordes`: los 20 acordes de la lista (bloque 5 muestra uno por uno con "siguiente"), en orden, 3 s entre cada uno, sostenidos ~1,5 s. **Pendiente.**
 
-Con esos dos archivos se corren los tres motores sobre *ese* piano de forma automática y repetible (bloque 2 "desde archivo" para calibrar; bloque 4 para analizar), y se ajustan umbrales con datos, no a ciegas.
+Con esos dos archivos se corren los tres motores sobre *ese* piano de forma automática y repetible: `node scripts/evaluar-grabacion.mjs <archivo> 41 74` para la escala; para los acordes se agregará el modo correspondiente al mismo script.
 
 **Pruebas en vivo**, en la pantalla B2:
 1. Micrófono a **50 cm – 1 m**; Windows → Sonido → micrófono → desactivar "mejoras de audio". Al tocar, nivel entre −30 y −10 dB sin "SATURA".

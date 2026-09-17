@@ -7,8 +7,10 @@
 // Para cada motor: sube el archivo al bloque 4, agrupa las notas detectadas
 // por ataque (las que empiezan a menos de 150 ms se consideran el mismo
 // ataque), y compara el k-ésimo ataque con la k-ésima nota esperada.
-// Después calibra las huellas con esa misma grabación y repite con huellas.
-// Requiere `npm run dev` corriendo.
+// Con huellas se corre dos veces: sin calibrar, y calibrando con esa misma
+// grabación (la calibración queda en localStorage; cada análisis usa una
+// página recién cargada porque subir el mismo archivo dos veces a la misma
+// casilla no dispara un análisis nuevo). Requiere `npm run dev` corriendo.
 // ============================================================================
 
 import { chromium } from 'playwright';
@@ -24,18 +26,32 @@ const NOMBRES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'
 const nombre = (m) => NOMBRES[m % 12] + (Math.floor(m / 12) - 1);
 
 const navegador = await chromium.launch({ headless: true, args: ['--ignore-gpu-blocklist', '--use-gl=angle', '--use-angle=d3d11'] });
-const pagina = await navegador.newPage();
+const contexto = await navegador.newContext();
+const pagina = await contexto.newPage();
 pagina.on('pageerror', (e) => console.log('[pageerror]', String(e).slice(0, 300)));
-await pagina.goto('http://localhost:5173/');
-await pagina.click('#btn-vista-medicion');
-await pagina.waitForSelector('text=listo (backend', { timeout: 120000 });
+
+async function abrir(motor) {
+  await pagina.goto('http://localhost:5173/');
+  await pagina.click('#btn-vista-medicion');
+  await pagina.waitForSelector('text=listo (backend', { timeout: 120000 });
+  await pagina.selectOption('#motor', motor);
+  if (motor === 'huellas') await pagina.uncheck('#solo-esperadas'); // no sabemos qué esperar: buscar en todo el rango
+  if (motor === 'onsets-frames') {
+    await pagina.click('#btn-cargar-oaf');
+    await pagina.waitForFunction(() => { const e = document.querySelector('#oaf-estado'); return !e || (e.textContent ?? '').startsWith('error'); }, null, { timeout: 600000 });
+  }
+}
+
+// Instantes de referencia de cada nota esperada. Los fija la primera corrida
+// (motor de huellas, que ubica los ataques por flujo espectral); después cada
+// motor se evalúa por VENTANA DE TIEMPO alrededor de esos instantes, así un
+// motor que reporta ataques de más no corre la cuenta de los demás.
+let referencia = null;
 
 async function analizar(etiqueta) {
-  await pagina.locator('#resultado-archivo').evaluateAll((els) => els.forEach((e) => e.remove()));
   await pagina.setInputFiles('#archivo-audio', resolve(archivo));
   await pagina.waitForSelector('#resultado-archivo', { state: 'attached', timeout: 900000 });
   const r = JSON.parse(await pagina.locator('#resultado-archivo').textContent());
-  // Agrupar por ataque.
   const notas = [...r.notas].sort((a, b) => a.inicioSeg - b.inicioSeg);
   const ataques = [];
   for (const n of notas) {
@@ -43,12 +59,18 @@ async function analizar(etiqueta) {
     if (ultimo && n.inicioSeg - ultimo.tiempo < 0.15) ultimo.midis.push(n.midi);
     else ataques.push({ tiempo: n.inicioSeg, midis: [n.midi] });
   }
-  // Comparar k-ésimo ataque con k-ésima esperada (si sobran o faltan ataques, se nota).
+  if (!referencia && ataques.length === esperadas.length) referencia = ataques.map((a) => a.tiempo);
   let exactas = 0, vistas = 0, extras = 0;
   const detalle = [];
   esperadas.forEach((m, k) => {
-    const a = ataques[k];
-    const d = a ? [...new Set(a.midis)] : [];
+    let d;
+    if (referencia) {
+      const t = referencia[k];
+      d = [...new Set(notas.filter((n) => n.inicioSeg >= t - 0.25 && n.inicioSeg < t + 0.8).map((n) => n.midi))];
+    } else {
+      const a = ataques[k];
+      d = a ? [...new Set(a.midis)] : [];
+    }
     const ok = d.includes(m);
     if (ok) vistas++;
     if (ok && d.length === 1) exactas++;
@@ -62,28 +84,25 @@ async function analizar(etiqueta) {
 }
 
 const salida = {};
-await pagina.selectOption('#motor', 'huellas');
-await pagina.check('#solo-esperadas').catch(() => {});
-await pagina.uncheck('#solo-esperadas'); // no sabemos qué esperar: buscar en todo el rango
+await abrir('huellas');
+await pagina.evaluate(() => localStorage.clear());
+await abrir('huellas');
 salida.huellasSinCalibrar = await analizar('huellas sin calibrar');
 
-// Calibrar con esta misma grabación (rango = las notas de la escala).
-await pagina.fill('#calib-estado ~ * input', String(MIDI_MIN)).catch(() => {});
+// Calibrar con esta misma grabación (rango = las notas de la escala) y volver a cargar.
 const inputsRango = pagina.locator('input[type=number][min="21"][max="108"]');
 await inputsRango.nth(0).fill(String(MIDI_MIN));
 await inputsRango.nth(1).fill(String(MIDI_MAX));
 await pagina.setInputFiles('#archivo-calibracion', resolve(archivo));
-await pagina.waitForTimeout(3000);
-const estadoCalib = (await pagina.locator('.caja').nth(1).textContent()).replace(/\s+/g, ' ');
-console.log('calibración:', estadoCalib.slice(estadoCalib.indexOf('teclas calibradas') - 8, estadoCalib.indexOf('teclas calibradas') + 200));
+await pagina.waitForSelector(`#calib-estado:has-text("${esperadas.length}/${esperadas.length}")`, { timeout: 120000 });
+console.log('calibración:', (await pagina.textContent('#calib-estado')).trim());
+await abrir('huellas');
 salida.huellasCalibradas = await analizar('huellas calibradas');
 
-await pagina.selectOption('#motor', 'basic-pitch');
+await abrir('basic-pitch');
 salida.basicPitch = await analizar('basic-pitch');
 
-await pagina.selectOption('#motor', 'onsets-frames');
-await pagina.click('#btn-cargar-oaf');
-await pagina.waitForFunction(() => { const e = document.querySelector('#oaf-estado'); return !e || (e.textContent ?? '').startsWith('error'); }, null, { timeout: 600000 });
+await abrir('onsets-frames');
 salida.onsetsFrames = await analizar('onsets and frames');
 
 writeFileSync(`docs/resultados/grabacion-real-${MIDI_MIN}-${MIDI_MAX}.json`, JSON.stringify(salida, null, 2));
