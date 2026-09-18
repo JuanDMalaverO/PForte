@@ -24,8 +24,8 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 98,
-      "detalle": "3 notas"
+      "msProceso": 90,
+      "detalle": "4 notas"
     },
     {
       "nombre": "F mayor (F4 A4 C5)",
@@ -49,8 +49,8 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 161,
-      "detalle": "3 notas"
+      "msProceso": 129,
+      "detalle": "4 notas"
     },
     {
       "nombre": "G mayor (G4 B4 D5)",
@@ -74,7 +74,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 151,
+      "msProceso": 137,
       "detalle": "4 notas"
     },
     {
@@ -99,7 +99,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 151,
+      "msProceso": 138,
       "detalle": "3 notas"
     },
     {
@@ -124,7 +124,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 148,
+      "msProceso": 135,
       "detalle": "3 notas"
     },
     {
@@ -149,7 +149,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 152,
+      "msProceso": 137,
       "detalle": "3 notas"
     },
     {
@@ -205,7 +205,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 132,
+      "msProceso": 137,
       "detalle": "4 notas"
     },
     {
@@ -238,7 +238,7 @@
         ],
         "exacto": false
       },
-      "msProceso": 139,
+      "msProceso": 136,
       "detalle": "6 notas"
     },
     {
@@ -271,7 +271,7 @@
         ],
         "exacto": false
       },
-      "msProceso": 163,
+      "msProceso": 132,
       "detalle": "6 notas"
     },
     {
@@ -296,7 +296,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 137,
+      "msProceso": 130,
       "detalle": "3 notas"
     },
     {
@@ -321,7 +321,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 140,
+      "msProceso": 137,
       "detalle": "3 notas"
     },
     {
@@ -334,7 +334,6 @@
           65
         ],
         "detectadas": [
-          43,
           55,
           59,
           62,
@@ -347,13 +346,11 @@
           65
         ],
         "faltantes": [],
-        "extras": [
-          43
-        ],
-        "exacto": false
+        "extras": [],
+        "exacto": true
       },
-      "msProceso": 141,
-      "detalle": "6 notas"
+      "msProceso": 143,
+      "detalle": "4 notas"
     },
     {
       "nombre": "F mayor grave (F3 A3 C4 E4)",
@@ -365,6 +362,7 @@
           64
         ],
         "detectadas": [
+          45,
           53,
           57,
           60,
@@ -377,11 +375,13 @@
           64
         ],
         "faltantes": [],
-        "extras": [],
-        "exacto": true
+        "extras": [
+          45
+        ],
+        "exacto": false
       },
-      "msProceso": 141,
-      "detalle": "4 notas"
+      "msProceso": 133,
+      "detalle": "5 notas"
     },
     {
       "nombre": "C 5 notas (C3 E3 G3 C4 E4)",
@@ -411,7 +411,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 137,
+      "msProceso": 133,
       "detalle": "5 notas"
     },
     {
@@ -439,7 +439,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 146,
+      "msProceso": 135,
       "detalle": "4 notas"
     },
     {
@@ -467,7 +467,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 134,
+      "msProceso": 140,
       "detalle": "4 notas"
     },
     {
@@ -492,7 +492,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 141,
+      "msProceso": 134,
       "detalle": "3 notas"
     },
     {
@@ -517,7 +517,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 132,
+      "msProceso": 136,
       "detalle": "3 notas"
     },
     {
@@ -545,7 +545,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 143,
+      "msProceso": 134,
       "detalle": "4 notas"
     },
     {
@@ -571,6 +571,6 @@
     "aciertos": 71,
     "recall": 100,
     "precision": 93.4,
-    "msProcesoMedio": 134
+    "msProcesoMedio": 127
   }
 }

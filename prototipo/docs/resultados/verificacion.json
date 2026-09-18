@@ -10,52 +10,52 @@
   },
   "2-desvio-metronomo": "desvío click→pantalla: media 11.3 ms, máx 12 ms (36 pulsos)",
   "2-registro": [
-    "G4 en pulso 30.08 → correcta (+40 ms)",
-    "E4 en pulso 30.08 → correcta (+39 ms)",
-    "C4 en pulso 30.06 → correcta (+32 ms)",
-    "G3 en pulso 28.06 → correcta (+32 ms)",
+    "G4 en pulso 30.04 → correcta (+21 ms)",
+    "E4 en pulso 30.04 → correcta (+21 ms)",
+    "C4 en pulso 30.02 → correcta (+10 ms)",
+    "G3 en pulso 28.08 → correcta (+40 ms)",
     "C3 en pulso 28.06 → correcta (+32 ms)",
-    "E4 en pulso 28.04 → correcta (+21 ms)",
+    "E4 en pulso 28.06 → correcta (+32 ms)",
     "F4 en pulso 27.04 → correcta (+20 ms)",
     "G4 en pulso 26.04 → correcta (+21 ms)",
-    "A4 en pulso 25.06 → correcta (+30 ms)",
+    "A4 en pulso 25.04 → correcta (+20 ms)",
     "D3 en pulso 24.08 → correcta (+40 ms)",
     "G2 en pulso 24.06 → correcta (+31 ms)",
     "B4 en pulso 24.06 → correcta (+32 ms)",
-    "G3 en pulso 22.06 → correcta (+32 ms)",
-    "C5 en pulso 22.06 → correcta (+32 ms)",
-    "E3 en pulso 20.06 → correcta (+32 ms)",
-    "G4 en pulso 20.04 → correcta (+21 ms)",
-    "A4 en pulso 19.04 → correcta (+20 ms)",
+    "G3 en pulso 22.06 → correcta (+31 ms)",
+    "C5 en pulso 22.04 → correcta (+21 ms)",
+    "E3 en pulso 20.06 → correcta (+31 ms)",
+    "G4 en pulso 20.06 → correcta (+32 ms)",
+    "A4 en pulso 19.06 → correcta (+30 ms)",
     "G4 en pulso 18.04 → correcta (+21 ms)",
-    "F4 en pulso 17.06 → correcta (+31 ms)",
+    "F4 en pulso 17.04 → correcta (+20 ms)",
     "C3 en pulso 16.04 → correcta (+21 ms)",
     "E4 en pulso 16.04 → correcta (+21 ms)",
     "G4 en pulso 14.04 → correcta (+21 ms)",
-    "D3 en pulso 12.06 → correcta (+32 ms)",
-    "B2 en pulso 12.06 → correcta (+32 ms)",
-    "G2 en pulso 12.04 → correcta (+21 ms)",
-    "D4 en pulso 12.04 → correcta (+21 ms)",
-    "C4 en pulso 11.04 → correcta (+20 ms)",
-    "G2 en pulso 10.04 → correcta (+21 ms)",
+    "D3 en pulso 12.08 → correcta (+40 ms)",
+    "B2 en pulso 12.08 → correcta (+40 ms)",
+    "G2 en pulso 12.06 → correcta (+31 ms)",
+    "D4 en pulso 12.06 → correcta (+32 ms)",
+    "C4 en pulso 11.06 → correcta (+30 ms)",
+    "G2 en pulso 10.06 → correcta (+32 ms)",
     "D4 en pulso 10.04 → correcta (+21 ms)",
-    "E4 en pulso 9.06 → correcta (+30 ms)",
-    "F2 en pulso 8.06 → correcta (+31 ms)",
-    "F4 en pulso 8.06 → correcta (+32 ms)",
-    "E4 en pulso 6.04 → correcta (+21 ms)",
-    "G3 en pulso 4.06 → correcta (+32 ms)",
+    "E4 en pulso 9.04 → correcta (+20 ms)",
+    "F2 en pulso 8.04 → correcta (+21 ms)",
+    "F4 en pulso 8.04 → correcta (+21 ms)",
+    "E4 en pulso 6.06 → correcta (+32 ms)",
+    "G3 en pulso 4.06 → correcta (+31 ms)",
     "E3 en pulso 4.06 → correcta (+32 ms)",
-    "C3 en pulso 4.04 → correcta (+21 ms)",
+    "C3 en pulso 4.06 → correcta (+32 ms)",
     "G4 en pulso 4.04 → correcta (+21 ms)",
     "F4 en pulso 3.04 → correcta (+20 ms)",
-    "E4 en pulso 2.04 → correcta (+21 ms)",
-    "D4 en pulso 1.06 → correcta (+30 ms)",
-    "C3 en pulso 0.06 → correcta (+31 ms)",
-    "C4 en pulso 0.04 → correcta (+18 ms)"
+    "E4 en pulso 2.02 → correcta (+10 ms)",
+    "D4 en pulso 1.02 → correcta (+11 ms)",
+    "C3 en pulso 0.04 → correcta (+21 ms)",
+    "C4 en pulso 0.02 → correcta (+10 ms)"
   ],
   "2-desvio-notas": {
     "n": 42,
-    "mediaAbsMs": 27,
+    "mediaAbsMs": 26,
     "maxAbsMs": 40
   },
   "3-generador-nivel-1": {
@@ -80,47 +80,47 @@
   },
   "4-basic-pitch-limpio": {
     "ok": true,
-    "detalle": "motor basic-pitch: exactos 1/21 (4.8%), recall 100%, precisión 67%, proceso media 151 ms (mín 133, máx 235); silencio → nada detectado (bien)"
+    "detalle": "motor basic-pitch: exactos 1/21 (4.8%), recall 100%, precisión 67%, proceso media 143 ms (mín 129, máx 200); silencio → nada detectado (bien)"
   },
   "4-basic-pitch-ruido": {
     "ok": true,
-    "detalle": "motor basic-pitch: exactos 18/21 (85.7%), recall 100%, precisión 93.4%, proceso media 141 ms (mín 98, máx 163); silencio → nada detectado (bien)"
+    "detalle": "motor basic-pitch: exactos 18/21 (85.7%), recall 100%, precisión 93.4%, proceso media 133 ms (mín 90, máx 143); silencio → nada detectado (bien)"
   },
   "5-latencia-mic-falso": {
     "ok": true,
-    "detalle": "acordes exactos 8/20, recall 43.7%, precisión 70.5%, latencia real (ataque→detección) mediana 309 ms, p90 320 ms, mín 267, máx 1159; inferencia media 116 ms; 54 detecciones para 71 notas (10 repetidas/fantasma, 10 fuera de acordes)"
+    "detalle": "acordes exactos 18/20, recall 95.8%, precisión 98.6%, latencia real (ataque→detección) mediana 287 ms, p90 317 ms, mín 265, máx 337; inferencia media 88 ms; 69 detecciones para 71 notas (0 repetidas/fantasma, 0 fuera de acordes)"
   },
   "6-huellas-sintetico-sin-calibrar": {
     "ok": true,
-    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 22 ms"
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 11 ms"
   },
   "6-huellas-sintetico-calibrado": {
     "ok": true,
-    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 17 ms"
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 10 ms"
   },
   "6-huellas-sintetico-calibrado-ruido": {
     "ok": true,
-    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 17 ms"
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 11 ms"
   },
   "6-huellas-sintetico-calibrado-todas-las-teclas": {
     "ok": true,
-    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 19 ms"
+    "detalle": "exactos 21/21 (100%), recall 100%, precisión 100%, proceso medio 11 ms"
   },
   "6-huellas-latencia-mic-falso": {
     "ok": true,
-    "detalle": "acordes exactos 12/20, recall 56.3%, precisión 100%, latencia real (ataque→detección) mediana 219 ms, p90 238 ms, mín 178, máx 239; inferencia media 0 ms; 72 detecciones para 71 notas (32 repetidas/fantasma, 32 fuera de acordes)"
+    "detalle": "acordes exactos 20/20, recall 100%, precisión 100%, latencia real (ataque→detección) mediana 198 ms, p90 219 ms, mín 178, máx 249; inferencia media 0 ms; 71 detecciones para 71 notas (0 repetidas/fantasma, 0 fuera de acordes)"
   },
   "7-onsets-frames-sintetico-limpio": {
     "ok": true,
-    "detalle": "exactos 9/21 (42.9%), recall 74.6%, precisión 100%, proceso medio 341 ms"
+    "detalle": "exactos 9/21 (42.9%), recall 76.1%, precisión 100%, proceso medio 327 ms"
   },
   "7-onsets-frames-sintetico-ruido": {
     "ok": true,
-    "detalle": "exactos 10/21 (47.6%), recall 81.7%, precisión 100%, proceso medio 296 ms"
+    "detalle": "exactos 10/21 (47.6%), recall 80.3%, precisión 100%, proceso medio 280 ms"
   },
   "7-onsets-frames-latencia-mic-falso": {
     "ok": true,
-    "detalle": "acordes exactos 12/20, recall 97.2%, precisión 87.3%, latencia real (ataque→detección) mediana 518 ms, p90 550 ms, mín 238, máx 560; inferencia media 217 ms; 79 detecciones para 71 notas (0 repetidas/fantasma, 0 fuera de acordes)"
+    "detalle": "acordes exactos 11/20, recall 70.4%, precisión 92.6%, latencia real (ataque→detección) mediana 577 ms, p90 699 ms, mín 406, máx 1798; inferencia media 258 ms; 66 detecciones para 71 notas (12 repetidas/fantasma, 12 fuera de acordes)"
   },
   "erroresConsola": []
 }

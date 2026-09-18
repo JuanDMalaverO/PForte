@@ -45,7 +45,7 @@ Estas dos pruebas no pudieron repetirse todavía con las correcciones: por eso �
 | Sintético con ruido | Onsets and Frames | 10/21 | 80,3 % | **100 %** | — | 149 ms |
 | Micrófono falso | basic-pitch (cada 100 ms) | 18/20 | 100 % | 97,3 % | 235–455 ms (dos corridas) | 52 ms |
 | Micrófono falso | **huellas calibradas** | **20/20** | **100 %** | **100 %** | **209 / 230 ms** | **< 1 ms** |
-| Micrófono falso | Onsets and Frames (cada 250 ms) | 14/20 | 100 % | 91 % | 210 / 460 ms | 133 ms |
+| Micrófono falso | Onsets and Frames (cada 250 ms) | 11–14/20 (dos corridas) | 70–100 % | 91–93 % | 210–577 ms | 133–258 ms (se queda atrás si la máquina está cargada) |
 | Clip de silencio | los tres | nada detectado | | | | |
 
 Lectura honesta:
