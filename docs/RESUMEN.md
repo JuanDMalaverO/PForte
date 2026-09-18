@@ -1,6 +1,6 @@
 # Tarea B · Resumen para Julián
 
-Fecha: 16 sep 2026 (ronda 3). Entregable: prototipo funcionando + tres mediciones. Todo está en esta carpeta; el detalle de cada punto en B2–B5.
+Fecha: 17 sep 2026 (ronda 4, con grabaciones del piano real). Entregable: prototipo funcionando + tres mediciones. Todo está en esta carpeta; el detalle de cada punto en B2–B5.
 
 ## 1. Qué hay
 
@@ -39,7 +39,11 @@ El metrónomo no deriva; una nota tocada a tiempo se registra con ~20 ms de erro
 | **Piano real de Juan, escala de 34 notas sueltas (grabación)** | basic-pitch | 76 % | 100 % | 81 % |
 | **Piano real de Juan, escala de 34 notas sueltas (grabación)** | Onsets and Frames | 97 % | 100 % | 97 % |
 
-Con piano real, en notas sueltas, el motor de huellas calibrado es perfecto y Onsets and Frames casi (a 20 veces el costo); basic-pitch inventa octavas. **Falta la grabación de los 20 acordes** para cerrar la decisión: en vivo los acordes eran donde el motor de huellas fallaba antes de la corrección por selección dispersa.
+| **Piano real de Juan, 20 acordes (grabación)** | **huellas, sabiendo qué se espera** | **80 %** | 93 % | **96 %** |
+| **Piano real de Juan, 20 acordes (grabación)** | Onsets and Frames | 45 % | 94 % | 83 % |
+| **Piano real de Juan, 20 acordes (grabación)** | basic-pitch | 10 % | 96 % | 67 % |
+
+Con piano real: en notas sueltas los motores son casi perfectos; en acordes, **el motor de huellas informado por la partitura es el mejor** (16/20; de los 4 fallos, uno es un acorde tocado distinto de la lista). Las dos redes ven casi todo pero inventan octavas. Detalle y lecciones en B2 §4c.
 
 ### Medición 3 · Micrófono: latencia (ataque real → detección disponible)
 
@@ -49,7 +53,7 @@ Con piano real, en notas sueltas, el motor de huellas calibrado es perfecto y On
 | **huellas + NMF** (4 frames tras el ataque) | **209 ms** | 230 ms | **< 1 ms** | **no** |
 | Onsets and Frames (cada 250 ms) | 210 ms | 460 ms | 133 ms | sí |
 
-**Conclusión B2:** MIDI sigue siendo la entrada principal (15 ms, exacta). El micrófono es viable como segunda vía **con** higiene de señal (compuerta, saturación, AudioWorklet) y un motor informado por la partitura. Si el motor de huellas no rinde con piano real, la ruta de escalado es Onsets and Frames (cero notas inventadas) con la misma capa de decisión encima. Decisión final después de la prueba con piano real.
+**Conclusión B2 (con datos del piano real):** MIDI sigue siendo la entrada principal (15 ms, exacta). **El micrófono entra como segunda vía** para puntuar las notas esperadas: motor de huellas informado por la partitura, sin GPU, 21 ms por acorde, recall 93 % y precisión 96 % en acordes reales. No sirve para transcripción libre (sin saber qué se espera cae a 20 % de acordes exactos); para eso el mejor es Onsets and Frames, 20 veces más caro. Pendiente: repetir con un micrófono mejor que el del celular/laptop, porque la falta de graves es lo que limita la calibración.
 
 ## 3. Decisiones que salieron de los datos
 
@@ -61,8 +65,8 @@ Con piano real, en notas sueltas, el motor de huellas calibrado es perfecto y On
 
 | Pendiente | Quién | Tiempo |
 |---|---|---|
-| Grabar con el celular a 50 cm los 20 acordes (B2 §7; la escala ya está hecha). Con eso los tres motores se evalúan sobre su piano de forma automática | Juan | 5 min |
-| Repetir la medición en vivo con el protocolo nuevo (B2 §7): mic a 50 cm – 1 m, calibrar silencio y teclas, 20 acordes con cada motor | Juan | 30 min |
+| Probar en vivo el motor de huellas con "buscar solo las esperadas y sus vecinas" marcado y **sin calibrar teclas** (solo silencio), a 50 cm | Juan | 10 min |
+| Si consiguen un micrófono USB o de condensador: repetir las dos grabaciones y correr los dos scripts | Juan | 15 min |
 | Probar con teclado MIDI real conectado por USB | Juan | 5 min |
 | Correr `verificar.mjs` en una laptop sin GPU dedicada (el motor de huellas debería dar lo mismo; basic-pitch no) | Juan | 10 min |
 | Consulta con abogado de patentes si el mercado incluye EE.UU. | ambos | 1 h |

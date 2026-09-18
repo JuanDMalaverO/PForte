@@ -1,0 +1,3366 @@
+{
+  "huellasSinCalibrar": {
+    "motor": "huellas",
+    "modo": "acordes",
+    "filas": [
+      {
+        "n": 1,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67
+          ],
+          "detectadas": [
+            60,
+            64,
+            67
+          ],
+          "aciertos": [
+            60,
+            64,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 1 @ 1.0 s · 1 ataques"
+      },
+      {
+        "n": 2,
+        "comparacion": {
+          "esperadas": [
+            65,
+            69,
+            72
+          ],
+          "detectadas": [
+            65,
+            69,
+            72
+          ],
+          "aciertos": [
+            65,
+            69,
+            72
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 2 @ 4.6 s · 1 ataques"
+      },
+      {
+        "n": 3,
+        "comparacion": {
+          "esperadas": [
+            67,
+            71,
+            74
+          ],
+          "detectadas": [
+            67,
+            71,
+            74
+          ],
+          "aciertos": [
+            67,
+            71,
+            74
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 3 @ 8.1 s · sin ataque claro; se evaluó desde que hubo señal"
+      },
+      {
+        "n": 4,
+        "comparacion": {
+          "esperadas": [
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 4 @ 11.8 s · 1 ataques"
+      },
+      {
+        "n": 5,
+        "comparacion": {
+          "esperadas": [
+            62,
+            65,
+            69
+          ],
+          "detectadas": [
+            62,
+            65,
+            69
+          ],
+          "aciertos": [
+            62,
+            65,
+            69
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 20,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 6 @ 16.4 s · 1 ataques"
+      },
+      {
+        "n": 6,
+        "comparacion": {
+          "esperadas": [
+            64,
+            67,
+            71
+          ],
+          "detectadas": [
+            64,
+            67,
+            71
+          ],
+          "aciertos": [
+            64,
+            67,
+            71
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 8 @ 20.1 s · 1 ataques"
+      },
+      {
+        "n": 7,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "detectadas": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "aciertos": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 9 @ 23.1 s · 1 ataques"
+      },
+      {
+        "n": 8,
+        "comparacion": {
+          "esperadas": [
+            48,
+            55,
+            64,
+            67
+          ],
+          "detectadas": [
+            48,
+            52,
+            64,
+            67
+          ],
+          "aciertos": [
+            48,
+            64,
+            67
+          ],
+          "faltantes": [
+            55
+          ],
+          "extras": [
+            52
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 10 @ 26.6 s · 1 ataques"
+      },
+      {
+        "n": 9,
+        "comparacion": {
+          "esperadas": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "detectadas": [
+            43,
+            50,
+            59
+          ],
+          "aciertos": [
+            43,
+            50,
+            59
+          ],
+          "faltantes": [
+            62
+          ],
+          "extras": [],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 11 @ 30.1 s · 1 ataques"
+      },
+      {
+        "n": 10,
+        "comparacion": {
+          "esperadas": [
+            41,
+            48,
+            57,
+            60
+          ],
+          "detectadas": [
+            45,
+            53,
+            57,
+            60
+          ],
+          "aciertos": [
+            57,
+            60
+          ],
+          "faltantes": [
+            41,
+            48
+          ],
+          "extras": [
+            45,
+            53
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 12 @ 33.8 s · 1 ataques"
+      },
+      {
+        "n": 11,
+        "comparacion": {
+          "esperadas": [
+            60,
+            63,
+            67
+          ],
+          "detectadas": [
+            60,
+            63,
+            67
+          ],
+          "aciertos": [
+            60,
+            63,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 14 @ 38.0 s · 1 ataques"
+      },
+      {
+        "n": 12,
+        "comparacion": {
+          "esperadas": [
+            62,
+            66,
+            69
+          ],
+          "detectadas": [
+            62,
+            66,
+            69
+          ],
+          "aciertos": [
+            62,
+            66,
+            69
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -22,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 15 @ 40.9 s · 1 ataques"
+      },
+      {
+        "n": 13,
+        "comparacion": {
+          "esperadas": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "detectadas": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "aciertos": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 16 @ 44.2 s · 1 ataques"
+      },
+      {
+        "n": 14,
+        "comparacion": {
+          "esperadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 17 @ 47.3 s · 1 ataques"
+      },
+      {
+        "n": 15,
+        "comparacion": {
+          "esperadas": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "detectadas": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "aciertos": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 18 @ 52.0 s · 1 ataques"
+      },
+      {
+        "n": 16,
+        "comparacion": {
+          "esperadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "aciertos": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 19,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 19 @ 55.6 s · 1 ataques"
+      },
+      {
+        "n": 17,
+        "comparacion": {
+          "esperadas": [
+            50,
+            57,
+            65,
+            69
+          ],
+          "detectadas": [
+            50,
+            57,
+            65
+          ],
+          "aciertos": [
+            50,
+            57,
+            65
+          ],
+          "faltantes": [
+            69
+          ],
+          "extras": [],
+          "exacto": false
+        },
+        "msProceso": 23,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 20 @ 58.2 s · 1 ataques"
+      },
+      {
+        "n": 18,
+        "comparacion": {
+          "esperadas": [
+            59,
+            62,
+            67
+          ],
+          "detectadas": [
+            59,
+            62,
+            67
+          ],
+          "aciertos": [
+            59,
+            62,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 21 @ 61.2 s · 1 ataques"
+      },
+      {
+        "n": 19,
+        "comparacion": {
+          "esperadas": [
+            52,
+            55,
+            60
+          ],
+          "detectadas": [
+            52,
+            55,
+            60
+          ],
+          "aciertos": [
+            52,
+            55,
+            60
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 22 @ 65.8 s · 1 ataques"
+      },
+      {
+        "n": 20,
+        "comparacion": {
+          "esperadas": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "detectadas": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "aciertos": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 23 @ 69.3 s · 1 ataques"
+      }
+    ],
+    "totales": {
+      "acordes": 20,
+      "acordesExactos": 16,
+      "porcentajeExactos": 80,
+      "notasEsperadas": 71,
+      "notasDetectadas": 69,
+      "aciertos": 66,
+      "recall": 93,
+      "precision": 95.7,
+      "msProcesoMedio": 21
+    },
+    "ataques": 23
+  },
+  "huellasCalibradas": {
+    "motor": "huellas",
+    "modo": "acordes",
+    "filas": [
+      {
+        "n": 1,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67
+          ],
+          "detectadas": [
+            60,
+            64,
+            67
+          ],
+          "aciertos": [
+            60,
+            64,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 1 @ 1.0 s · 1 ataques"
+      },
+      {
+        "n": 2,
+        "comparacion": {
+          "esperadas": [
+            65,
+            69,
+            72
+          ],
+          "detectadas": [
+            65,
+            69,
+            72
+          ],
+          "aciertos": [
+            65,
+            69,
+            72
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 2 @ 4.6 s · 1 ataques"
+      },
+      {
+        "n": 3,
+        "comparacion": {
+          "esperadas": [
+            67,
+            71,
+            74
+          ],
+          "detectadas": [
+            67,
+            71,
+            74
+          ],
+          "aciertos": [
+            67,
+            71,
+            74
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 3 @ 8.1 s · sin ataque claro; se evaluó desde que hubo señal"
+      },
+      {
+        "n": 4,
+        "comparacion": {
+          "esperadas": [
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 4 @ 11.8 s · 1 ataques"
+      },
+      {
+        "n": 5,
+        "comparacion": {
+          "esperadas": [
+            62,
+            65,
+            69
+          ],
+          "detectadas": [
+            62,
+            65,
+            69
+          ],
+          "aciertos": [
+            62,
+            65,
+            69
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 20,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 6 @ 16.4 s · 1 ataques"
+      },
+      {
+        "n": 6,
+        "comparacion": {
+          "esperadas": [
+            64,
+            67,
+            71
+          ],
+          "detectadas": [
+            64,
+            67,
+            71
+          ],
+          "aciertos": [
+            64,
+            67,
+            71
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 8 @ 20.1 s · 1 ataques"
+      },
+      {
+        "n": 7,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "detectadas": [
+            48,
+            60,
+            64,
+            67,
+            72
+          ],
+          "aciertos": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "faltantes": [],
+          "extras": [
+            48
+          ],
+          "exacto": false
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 9 @ 23.1 s · 1 ataques"
+      },
+      {
+        "n": 8,
+        "comparacion": {
+          "esperadas": [
+            48,
+            55,
+            64,
+            67
+          ],
+          "detectadas": [
+            48,
+            52,
+            64,
+            67
+          ],
+          "aciertos": [
+            48,
+            64,
+            67
+          ],
+          "faltantes": [
+            55
+          ],
+          "extras": [
+            52
+          ],
+          "exacto": false
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 10 @ 26.6 s · 1 ataques"
+      },
+      {
+        "n": 9,
+        "comparacion": {
+          "esperadas": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "detectadas": [
+            43,
+            50
+          ],
+          "aciertos": [
+            43,
+            50
+          ],
+          "faltantes": [
+            59,
+            62
+          ],
+          "extras": [],
+          "exacto": false
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 11 @ 30.1 s · 1 ataques"
+      },
+      {
+        "n": 10,
+        "comparacion": {
+          "esperadas": [
+            41,
+            48,
+            57,
+            60
+          ],
+          "detectadas": [
+            45,
+            53,
+            60
+          ],
+          "aciertos": [
+            60
+          ],
+          "faltantes": [
+            41,
+            48,
+            57
+          ],
+          "extras": [
+            45,
+            53
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 12 @ 33.8 s · 1 ataques"
+      },
+      {
+        "n": 11,
+        "comparacion": {
+          "esperadas": [
+            60,
+            63,
+            67
+          ],
+          "detectadas": [
+            48,
+            63,
+            67
+          ],
+          "aciertos": [
+            63,
+            67
+          ],
+          "faltantes": [
+            60
+          ],
+          "extras": [
+            48
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 14 @ 38.0 s · 1 ataques"
+      },
+      {
+        "n": 12,
+        "comparacion": {
+          "esperadas": [
+            62,
+            66,
+            69
+          ],
+          "detectadas": [
+            62,
+            66,
+            69
+          ],
+          "aciertos": [
+            62,
+            66,
+            69
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -22,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 15 @ 40.9 s · 1 ataques"
+      },
+      {
+        "n": 13,
+        "comparacion": {
+          "esperadas": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "detectadas": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "aciertos": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 16 @ 44.2 s · 1 ataques"
+      },
+      {
+        "n": 14,
+        "comparacion": {
+          "esperadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 17 @ 47.3 s · 1 ataques"
+      },
+      {
+        "n": 15,
+        "comparacion": {
+          "esperadas": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "detectadas": [
+            52,
+            55,
+            60,
+            64
+          ],
+          "aciertos": [
+            52,
+            55,
+            60,
+            64
+          ],
+          "faltantes": [
+            48
+          ],
+          "extras": [],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 18 @ 52.0 s · 1 ataques"
+      },
+      {
+        "n": 16,
+        "comparacion": {
+          "esperadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "aciertos": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 19,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 19 @ 55.6 s · 1 ataques"
+      },
+      {
+        "n": 17,
+        "comparacion": {
+          "esperadas": [
+            50,
+            57,
+            65,
+            69
+          ],
+          "detectadas": [
+            50,
+            57,
+            65
+          ],
+          "aciertos": [
+            50,
+            57,
+            65
+          ],
+          "faltantes": [
+            69
+          ],
+          "extras": [],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 20 @ 58.2 s · 1 ataques"
+      },
+      {
+        "n": 18,
+        "comparacion": {
+          "esperadas": [
+            59,
+            62,
+            67
+          ],
+          "detectadas": [
+            59,
+            62,
+            67
+          ],
+          "aciertos": [
+            59,
+            62,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 21 @ 61.2 s · 1 ataques"
+      },
+      {
+        "n": 19,
+        "comparacion": {
+          "esperadas": [
+            52,
+            55,
+            60
+          ],
+          "detectadas": [
+            52,
+            55,
+            60
+          ],
+          "aciertos": [
+            52,
+            55,
+            60
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 22 @ 65.8 s · 1 ataques"
+      },
+      {
+        "n": 20,
+        "comparacion": {
+          "esperadas": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "detectadas": [
+            47,
+            50,
+            55
+          ],
+          "aciertos": [
+            47,
+            50,
+            55
+          ],
+          "faltantes": [
+            59
+          ],
+          "extras": [],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 23 @ 69.3 s · 1 ataques"
+      }
+    ],
+    "totales": {
+      "acordes": 20,
+      "acordesExactos": 12,
+      "porcentajeExactos": 60,
+      "notasEsperadas": 71,
+      "notasDetectadas": 66,
+      "aciertos": 61,
+      "recall": 85.9,
+      "precision": 92.4,
+      "msProcesoMedio": 21
+    },
+    "ataques": 23
+  },
+  "huellasCalibradasTodas": {
+    "motor": "huellas",
+    "modo": "acordes",
+    "filas": [
+      {
+        "n": 1,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67
+          ],
+          "detectadas": [
+            60,
+            64,
+            67
+          ],
+          "aciertos": [
+            60,
+            64,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 1 @ 1.0 s · 1 ataques"
+      },
+      {
+        "n": 2,
+        "comparacion": {
+          "esperadas": [
+            65,
+            69,
+            72
+          ],
+          "detectadas": [
+            65,
+            69,
+            72
+          ],
+          "aciertos": [
+            65,
+            69,
+            72
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 2 @ 4.6 s · 1 ataques"
+      },
+      {
+        "n": 3,
+        "comparacion": {
+          "esperadas": [
+            67,
+            71,
+            74
+          ],
+          "detectadas": [
+            48,
+            67,
+            71,
+            74
+          ],
+          "aciertos": [
+            67,
+            71,
+            74
+          ],
+          "faltantes": [],
+          "extras": [
+            48
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 3 @ 8.1 s · sin ataque claro; se evaluó desde que hubo señal"
+      },
+      {
+        "n": 4,
+        "comparacion": {
+          "esperadas": [
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 4 @ 11.8 s · 1 ataques"
+      },
+      {
+        "n": 5,
+        "comparacion": {
+          "esperadas": [
+            62,
+            65,
+            69
+          ],
+          "detectadas": [
+            50,
+            62,
+            65
+          ],
+          "aciertos": [
+            62,
+            65
+          ],
+          "faltantes": [
+            69
+          ],
+          "extras": [
+            50
+          ],
+          "exacto": false
+        },
+        "msProceso": 20,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 6 @ 16.4 s · 1 ataques"
+      },
+      {
+        "n": 6,
+        "comparacion": {
+          "esperadas": [
+            64,
+            67,
+            71
+          ],
+          "detectadas": [
+            48,
+            55,
+            64,
+            67,
+            71
+          ],
+          "aciertos": [
+            64,
+            67,
+            71
+          ],
+          "faltantes": [],
+          "extras": [
+            48,
+            55
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 8 @ 20.1 s · 1 ataques"
+      },
+      {
+        "n": 7,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "detectadas": [
+            48,
+            60,
+            64,
+            67,
+            72
+          ],
+          "aciertos": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "faltantes": [],
+          "extras": [
+            48
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 9 @ 23.1 s · 1 ataques"
+      },
+      {
+        "n": 8,
+        "comparacion": {
+          "esperadas": [
+            48,
+            55,
+            64,
+            67
+          ],
+          "detectadas": [
+            47,
+            48,
+            52,
+            55,
+            64,
+            67
+          ],
+          "aciertos": [
+            48,
+            55,
+            64,
+            67
+          ],
+          "faltantes": [],
+          "extras": [
+            47,
+            52
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 10 @ 26.6 s · 1 ataques"
+      },
+      {
+        "n": 9,
+        "comparacion": {
+          "esperadas": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "detectadas": [
+            43,
+            47,
+            49,
+            50,
+            52,
+            55,
+            74
+          ],
+          "aciertos": [
+            43,
+            50
+          ],
+          "faltantes": [
+            59,
+            62
+          ],
+          "extras": [
+            47,
+            49,
+            52,
+            55,
+            74
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 11 @ 30.1 s · 1 ataques"
+      },
+      {
+        "n": 10,
+        "comparacion": {
+          "esperadas": [
+            41,
+            48,
+            57,
+            60
+          ],
+          "detectadas": [
+            45,
+            52,
+            53,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            57,
+            60
+          ],
+          "faltantes": [
+            41,
+            48
+          ],
+          "extras": [
+            45,
+            52,
+            53,
+            64
+          ],
+          "exacto": false
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 12 @ 33.8 s · 1 ataques"
+      },
+      {
+        "n": 11,
+        "comparacion": {
+          "esperadas": [
+            60,
+            63,
+            67
+          ],
+          "detectadas": [
+            48,
+            55,
+            63,
+            67,
+            72
+          ],
+          "aciertos": [
+            63,
+            67
+          ],
+          "faltantes": [
+            60
+          ],
+          "extras": [
+            48,
+            55,
+            72
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 14 @ 38.0 s · 1 ataques"
+      },
+      {
+        "n": 12,
+        "comparacion": {
+          "esperadas": [
+            62,
+            66,
+            69
+          ],
+          "detectadas": [
+            50,
+            62,
+            66
+          ],
+          "aciertos": [
+            62,
+            66
+          ],
+          "faltantes": [
+            69
+          ],
+          "extras": [
+            50
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -22,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 15 @ 40.9 s · 1 ataques"
+      },
+      {
+        "n": 13,
+        "comparacion": {
+          "esperadas": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "detectadas": [
+            47,
+            55,
+            59,
+            62,
+            65
+          ],
+          "aciertos": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "faltantes": [],
+          "extras": [
+            47
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 16 @ 44.2 s · 1 ataques"
+      },
+      {
+        "n": 14,
+        "comparacion": {
+          "esperadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            44,
+            52,
+            53,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [
+            44,
+            52
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 17 @ 47.3 s · 1 ataques"
+      },
+      {
+        "n": 15,
+        "comparacion": {
+          "esperadas": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "detectadas": [
+            52,
+            55,
+            60,
+            64
+          ],
+          "aciertos": [
+            52,
+            55,
+            60,
+            64
+          ],
+          "faltantes": [
+            48
+          ],
+          "extras": [],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 18 @ 52.0 s · 1 ataques"
+      },
+      {
+        "n": 16,
+        "comparacion": {
+          "esperadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "aciertos": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 19,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 19 @ 55.6 s · 1 ataques"
+      },
+      {
+        "n": 17,
+        "comparacion": {
+          "esperadas": [
+            50,
+            57,
+            65,
+            69
+          ],
+          "detectadas": [
+            49,
+            50,
+            52,
+            57,
+            65
+          ],
+          "aciertos": [
+            50,
+            57,
+            65
+          ],
+          "faltantes": [
+            69
+          ],
+          "extras": [
+            49,
+            52
+          ],
+          "exacto": false
+        },
+        "msProceso": 22,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 20 @ 58.2 s · 1 ataques"
+      },
+      {
+        "n": 18,
+        "comparacion": {
+          "esperadas": [
+            59,
+            62,
+            67
+          ],
+          "detectadas": [
+            47,
+            62,
+            67
+          ],
+          "aciertos": [
+            62,
+            67
+          ],
+          "faltantes": [
+            59
+          ],
+          "extras": [
+            47
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 21 @ 61.2 s · 1 ataques"
+      },
+      {
+        "n": 19,
+        "comparacion": {
+          "esperadas": [
+            52,
+            55,
+            60
+          ],
+          "detectadas": [
+            52,
+            55,
+            60,
+            67
+          ],
+          "aciertos": [
+            52,
+            55,
+            60
+          ],
+          "faltantes": [],
+          "extras": [
+            67
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 22 @ 65.8 s · 1 ataques"
+      },
+      {
+        "n": 20,
+        "comparacion": {
+          "esperadas": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "detectadas": [
+            47,
+            50,
+            55,
+            58
+          ],
+          "aciertos": [
+            47,
+            50,
+            55
+          ],
+          "faltantes": [
+            59
+          ],
+          "extras": [
+            58
+          ],
+          "exacto": false
+        },
+        "msProceso": 21,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 23 @ 69.3 s · 1 ataques"
+      }
+    ],
+    "totales": {
+      "acordes": 20,
+      "acordesExactos": 4,
+      "porcentajeExactos": 20,
+      "notasEsperadas": 71,
+      "notasDetectadas": 88,
+      "aciertos": 60,
+      "recall": 84.5,
+      "precision": 68.2,
+      "msProcesoMedio": 21
+    },
+    "ataques": 23
+  },
+  "basicPitch": {
+    "motor": "basic-pitch",
+    "modo": "acordes",
+    "filas": [
+      {
+        "n": 1,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67
+          ],
+          "detectadas": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "aciertos": [
+            60,
+            64,
+            67
+          ],
+          "faltantes": [],
+          "extras": [
+            72
+          ],
+          "exacto": false
+        },
+        "msProceso": 158,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 1 @ 1.0 s · 5 notas"
+      },
+      {
+        "n": 2,
+        "comparacion": {
+          "esperadas": [
+            65,
+            69,
+            72
+          ],
+          "detectadas": [
+            65,
+            69,
+            72,
+            81
+          ],
+          "aciertos": [
+            65,
+            69,
+            72
+          ],
+          "faltantes": [],
+          "extras": [
+            81
+          ],
+          "exacto": false
+        },
+        "msProceso": 158,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 2 @ 4.6 s · 4 notas"
+      },
+      {
+        "n": 3,
+        "comparacion": {
+          "esperadas": [
+            67,
+            71,
+            74
+          ],
+          "detectadas": [
+            67,
+            71,
+            74
+          ],
+          "aciertos": [
+            67,
+            71,
+            74
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 162,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 3 @ 8.1 s · 6 notas"
+      },
+      {
+        "n": 4,
+        "comparacion": {
+          "esperadas": [
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            57,
+            60,
+            64,
+            69
+          ],
+          "aciertos": [
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [
+            45,
+            69
+          ],
+          "exacto": false
+        },
+        "msProceso": 159,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 4 @ 11.8 s · 5 notas"
+      },
+      {
+        "n": 5,
+        "comparacion": {
+          "esperadas": [
+            62,
+            65,
+            69
+          ],
+          "detectadas": [
+            50,
+            62,
+            65,
+            69,
+            74
+          ],
+          "aciertos": [
+            62,
+            65,
+            69
+          ],
+          "faltantes": [],
+          "extras": [
+            50,
+            74
+          ],
+          "exacto": false
+        },
+        "msProceso": 161,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 6 @ 16.4 s · 5 notas"
+      },
+      {
+        "n": 6,
+        "comparacion": {
+          "esperadas": [
+            64,
+            67,
+            71
+          ],
+          "detectadas": [
+            52,
+            64,
+            67,
+            71,
+            76
+          ],
+          "aciertos": [
+            64,
+            67,
+            71
+          ],
+          "faltantes": [],
+          "extras": [
+            52,
+            76
+          ],
+          "exacto": false
+        },
+        "msProceso": 158,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 8 @ 20.1 s · 6 notas"
+      },
+      {
+        "n": 7,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "detectadas": [
+            48,
+            60,
+            64,
+            67,
+            72
+          ],
+          "aciertos": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "faltantes": [],
+          "extras": [
+            48
+          ],
+          "exacto": false
+        },
+        "msProceso": 163,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 9 @ 23.1 s · 7 notas"
+      },
+      {
+        "n": 8,
+        "comparacion": {
+          "esperadas": [
+            48,
+            55,
+            64,
+            67
+          ],
+          "detectadas": [
+            48,
+            52,
+            64,
+            67
+          ],
+          "aciertos": [
+            48,
+            64,
+            67
+          ],
+          "faltantes": [
+            55
+          ],
+          "extras": [
+            52
+          ],
+          "exacto": false
+        },
+        "msProceso": 156,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 10 @ 26.6 s · 6 notas"
+      },
+      {
+        "n": 9,
+        "comparacion": {
+          "esperadas": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "detectadas": [
+            43,
+            50,
+            55,
+            59,
+            62,
+            74,
+            86
+          ],
+          "aciertos": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "faltantes": [],
+          "extras": [
+            55,
+            74,
+            86
+          ],
+          "exacto": false
+        },
+        "msProceso": 168,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 11 @ 30.1 s · 13 notas"
+      },
+      {
+        "n": 10,
+        "comparacion": {
+          "esperadas": [
+            41,
+            48,
+            57,
+            60
+          ],
+          "detectadas": [
+            45,
+            53,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            57,
+            60
+          ],
+          "faltantes": [
+            41,
+            48
+          ],
+          "extras": [
+            45,
+            53,
+            64
+          ],
+          "exacto": false
+        },
+        "msProceso": 170,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 12 @ 33.8 s · 6 notas"
+      },
+      {
+        "n": 11,
+        "comparacion": {
+          "esperadas": [
+            60,
+            63,
+            67
+          ],
+          "detectadas": [
+            48,
+            60,
+            63,
+            67
+          ],
+          "aciertos": [
+            60,
+            63,
+            67
+          ],
+          "faltantes": [],
+          "extras": [
+            48
+          ],
+          "exacto": false
+        },
+        "msProceso": 156,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 14 @ 38.0 s · 4 notas"
+      },
+      {
+        "n": 12,
+        "comparacion": {
+          "esperadas": [
+            62,
+            66,
+            69
+          ],
+          "detectadas": [
+            50,
+            62,
+            66,
+            69,
+            74
+          ],
+          "aciertos": [
+            62,
+            66,
+            69
+          ],
+          "faltantes": [],
+          "extras": [
+            50,
+            74
+          ],
+          "exacto": false
+        },
+        "msProceso": 158,
+        "referencia": "texto",
+        "nivelDb": -22,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 15 @ 40.9 s · 8 notas"
+      },
+      {
+        "n": 13,
+        "comparacion": {
+          "esperadas": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "detectadas": [
+            43,
+            50,
+            55,
+            59,
+            62,
+            65,
+            67
+          ],
+          "aciertos": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "faltantes": [],
+          "extras": [
+            43,
+            50,
+            67
+          ],
+          "exacto": false
+        },
+        "msProceso": 158,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 16 @ 44.2 s · 10 notas"
+      },
+      {
+        "n": 14,
+        "comparacion": {
+          "esperadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            53,
+            57,
+            60,
+            64,
+            69
+          ],
+          "aciertos": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [
+            45,
+            69
+          ],
+          "exacto": false
+        },
+        "msProceso": 162,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 17 @ 47.3 s · 8 notas"
+      },
+      {
+        "n": 15,
+        "comparacion": {
+          "esperadas": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "detectadas": [
+            48,
+            52,
+            55,
+            60,
+            64,
+            67
+          ],
+          "aciertos": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [
+            67
+          ],
+          "exacto": false
+        },
+        "msProceso": 154,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 18 @ 52.0 s · 8 notas"
+      },
+      {
+        "n": 16,
+        "comparacion": {
+          "esperadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            52,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [
+            57
+          ],
+          "exacto": false
+        },
+        "msProceso": 156,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 19 @ 55.6 s · 7 notas"
+      },
+      {
+        "n": 17,
+        "comparacion": {
+          "esperadas": [
+            50,
+            57,
+            65,
+            69
+          ],
+          "detectadas": [
+            50,
+            57,
+            62,
+            65,
+            69,
+            74
+          ],
+          "aciertos": [
+            50,
+            57,
+            65,
+            69
+          ],
+          "faltantes": [],
+          "extras": [
+            62,
+            74
+          ],
+          "exacto": false
+        },
+        "msProceso": 153,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 20 @ 58.2 s · 8 notas"
+      },
+      {
+        "n": 18,
+        "comparacion": {
+          "esperadas": [
+            59,
+            62,
+            67
+          ],
+          "detectadas": [
+            59,
+            62,
+            67
+          ],
+          "aciertos": [
+            59,
+            62,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 156,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 21 @ 61.2 s · 3 notas"
+      },
+      {
+        "n": 19,
+        "comparacion": {
+          "esperadas": [
+            52,
+            55,
+            60
+          ],
+          "detectadas": [
+            52,
+            55,
+            60,
+            64,
+            67
+          ],
+          "aciertos": [
+            52,
+            55,
+            60
+          ],
+          "faltantes": [],
+          "extras": [
+            64,
+            67
+          ],
+          "exacto": false
+        },
+        "msProceso": 158,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 22 @ 65.8 s · 9 notas"
+      },
+      {
+        "n": 20,
+        "comparacion": {
+          "esperadas": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "detectadas": [
+            38,
+            47,
+            50,
+            55,
+            59,
+            62,
+            67,
+            74
+          ],
+          "aciertos": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "faltantes": [],
+          "extras": [
+            38,
+            62,
+            67,
+            74
+          ],
+          "exacto": false
+        },
+        "msProceso": 162,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 23 @ 69.3 s · 11 notas"
+      }
+    ],
+    "totales": {
+      "acordes": 20,
+      "acordesExactos": 2,
+      "porcentajeExactos": 10,
+      "notasEsperadas": 71,
+      "notasDetectadas": 102,
+      "aciertos": 68,
+      "recall": 95.8,
+      "precision": 66.7,
+      "msProcesoMedio": 159
+    },
+    "ataques": 23
+  },
+  "onsetsFrames": {
+    "motor": "onsets-frames",
+    "modo": "acordes",
+    "filas": [
+      {
+        "n": 1,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67
+          ],
+          "detectadas": [
+            60,
+            64,
+            67
+          ],
+          "aciertos": [
+            60,
+            64,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 453,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 1 @ 1.0 s · 3 notas"
+      },
+      {
+        "n": 2,
+        "comparacion": {
+          "esperadas": [
+            65,
+            69,
+            72
+          ],
+          "detectadas": [
+            65,
+            69,
+            72
+          ],
+          "aciertos": [
+            65,
+            69,
+            72
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 468,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 2 @ 4.6 s · 3 notas"
+      },
+      {
+        "n": 3,
+        "comparacion": {
+          "esperadas": [
+            67,
+            71,
+            74
+          ],
+          "detectadas": [
+            62,
+            67,
+            71,
+            74
+          ],
+          "aciertos": [
+            67,
+            71,
+            74
+          ],
+          "faltantes": [],
+          "extras": [
+            62
+          ],
+          "exacto": false
+        },
+        "msProceso": 449,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 3 @ 8.1 s · 4 notas"
+      },
+      {
+        "n": 4,
+        "comparacion": {
+          "esperadas": [
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            38,
+            45,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [
+            38,
+            45
+          ],
+          "exacto": false
+        },
+        "msProceso": 437,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 4 @ 11.8 s · 5 notas"
+      },
+      {
+        "n": 5,
+        "comparacion": {
+          "esperadas": [
+            62,
+            65,
+            69
+          ],
+          "detectadas": [
+            50,
+            62,
+            65,
+            69
+          ],
+          "aciertos": [
+            62,
+            65,
+            69
+          ],
+          "faltantes": [],
+          "extras": [
+            50
+          ],
+          "exacto": false
+        },
+        "msProceso": 414,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 6 @ 16.4 s · 4 notas"
+      },
+      {
+        "n": 6,
+        "comparacion": {
+          "esperadas": [
+            64,
+            67,
+            71
+          ],
+          "detectadas": [
+            64,
+            67,
+            71
+          ],
+          "aciertos": [
+            64,
+            67,
+            71
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 419,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 8 @ 20.1 s · 3 notas"
+      },
+      {
+        "n": 7,
+        "comparacion": {
+          "esperadas": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "detectadas": [
+            48,
+            60,
+            64,
+            67,
+            72
+          ],
+          "aciertos": [
+            60,
+            64,
+            67,
+            72
+          ],
+          "faltantes": [],
+          "extras": [
+            48
+          ],
+          "exacto": false
+        },
+        "msProceso": 437,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 9 @ 23.1 s · 5 notas"
+      },
+      {
+        "n": 8,
+        "comparacion": {
+          "esperadas": [
+            48,
+            55,
+            64,
+            67
+          ],
+          "detectadas": [
+            48,
+            52,
+            67
+          ],
+          "aciertos": [
+            48,
+            67
+          ],
+          "faltantes": [
+            55,
+            64
+          ],
+          "extras": [
+            52
+          ],
+          "exacto": false
+        },
+        "msProceso": 425,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 10 @ 26.6 s · 4 notas"
+      },
+      {
+        "n": 9,
+        "comparacion": {
+          "esperadas": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "detectadas": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "aciertos": [
+            43,
+            50,
+            59,
+            62
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 429,
+        "referencia": "texto",
+        "nivelDb": -18,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 11 @ 30.1 s · 4 notas"
+      },
+      {
+        "n": 10,
+        "comparacion": {
+          "esperadas": [
+            41,
+            48,
+            57,
+            60
+          ],
+          "detectadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            57,
+            60
+          ],
+          "faltantes": [
+            41,
+            48
+          ],
+          "extras": [
+            53,
+            64
+          ],
+          "exacto": false
+        },
+        "msProceso": 435,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 12 @ 33.8 s · 4 notas"
+      },
+      {
+        "n": 11,
+        "comparacion": {
+          "esperadas": [
+            60,
+            63,
+            67
+          ],
+          "detectadas": [
+            38,
+            60,
+            63,
+            67
+          ],
+          "aciertos": [
+            60,
+            63,
+            67
+          ],
+          "faltantes": [],
+          "extras": [
+            38
+          ],
+          "exacto": false
+        },
+        "msProceso": 448,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 14 @ 38.0 s · 4 notas"
+      },
+      {
+        "n": 12,
+        "comparacion": {
+          "esperadas": [
+            62,
+            66,
+            69
+          ],
+          "detectadas": [
+            50,
+            62,
+            66,
+            69
+          ],
+          "aciertos": [
+            62,
+            66,
+            69
+          ],
+          "faltantes": [],
+          "extras": [
+            50
+          ],
+          "exacto": false
+        },
+        "msProceso": 449,
+        "referencia": "texto",
+        "nivelDb": -22,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 15 @ 40.9 s · 4 notas"
+      },
+      {
+        "n": 13,
+        "comparacion": {
+          "esperadas": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "detectadas": [
+            55,
+            59,
+            62,
+            65,
+            67
+          ],
+          "aciertos": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "faltantes": [],
+          "extras": [
+            67
+          ],
+          "exacto": false
+        },
+        "msProceso": 451,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 16 @ 44.2 s · 5 notas"
+      },
+      {
+        "n": 14,
+        "comparacion": {
+          "esperadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "detectadas": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "aciertos": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 471,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 17 @ 47.3 s · 4 notas"
+      },
+      {
+        "n": 15,
+        "comparacion": {
+          "esperadas": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            48,
+            50,
+            52,
+            55,
+            60,
+            64
+          ],
+          "aciertos": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [
+            45,
+            50
+          ],
+          "exacto": false
+        },
+        "msProceso": 431,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 18 @ 52.0 s · 7 notas"
+      },
+      {
+        "n": 16,
+        "comparacion": {
+          "esperadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "detectadas": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "aciertos": [
+            45,
+            52,
+            60,
+            64
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 384,
+        "referencia": "texto",
+        "nivelDb": -20,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 19 @ 55.6 s · 4 notas"
+      },
+      {
+        "n": 17,
+        "comparacion": {
+          "esperadas": [
+            50,
+            57,
+            65,
+            69
+          ],
+          "detectadas": [
+            38,
+            50,
+            57,
+            65,
+            69
+          ],
+          "aciertos": [
+            50,
+            57,
+            65,
+            69
+          ],
+          "faltantes": [],
+          "extras": [
+            38
+          ],
+          "exacto": false
+        },
+        "msProceso": 423,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 20 @ 58.2 s · 5 notas"
+      },
+      {
+        "n": 18,
+        "comparacion": {
+          "esperadas": [
+            59,
+            62,
+            67
+          ],
+          "detectadas": [
+            59,
+            62,
+            67
+          ],
+          "aciertos": [
+            59,
+            62,
+            67
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 434,
+        "referencia": "texto",
+        "nivelDb": -17,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 21 @ 61.2 s · 3 notas"
+      },
+      {
+        "n": 19,
+        "comparacion": {
+          "esperadas": [
+            52,
+            55,
+            60
+          ],
+          "detectadas": [
+            52,
+            55,
+            60
+          ],
+          "aciertos": [
+            52,
+            55,
+            60
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 464,
+        "referencia": "texto",
+        "nivelDb": -21,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 22 @ 65.8 s · 3 notas"
+      },
+      {
+        "n": 20,
+        "comparacion": {
+          "esperadas": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "detectadas": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "aciertos": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "faltantes": [],
+          "extras": [],
+          "exacto": true
+        },
+        "msProceso": 452,
+        "referencia": "texto",
+        "nivelDb": -19,
+        "silencio": false,
+        "satura": false,
+        "detalle": "ataque 23 @ 69.3 s · 5 notas"
+      }
+    ],
+    "totales": {
+      "acordes": 20,
+      "acordesExactos": 9,
+      "porcentajeExactos": 45,
+      "notasEsperadas": 71,
+      "notasDetectadas": 81,
+      "aciertos": 67,
+      "recall": 94.4,
+      "precision": 82.7,
+      "msProcesoMedio": 439
+    },
+    "ataques": 23
+  }
+}

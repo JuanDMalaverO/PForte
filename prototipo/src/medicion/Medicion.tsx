@@ -22,12 +22,12 @@ import {
 } from './detector';
 import { STFT } from './fft';
 import { cargarHuellas, huellasVacias, teclasCalibradas, type Huellas } from './huellas';
-import { DetectorHuellas } from './nmf';
+import { DetectorHuellas, detectarAtaques } from './nmf';
 import { analizarClip, motorBasicPitch, motorHuellas, motorOnsetsFrames, type Motor, type NombreMotor } from './motores';
 import { crearEscuchaHuellas, crearEscuchaVentana, type Escucha } from './continuo';
 import { DetectorOaf } from './oaf';
 import { ACORDES_PRUEBA, sintetizarAcorde } from './sintetizador';
-import { compararAcorde, correrPruebaSintetica, percentil, totalizar, type ComparacionAcorde, type ResultadoSintetico } from './metricas';
+import { alinear, compararAcorde, correrPruebaSintetica, parecido, percentil, totalizar, type ComparacionAcorde, type ResultadoSintetico } from './metricas';
 import { conectarMidi, leerNotas, nombreNota, suscribirNotas, type NotaMidi } from '../midi';
 import { tiempoPerfATiempoAudio } from '../metronomo';
 import Calibracion from './Calibracion';
@@ -144,12 +144,54 @@ export default function Medicion() {
   };
 
   // --- 4. archivo -----------------------------------------------------------------
-  const [notasArchivo, setNotasArchivo] = useState<{ notas: NotaDetectada[]; ms: number; detalle: string } | null>(null);
+  // Dos modos: sin lista esperada, transcribe todo el archivo; con una lista
+  // (un acorde por línea), corta la grabación por ataques y evalúa el k-ésimo
+  // ataque contra la k-ésima línea, como el bloque 5 pero sin tocar en vivo.
+  const [esperadoArchivo, setEsperadoArchivo] = useState('');
+  const [resultadoArchivo, setResultadoArchivo] = useState<
+    | { modo: 'notas'; notas: NotaDetectada[]; ms: number; detalle: string }
+    | { modo: 'acordes'; filas: FilaPrecision[]; totales: ReturnType<typeof totalizar>; ataques: number }
+    | null
+  >(null);
   const analizarArchivo = async (archivo: File | undefined) => {
     if (!archivo || !motor) return;
-    const clip = await decodificarArchivo(archivo, motor.tasa);
-    const r = await analizarClip(motor, clip, null, 10);
-    setNotasArchivo({ notas: r.notas, ms: r.msProceso, detalle: r.detalle });
+    const lineas = esperadoArchivo.split('\n').map(leerNotas).filter((l) => l.length > 0);
+    if (lineas.length === 0) {
+      const clip = await decodificarArchivo(archivo, motor.tasa);
+      const r = await analizarClip(motor, clip, null, 10);
+      setResultadoArchivo({ modo: 'notas', notas: r.notas, ms: r.msProceso, detalle: r.detalle });
+      return;
+    }
+    const clipStft = await decodificarArchivo(archivo, stft.tasa);
+    // Ataques; dos a menos de 350 ms se consideran el mismo (golpe repetido, martillo).
+    const ataques = detectarAtaques(clipStft, stft).filter((t, i, arr) => i === 0 || t - arr[i - 1] > 0.35);
+    const clipMotor = await remuestrear(clipStft, stft.tasa, motor.tasa);
+    // Segmento de cada ataque: desde 100 ms antes hasta el siguiente ataque (máximo 3 s).
+    const segmentoDe = (k: number) => {
+      const t0 = ataques[k];
+      const t1 = Math.min(ataques[k + 1] ?? t0 + 3, t0 + 3);
+      return clipMotor.subarray(Math.max(0, Math.floor((t0 - 0.1) * motor.tasa)), Math.floor((t1 - 0.1) * motor.tasa));
+    };
+    // Pasada 1, sin saber qué se espera: ¿qué hay en cada ataque? Sirve para
+    // emparejar ataques con acordes por contenido (una grabación real tiene
+    // golpes repetidos y notas sueltas que corren la cuenta).
+    const contenido: number[][] = [];
+    for (let k = 0; k < ataques.length; k++) contenido.push((await analizarClip(motor, segmentoDe(k), null, 10)).notas.map((n) => n.midi));
+    const similitud = contenido.map((c) => lineas.map((e) => parecido(c, e)));
+    const emparejado = alinear(similitud, lineas.length);
+    // Pasada 2, con lo esperado: la evaluación de verdad (el motor de huellas
+    // acota candidatas a las esperadas y sus vecinas, como en el producto).
+    const filas: FilaPrecision[] = [];
+    for (const [j, esperadas] of lineas.entries()) {
+      const k = emparejado[j];
+      if (k === null) {
+        filas.push({ n: j + 1, comparacion: compararAcorde(esperadas, []), msProceso: 0, referencia: 'texto', nivelDb: -180, silencio: true, satura: false, detalle: 'sin ataque emparejado' });
+        continue;
+      }
+      const r = await analizarClip(motor, segmentoDe(k), null, 10, esperadas);
+      filas.push({ n: j + 1, comparacion: compararAcorde(esperadas, r.notas.map((n) => n.midi)), msProceso: r.msProceso, referencia: 'texto', nivelDb: r.nivelDb, silencio: r.silencio, satura: r.satura, detalle: `ataque ${k + 1} @ ${ataques[k].toFixed(1)} s · ${r.detalle}` });
+    }
+    setResultadoArchivo({ modo: 'acordes', filas, totales: totalizar(filas), ataques: ataques.length });
   };
 
   // --- 5. precisión por acorde ----------------------------------------------------
@@ -342,14 +384,35 @@ export default function Medicion() {
 
       <div className="caja">
         <h3>4. Archivo de audio grabado (wav/mp3/ogg)</h3>
+        <p>
+          <label>Esperado, opcional (un acorde por línea, en el orden en que se tocó; vacío = transcribir todo):<br />
+            <textarea id="esperado-archivo" rows={3} style={{ width: 320 }} value={esperadoArchivo} onChange={(e) => setEsperadoArchivo(e.target.value)} placeholder={'C4 E4 G4\nF4 A4 C5\n...'} />
+          </label>{' '}
+          <button onClick={() => setEsperadoArchivo(ACORDES_PRUEBA.map((a) => nombres(a.midis)).join('\n'))}>usar los 20 acordes de prueba</button>
+        </p>
         <input id="archivo-audio" type="file" accept="audio/*" onChange={(e) => analizarArchivo(e.target.files?.[0])} disabled={!motor} />
-        {notasArchivo && (
+        {resultadoArchivo?.modo === 'notas' && (
           <>
             <p className="mono">
-              {notasArchivo.detalle} · {notasArchivo.notas.length} notas en {notasArchivo.ms} ms:{' '}
-              {notasArchivo.notas.map((n) => `${nombreNota(n.midi)}@${n.inicioSeg.toFixed(2)}s`).join('  ')}
+              {resultadoArchivo.detalle} · {resultadoArchivo.notas.length} notas en {resultadoArchivo.ms} ms:{' '}
+              {resultadoArchivo.notas.map((n) => `${nombreNota(n.midi)}@${n.inicioSeg.toFixed(2)}s`).join('  ')}
             </p>
-            <pre id="resultado-archivo" className="mono" hidden>{JSON.stringify({ motor: nombreMotor, ...notasArchivo })}</pre>
+            <pre id="resultado-archivo" className="mono" hidden>{JSON.stringify({ motor: nombreMotor, ...resultadoArchivo })}</pre>
+          </>
+        )}
+        {resultadoArchivo?.modo === 'acordes' && (
+          <>
+            <p>
+              {resultadoArchivo.ataques} ataques en la grabación para {resultadoArchivo.filas.length} acordes esperados
+              {' · '}Acordes exactos: <b>{resultadoArchivo.totales.acordesExactos}/{resultadoArchivo.totales.acordes} ({resultadoArchivo.totales.porcentajeExactos}%)</b>
+              {' · '}Recall: <b>{resultadoArchivo.totales.recall}%</b> · Precisión: <b>{resultadoArchivo.totales.precision}%</b>
+              {' · '}Proceso medio: <b>{resultadoArchivo.totales.msProcesoMedio} ms</b>
+            </p>
+            <TablaAcordes filas={resultadoArchivo.filas.map((f) => ({
+              n: f.n, nombre: `${f.nivelDb} dB${f.satura ? ' · SATURA' : ''}${f.silencio ? ' · silencio' : ''}`,
+              comparacion: f.comparacion, ms: f.msProceso, detalle: f.detalle,
+            }))} />
+            <pre id="resultado-archivo" className="mono" hidden>{JSON.stringify({ motor: nombreMotor, ...resultadoArchivo })}</pre>
           </>
         )}
       </div>

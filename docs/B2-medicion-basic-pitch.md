@@ -1,6 +1,6 @@
 # B2 · Detección por micrófono: tres motores, mismos acordes
 
-**Novedad (16 sep, noche):** con la grabación real de la escala de Juan (34 notas), el motor de huellas **calibrado** dio 34/34 exactas sin extras; Onsets and Frames 33/34; basic-pitch 26/34 con 8 octavas fantasma (§4b). Falta la grabación de acordes.
+**Resultado con el piano real de Juan (16–17 sep):** en la escala (34 notas sueltas) el motor de huellas calibrado dio 34/34 y Onsets and Frames 33/34 (§4b). En los **20 acordes**, sabiendo qué se espera, el motor de huellas dio **16/20 exactos, recall 93 %, precisión 96 %** en 21 ms por acorde, contra 9/20 de Onsets and Frames y 2/20 de basic-pitch (§4c). Conclusión: **el micrófono es viable como segunda vía para puntuar lo esperado**, con el motor de huellas informado por la partitura; MIDI sigue siendo la principal.
 
 **Resumen (16 sep 2026, ronda 3):** las pruebas de Juan con piano real mostraron los tres defectos de la primera versión (saturación a 10 cm, sin compuerta de silencio, captura que perdía bloques) y después un cuarto en el motor de huellas (confusión de octava hacia abajo). Los cuatro están corregidos. Hoy el prototipo tiene **tres motores intercambiables** medidos con la misma batería: basic-pitch (genérico), **huellas + NMF con selección dispersa** (nuestro, informado por la partitura, sin GPU) y **Onsets and Frames** (Magenta, específico de piano). En sintético, huellas da 100 % en todo; Onsets and Frames es el único con cero fantasmas pero pierde notas del sintetizador. **La decisión final requiere grabaciones del piano de Juan**; el protocolo está en §7.
 
@@ -70,6 +70,27 @@ Lectura: en notas sueltas con piano real, **la calibración convierte al motor d
 
 Advertencia: las huellas se calibraron y evaluaron sobre la misma grabación (mismas notas, mismo momento). La prueba justa es calibrar con la escala y evaluar con la grabación de acordes.
 
+## 4c. La prueba decisiva: 20 acordes reales de Juan (grabación, 17 sep)
+
+Juan grabó los 20 acordes de la lista con el celular (`prueba2.mp3`). El script `scripts/evaluar-acordes.mjs` **calibra con la escala (prueba1) y evalúa con los acordes (prueba2)**: grabaciones distintas, la prueba justa. La grabación tiene 23 ataques para 20 acordes (golpes repetidos, notas sueltas antes de un acorde), así que el emparejamiento se hace **por contenido** (alineamiento por programación dinámica entre lo detectado en cada ataque y la lista esperada; `metricas.ts`). El acorde 10 se tocó distinto de la lista (F3 A3 C4 E4 en vez de F2 C3 A3 C4, según los tres motores), y cuenta como error en todos.
+
+| Motor | Exactos | Recall | Precisión | Proceso por acorde |
+|---|---|---|---|---|
+| **huellas por fórmula, sabiendo qué se espera** (esperadas y vecinas) | **16/20 (80 %)** | 93 % | **95,7 %** | 21 ms |
+| huellas calibradas con la escala, sabiendo qué se espera | 12/20 | 86 % | 92 % | 21 ms |
+| huellas calibradas, sin saber qué se espera (todas las teclas) | 4/20 | 85 % | 68 % | 21 ms |
+| basic-pitch | 2/20 | **96 %** | 67 % | 159 ms |
+| Onsets and Frames | 9/20 | 94 % | 83 % | 439 ms |
+
+Errores del mejor caso (huellas por fórmula, esperadas y vecinas): #8 confundió G3 con E3; #9 no vio D4; #17 no vio A4; #10 es el acorde mal tocado. Descontando #10: recall 95,5 %, precisión 98,5 %, 16/19 exactos.
+
+Tres lecciones que salieron de estos datos y quedaron en el código (`nmf.ts`):
+1. **La calibración con celular perjudica en acordes.** Un micrófono de celular casi no capta la fundamental de los graves; la huella calibrada de Do3 queda hecha de sus armónicos (Do4, Sol4, Do5…), y ante un acorde Do4-Mi4-Sol4 un solo "Do3" explica dos notas de golpe. Por eso las huellas por fórmula (que sí tienen fundamental) rinden mejor. Con un micrófono decente o calibrando desde la app en vivo con un buen mic habría que volver a medir.
+2. **Esperadas primero, vecinas después.** Cuando se sabe qué se espera, el motor prueba primero esas notas y admite una vecina solo si explica ≥ 5 % de la energía. Esto subió el resultado de 2/20 a 16/20. Es la ventaja estructural de saber la partitura, y no la tienen los transcriptores genéricos.
+3. **Coherencia de la fundamental.** Una nota entra solo si en la frecuencia de su fundamental hay al menos un cuarto de la energía que su huella predice.
+
+Sin saber qué se espera (transcripción libre), el mejor es Onsets and Frames (94 % / 83 %), a 20 veces el costo.
+
 ## 5. Higiene de señal (vale para los tres motores)
 
 Implementada en `detector.ts` (clase `Microfono`) y `motores.ts` (`analizarClip`): captura por **AudioWorklet** (no pierde muestras cuando el hilo principal está ocupado; con `ScriptProcessorNode` las detecciones se adelantaban hasta 6 s), filtro pasa-altos 40 Hz, **piso de ruido calibrado** y **compuerta** (nada a menos de 10 dB del piso se analiza), **detector de saturación** ("SATURA: alejá el micrófono"), selector de micrófono, nivel en dB, y captura que arranca en el "1" de la cuenta para no perder el ataque.
@@ -84,10 +105,10 @@ Implementada en `detector.ts` (clase `Microfono`) y `motores.ts` (`analizarClip`
 ## 7. Protocolo con piano real (lo hace Juan; 30 minutos)
 
 **Grabaciones para evaluar sin tocar cada vez** (lo más valioso): con el celular a 50 cm del piano, en un cuarto normal:
-1. ✅ `prueba1.mp3`: la escala cromática de **Fa2 a Re5** (hecha; resultados en §4b).
-2. ⬜ `acordes`: los 20 acordes de la lista (bloque 5 muestra uno por uno con "siguiente"), en orden, 3 s entre cada uno, sostenidos ~1,5 s. **Pendiente.**
+1. ✅ `prueba1.mp3`: la escala cromática de **Fa2 a Re5** (resultados en §4b).
+2. ✅ `prueba2.mp3`: los 20 acordes de la lista (resultados en §4c).
 
-Con esos dos archivos se corren los tres motores sobre *ese* piano de forma automática y repetible: `node scripts/evaluar-grabacion.mjs <archivo> 41 74` para la escala; para los acordes se agregará el modo correspondiente al mismo script.
+Se corren con `node scripts/evaluar-grabacion.mjs docs/resultados/muestras/prueba1.mp3 41 74` y `node scripts/evaluar-acordes.mjs docs/resultados/muestras/prueba1.mp3 docs/resultados/muestras/prueba2.mp3`. Cualquier grabación nueva (otro piano, otro micrófono, otra sala) se evalúa igual, sin tocar en vivo. En la app, el bloque 4 acepta la lista esperada (un acorde por línea) y hace lo mismo a mano.
 
 **Pruebas en vivo**, en la pantalla B2:
 1. Micrófono a **50 cm – 1 m**; Windows → Sonido → micrófono → desactivar "mejoras de audio". Al tocar, nivel entre −30 y −10 dB sin "SATURA".

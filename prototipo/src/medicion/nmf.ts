@@ -18,7 +18,7 @@
 import type { STFT } from './fft';
 import { ataquesDeFrames, tieneSubidaDeEnergia } from './ataques';
 import { dB, percentil } from './fft';
-import { huellaDe, ruidoDe, type Huellas } from './huellas';
+import { huellaDe, midiAHz, ruidoDe, type Huellas } from './huellas';
 
 export interface OpcionesNmf {
   iteraciones: number;
@@ -32,10 +32,19 @@ export interface OpcionesNmf {
   mejoraMinima: number;
   /** Máximo de notas simultáneas que buscamos. */
   maxNotas: number;
+  /**
+   * Coherencia de la fundamental: una nota entra solo si el espectro tiene, en
+   * la frecuencia de su fundamental, al menos esta fracción de la energía que
+   * su propia huella predice. Un Do3 "fantasma" que solo explica los armónicos
+   * de un Do4+Sol4 predice energía en 131 Hz que no está, y queda afuera.
+   */
+  fundamentalMinima: number;
+  /** Una candidata NO esperada (vecina) debe explicar al menos esta fracción de la energía para entrar. */
+  mejoraMinimaVecinas: number;
 }
 
 export const OPCIONES_NMF: OpcionesNmf = {
-  iteraciones: 60, umbralRelativo: 0.2, framesEvaluacion: 12, margenCompuertaDb: 10, mejoraMinima: 0.01, maxNotas: 8,
+  iteraciones: 60, umbralRelativo: 0.2, framesEvaluacion: 12, margenCompuertaDb: 10, mejoraMinima: 0.01, maxNotas: 8, fundamentalMinima: 0.25, mejoraMinimaVecinas: 0.05,
 };
 
 /** Activaciones h ≥ 0 tales que v ≈ Σ h_k · W_k. */
@@ -82,6 +91,23 @@ export interface Evaluacion {
   ruido: number;
 }
 
+/**
+ * Instantes de ataque de un clip (segundos): flujo espectral + subida de
+ * energía + por encima de la compuerta. Lo usan el motor de huellas y la
+ * evaluación de grabaciones por acorde (sirve para cualquier motor).
+ */
+export function detectarAtaques(clip: Float32Array, stft: STFT, pisoDb?: number | null, margenDb = 10): number[] {
+  const { espectros, tiempos, rms } = stft.frames(clip);
+  if (espectros.length === 0) return [];
+  const rmsDb = rms.map(dB);
+  const piso = pisoDb ?? Math.min(percentil(rmsDb, 10), -40);
+  const compuerta = piso + margenDb;
+  return ataquesDeFrames(espectros, tiempos, stft.hopSeg)
+    .filter((i) => rmsDb[Math.min(i + 1, rmsDb.length - 1)] > compuerta)
+    .filter((i) => tieneSubidaDeEnergia(rms, i))
+    .map((i) => tiempos[i]);
+}
+
 export class DetectorHuellas {
   readonly stft: STFT;
   huellas: Huellas;
@@ -123,9 +149,12 @@ export class DetectorHuellas {
    * el espectro, Fa3 (cuyos armónicos pares son los de Fa4) no aporta nada
    * nuevo y no entra: es la defensa contra la confusión de octava.
    */
-  evaluar(espectros: Float32Array[], candidatos: number[]): Evaluacion {
+  evaluar(espectros: Float32Array[], candidatos: number[], prioritarias: number[] = []): Evaluacion {
     const W = candidatos.map((m) => huellaDe(this.huellas, m, this.stft).vector);
     const ruido = ruidoDe(this.huellas);
+    // Bin de la fundamental de cada candidata (para el chequeo de coherencia).
+    const binF0 = candidatos.map((m) => Math.round(this.stft.binDe(midiAHz(m))));
+    const energiaEn = (vec: Float32Array, bin: number) => Math.max(vec[Math.max(0, bin - 1)] ?? 0, vec[bin] ?? 0, vec[Math.min(vec.length - 1, bin + 1)] ?? 0);
     // Espectro promedio del grupo de frames: más estable que frame a frame.
     const v = new Float32Array(espectros[0].length);
     for (const e of espectros) for (let i = 0; i < v.length; i++) v[i] += e[i] / espectros.length;
@@ -147,32 +176,50 @@ export class DetectorHuellas {
     };
 
     const elegidos: number[] = [];
+    const descartados = new Set<number>();
     let actual = residuoDe([]); // solo ruido
     let hFinal = actual.h;
-    while (elegidos.length < this.opciones.maxNotas) {
-      // Residuo actual (lo que las elegidas + ruido todavía no explican).
-      const r = Float32Array.from(v);
-      [...elegidos.map((k) => W[k]), ruido].forEach((w, j) => {
-        for (let i = 0; i < r.length; i++) r[i] -= hFinal[j] * w[i];
-      });
-      for (let i = 0; i < r.length; i++) if (r[i] < 0) r[i] = 0;
-      let mejor = -1;
-      let mejorCorr = 0;
-      candidatos.forEach((_, k) => {
-        if (elegidos.includes(k)) return;
-        const c = punto(r, W[k]);
-        if (c > mejorCorr) {
-          mejorCorr = c;
-          mejor = k;
+    // Dos etapas: primero solo las prioritarias (las notas esperadas, si las
+    // hay), después el resto para lo que quede sin explicar. Así las vecinas
+    // no le "roban" energía a una nota esperada que sí está sonando.
+    const etapas = prioritarias.length
+      ? [candidatos.map((m, k) => (prioritarias.includes(m) ? k : -1)).filter((k) => k >= 0), candidatos.map((_, k) => k)]
+      : [candidatos.map((_, k) => k)];
+    for (const [etapa, permitidos] of etapas.entries()) {
+      // En la segunda etapa (vecinas, no esperadas) se exige más evidencia.
+      const mejoraMinima = prioritarias.length && etapa === 1 ? this.opciones.mejoraMinimaVecinas : this.opciones.mejoraMinima;
+      while (elegidos.length < this.opciones.maxNotas) {
+        // Residuo actual (lo que las elegidas + ruido todavía no explican).
+        const r = Float32Array.from(v);
+        [...elegidos.map((k) => W[k]), ruido].forEach((w, j) => {
+          for (let i = 0; i < r.length; i++) r[i] -= hFinal[j] * w[i];
+        });
+        for (let i = 0; i < r.length; i++) if (r[i] < 0) r[i] = 0;
+        let mejor = -1;
+        let mejorCorr = 0;
+        for (const k of permitidos) {
+          if (elegidos.includes(k) || descartados.has(k)) continue;
+          const c = punto(r, W[k]);
+          if (c > mejorCorr) {
+            mejorCorr = c;
+            mejor = k;
+          }
         }
-      });
-      if (mejor < 0) break;
-      const prueba = residuoDe([...elegidos, mejor]);
-      const mejora = (actual.energia - prueba.energia) / energiaTotal;
-      if (mejora < this.opciones.mejoraMinima) break;
-      elegidos.push(mejor);
-      actual = prueba;
-      hFinal = prueba.h;
+        if (mejor < 0) break;
+        const prueba = residuoDe([...elegidos, mejor]);
+        const mejora = (actual.energia - prueba.energia) / energiaTotal;
+        if (mejora < mejoraMinima) break;
+        // Coherencia de la fundamental: lo que la huella predice en f0 vs lo que hay.
+        const hCandidata = prueba.h[elegidos.length];
+        const predicha = hCandidata * energiaEn(W[mejor], binF0[mejor]);
+        if (predicha > 0 && energiaEn(v, binF0[mejor]) < this.opciones.fundamentalMinima * predicha) {
+          descartados.add(mejor);
+          continue;
+        }
+        elegidos.push(mejor);
+        actual = prueba;
+        hFinal = prueba.h;
+      }
     }
 
     const activacion = new Map<number, number>();
@@ -220,7 +267,7 @@ export class DetectorHuellas {
         if (rmsDb[i] > compuerta) indices.push(i);
       }
       if (indices.length === 0) continue;
-      const { presentes, activacion } = this.evaluar(indices.map((i) => espectros[i]), candidatos);
+      const { presentes, activacion } = this.evaluar(indices.map((i) => espectros[i]), candidatos, esperadas ?? []);
       for (const m of presentes) {
         notas.push({
           midi: m,
