@@ -48,6 +48,8 @@ Estas dos pruebas no pudieron repetirse todavía con las correcciones: por eso �
 | Micrófono falso | Onsets and Frames (cada 250 ms) | 11–14/20 (dos corridas) | 70–100 % | 91–93 % | 210–577 ms | 133–258 ms (se queda atrás si la máquina está cargada) |
 | Clip de silencio | los tres | nada detectado | | | | |
 
+**Aviso sobre el modo continuo:** estos números varían de corrida a corrida según lo ocupada que esté la máquina. En cuatro corridas, huellas dio 20/20, 12/20, 20/20 y 12/20; las buenas fueron con la máquina libre. La causa no es el cómputo (1 ms por evaluación) sino que el análisis de frames se hace en el hilo principal: si está ocupado, los frames se procesan a los tirones y el detector de ataques pierde el hilo. El audio no se pierde (lo guarda el AudioWorklet), pero el ritmo del análisis sí se altera. Los números por clip (§4b y §4c, que analizan grabaciones enteras) no tienen este problema y son los que hay que mirar para decidir el motor. **Pendiente:** mover el análisis a un worker si el micrófono entra al producto.
+
 Lectura honesta:
 - Las huellas se calibraron con el mismo piano sintético que después se evaluó: mejor caso posible. Lo que vale es que la selección dispersa arregló en sintético el mismo tipo de error que Juan vio con el piano real; falta confirmarlo con el piano real.
 - Onsets and Frames **nunca inventa notas** (precisión 100 % en sintético) pero pierde notas del sintetizador, que no suena a piano real. Es esperable que con el piano de Juan vea más. Es el candidato serio si el motor de huellas no rinde con piano real.

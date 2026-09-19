@@ -76,6 +76,7 @@ public/model-oaf/     modelo Onsets and Frames (60 MB; no está en git: `node sc
 scripts/verificar.mjs prueba automática con Playwright (batería completa)
 scripts/verificar-sesion.mjs  verifica T1: la sesión se guarda sola y con la forma pedida
 scripts/pieza-fija.mjs  la pieza de pieza.ts para los scripts, y cómo "tocarla"
+scripts/capturas.mjs      capturas de la pantalla en docs/resultados/diseno-*.png
 scripts/parchar-magenta.mjs  parche a Magenta para Vite (corre en npm install)
 scripts/barrer-amplitud.mjs  barrido del filtro de amplitud de basic-pitch
 scripts/evaluar-grabacion.mjs  los tres motores sobre una grabación real de la escala (docs/resultados/muestras/)

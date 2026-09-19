@@ -1,16 +1,312 @@
-/* Sin diseño a propósito. Solo lo mínimo para que se lea. */
-body { font-family: system-ui, sans-serif; margin: 16px; color: #111; background: #fff; }
-button { margin-right: 6px; }
-label { margin-right: 12px; }
-input[type="number"] { width: 60px; }
-table { border-collapse: collapse; margin-top: 8px; }
-td, th { border: 1px solid #999; padding: 2px 8px; font-size: 13px; text-align: right; }
+/* ============================================================================
+   index.css — Diseño temporal para las pruebas con alumnos.
+   No es el diseño final: es "que no dé vergüenza sentar a alguien enfrente".
+
+   Idea: la partitura es una hoja de papel sobre un escritorio claro. Todo lo
+   demás (controles, resultados) son tarjetas discretas alrededor. Un solo
+   color de acento para lo que está pasando ahora.
+
+   Reglas que respeta el marcado (no romper sin mirar los scripts de prueba):
+     - el primer input[type=number] es el tempo
+     - el primer input[type=checkbox] es el teclado de PC
+     - las clases .caja, .mono, .ok, .mal, .extra siguen existiendo
+   ========================================================================= */
+
+:root {
+  --fondo: #f6f5f2;
+  --papel: #fff;
+  --tinta: #1d1c1a;
+  --tinta-suave: #6d6a64;
+  --tinta-tenue: #9a968e;
+  --borde: #e4e1db;
+  --borde-fuerte: #d3cfc7;
+  --acento: #2f6f6b;
+  --acento-claro: #e8f1f0;
+  --ok: #2c7a4b;
+  --mal: #b3261e;
+  --extra: #9a6400;
+  --radio: 10px;
+  --sombra: 0 1px 2px rgb(0 0 0 / 4%), 0 6px 20px rgb(0 0 0 / 5%);
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fuente-mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 20px 64px;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--fuente);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { max-width: 1040px; margin: 0 auto; }
+
+/* --- encabezado ---------------------------------------------------------- */
+
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  padding: 24px 0 16px;
+  border-bottom: 1px solid var(--borde);
+  margin-bottom: 20px;
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.encabezado .subtitulo { color: var(--tinta-tenue); font-size: 13px; margin-right: auto; }
+
+.pestanas { display: flex; gap: 4px; }
+
+.pestanas button {
+  margin: 0;
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: none;
+  color: var(--tinta-suave);
+  font: inherit;
+  cursor: pointer;
+}
+
+.pestanas button:hover:not(:disabled) { background: #eceae5; color: var(--tinta); }
+
+.pestanas button:disabled {
+  background: var(--papel);
+  border-color: var(--borde-fuerte);
+  color: var(--tinta);
+  font-weight: 600;
+  cursor: default;
+  opacity: 1;
+}
+
+/* --- tarjetas ------------------------------------------------------------ */
+
+.caja {
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 16px;
+  margin: 0 0 16px;
+}
+
+.caja > h3 { margin: 0 0 12px; font-size: 14px; font-weight: 600; }
+
+.titulo-seccion {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+}
+
+/* --- controles ----------------------------------------------------------- */
+
+.controles { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 18px; }
+
+.campo { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--tinta-suave); }
+
+.campo > span { letter-spacing: 0.02em; }
+
+label { margin: 0; }
+
+input, select, textarea {
+  font: inherit;
+  color: var(--tinta);
+  background: var(--papel);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 7px;
+  padding: 6px 8px;
+}
+
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 1px;
+}
+
+input[type="number"] { width: 72px; }
+input[type="checkbox"] { width: auto; accent-color: var(--acento); }
+input:disabled, select:disabled, button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.interruptor {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--tinta-suave);
+  padding-bottom: 6px;
+}
+
+button {
+  margin: 0 6px 0 0;
+  padding: 7px 14px;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 7px;
+  background: var(--papel);
+  color: var(--tinta);
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) { background: #f2f0ec; }
+
+.principal {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 22px;
+}
+
+.principal:hover:not(:disabled) { background: #275c58; }
+
+/* --- estado de la sesión ------------------------------------------------- */
+
+.tira-estado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--borde);
+}
+
+.chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eceae5;
+  color: var(--tinta-suave);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chip.tocando { background: var(--acento-claro); color: var(--acento); }
+.chip.terminado { background: #e7f2ea; color: var(--ok); }
+
+.pulsos { display: flex; gap: 7px; }
+
+.pulso {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #dedbd4;
+  transition: transform 80ms ease-out, background-color 80ms ease-out;
+}
+
+.pulso.activo { background: var(--acento); transform: scale(1.35); }
+
+.donde { font-size: 13px; color: var(--tinta-suave); font-variant-numeric: tabular-nums; }
+
+/* --- partitura ----------------------------------------------------------- */
+
+/* Sin padding a propósito: las tapas de los compases se posicionan en
+   coordenadas de OSMD relativas a este contenedor, y cualquier relleno las
+   correría respecto de la música. El aire lo pone la propia partitura. */
+#partitura {
+  position: relative;
+  overflow: hidden;
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+#partitura.tocando { box-shadow: var(--sombra), 0 0 0 2px var(--acento-claro); }
+
+/* El rectángulo que tapa un compás: mismo blanco que el papel. */
+.tapa { position: absolute; background: var(--papel); border: 1px solid #f0eeea; pointer-events: none; }
+
+.pie { color: var(--tinta-tenue); font-size: 12px; margin: 0 0 16px; }
+
+/* --- tablas -------------------------------------------------------------- */
+
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+
+th, td {
+  border-bottom: 1px solid var(--borde);
+  padding: 6px 10px;
+  font-size: 13px;
+  text-align: right;
+}
+
+thead th {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+  border-bottom-color: var(--borde-fuerte);
+}
+
 th:first-child, td:first-child { text-align: left; }
-.ok { color: green; } .mal { color: #c00; } .extra { color: #b60; }
-#partitura { position: relative; border: 1px dashed #aaa; margin: 8px 0; overflow: hidden; }
-.tapa { position: absolute; background: #fff; border: 1px solid #e0e0e0; pointer-events: none; }
-.pulso { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #ddd; margin-right: 4px; vertical-align: middle; }
-.pulso.activo { background: #f33; }
-.caja { border: 1px solid #ccc; padding: 8px; margin: 8px 0; }
-.mono { font-family: monospace; font-size: 12px; white-space: pre-wrap; }
-.satura { color: #fff; background: #c00; padding: 0 4px; font-weight: bold; }
+tbody tr:last-child td { border-bottom: none; }
+tbody th { font-weight: 600; border-top: 1px solid var(--borde-fuerte); }
+
+.ok { color: var(--ok); }
+.mal { color: var(--mal); }
+.extra { color: var(--extra); }
+.satura { color: #fff; background: var(--mal); padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+
+/* --- secciones plegables (lo que el alumno no necesita ver) --------------- */
+
+details.caja { padding: 0; }
+
+details.caja > summary {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tinta-suave);
+  cursor: pointer;
+  list-style: none;
+}
+
+details.caja > summary::-webkit-details-marker { display: none; }
+details.caja > summary::before { content: "▸ "; color: var(--tinta-tenue); }
+details.caja[open] > summary { border-bottom: 1px solid var(--borde); }
+details.caja[open] > summary::before { content: "▾ "; }
+details.caja > .contenido { padding: 14px 16px 16px; }
+
+/* --- texto monoespaciado (registros, JSON, chequeos) --------------------- */
+
+.mono {
+  font-family: var(--fuente-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: var(--tinta-suave);
+}
+
+.aviso-guardado {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid #cfe3d8;
+  border-left: 3px solid var(--ok);
+  border-radius: 7px;
+  background: #f1f8f3;
+  color: var(--tinta);
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+
+.aviso-guardado b { font-family: var(--fuente-mono); font-weight: 600; }
+
+textarea { width: 100%; font-family: var(--fuente-mono); font-size: 12px; }

@@ -176,6 +176,8 @@ if (desvios.length) {
 }
 
 // --- 3. generador y repertorio -----------------------------------------------------
+// Los controles de esta sección van plegados (el alumno no los necesita ver).
+await pagina.locator('details').evaluateAll((lista) => lista.forEach((d) => { d.open = true; }));
 const niveles = await pagina.locator('select option').allTextContents();
 for (const [i, nivel] of niveles.entries()) {
   await pagina.selectOption('select', { label: nivel });

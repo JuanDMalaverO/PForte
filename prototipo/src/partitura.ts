@@ -12,7 +12,7 @@
 // líneas del pentagrama es 1 unidad).
 // ============================================================================
 
-import { OpenSheetMusicDisplay } from 'opensheetmusicdisplay';
+import { OpenSheetMusicDisplay, type GraphicalMeasure } from 'opensheetmusicdisplay';
 import type { NotaEsperada } from './comparador';
 
 const PIXELES_POR_UNIDAD = 10;
@@ -85,8 +85,8 @@ export class Partitura {
     const porPentagrama = this.osmd.GraphicSheet.MeasureList[indice];
     if (!porPentagrama) return;
 
-    // Caja que abarca el compás en todos los pentagramas.
-    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    // Ancho: el compás en todos los pentagramas.
+    let x0 = Infinity, x1 = -Infinity;
     for (const medida of porPentagrama) {
       if (!medida) continue;
       const pos = medida.PositionAndShape.AbsolutePosition;
@@ -95,13 +95,18 @@ export class Partitura {
       // del sistema. No lo tapamos para que la clave siga visible.
       x0 = Math.min(x0, pos.x + (medida.beginInstructionsWidth ?? 0));
       x1 = Math.max(x1, pos.x + tam.width);
-      y0 = Math.min(y0, pos.y);
-      y1 = Math.max(y1, pos.y + tam.height);
     }
     if (!isFinite(x0)) return;
+    // La caja de un compás termina antes de la barra que lo cierra. Sin este
+    // pedacito, entre tapa y tapa queda un hilo de pentagrama a la vista.
+    x1 += 0.6;
+
+    // Alto: el del SISTEMA entero (el renglón de música), no el de cada compás.
+    // La caja de un compás depende de sus notas, así que si cada tapa usa la
+    // suya quedan a distinta altura y la fila se ve dentada.
+    const { y0, y1, margen } = this.altoDelSistema(porPentagrama);
 
     const escala = PIXELES_POR_UNIDAD * this.osmd.zoom;
-    const margen = 3; // unidades extra arriba y abajo: plicas y líneas adicionales
     const tapa = document.createElement('div');
     tapa.className = 'tapa';
     tapa.dataset.compas = String(indice);
@@ -111,6 +116,33 @@ export class Partitura {
     tapa.style.height = `${(y1 - y0 + 2 * margen) * escala}px`;
     this.contenedor.appendChild(tapa);
     this.tapas.set(indice, tapa);
+  }
+
+  /**
+   * Extensión vertical de la tapa, en unidades de OSMD. Se toma del sistema
+   * (el renglón completo, con sus dos pentagramas) para que todas las tapas
+   * del mismo renglón queden alineadas. Si por lo que sea no hay sistema, se
+   * cae a la caja de cada compás con un margen a ojo para plicas y líneas
+   * adicionales.
+   */
+  private altoDelSistema(porPentagrama: GraphicalMeasure[]): { y0: number; y1: number; margen: number } {
+    // Las cajas de los pentagramas (las cinco líneas) son iguales en todo el
+    // renglón, a diferencia de las de cada compás. El margen cubre lo que se
+    // dibuja fuera del pentagrama: plicas, líneas adicionales y el número de
+    // compás. La del sistema entero sobra por abajo, por eso no se usa.
+    const lineas = porPentagrama.map((m) => m?.ParentStaffLine).filter(Boolean);
+    if (lineas.length > 0) {
+      const arriba = Math.min(...lineas.map((l) => l.PositionAndShape.AbsolutePosition.y));
+      const abajo = Math.max(...lineas.map((l) => l.PositionAndShape.AbsolutePosition.y + l.PositionAndShape.Size.height));
+      return { y0: arriba, y1: abajo, margen: 2.5 };
+    }
+    let y0 = Infinity, y1 = -Infinity;
+    for (const medida of porPentagrama) {
+      if (!medida) continue;
+      y0 = Math.min(y0, medida.PositionAndShape.AbsolutePosition.y);
+      y1 = Math.max(y1, medida.PositionAndShape.AbsolutePosition.y + medida.PositionAndShape.Size.height);
+    }
+    return { y0, y1, margen: 3 };
   }
 
   mostrarTodo(): void {
