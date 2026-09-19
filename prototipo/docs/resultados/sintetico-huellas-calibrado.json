@@ -24,7 +24,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 14,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -49,7 +49,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 13,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -74,7 +74,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 30,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -99,7 +99,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 10,
+      "msProceso": 13,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -124,7 +124,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 14,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -149,7 +149,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 14,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -177,7 +177,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 10,
+      "msProceso": 13,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -205,7 +205,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 12,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -233,7 +233,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 12,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -261,7 +261,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 18,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -286,7 +286,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 16,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -311,7 +311,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 10,
+      "msProceso": 14,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -339,7 +339,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 14,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -367,7 +367,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 16,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -398,7 +398,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 13,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -426,7 +426,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 13,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -454,7 +454,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 10,
+      "msProceso": 16,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -479,7 +479,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 14,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -504,7 +504,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 13,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -532,7 +532,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 11,
+      "msProceso": 12,
       "detalle": "sin ataque claro; se evaluó desde que hubo señal"
     },
     {
@@ -558,6 +558,6 @@
     "aciertos": 71,
     "recall": 100,
     "precision": 100,
-    "msProcesoMedio": 10
+    "msProcesoMedio": 14
   }
 }

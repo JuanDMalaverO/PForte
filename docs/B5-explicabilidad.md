@@ -17,6 +17,7 @@ Todo vive en `prototipo/src/`. Son 21 archivos de código; el más largo es la p
 | `metronomo.ts` | Click con Web Audio y "scheduling anticipado": un timer poco preciso cada 25 ms agenda con el reloj de audio (preciso) los clicks de los próximos 100 ms. Es también el reloj musical: convierte "instante" en "pulso". | Web Audio |
 | `midi.ts` | Web MIDI: escucha `note on` de todos los teclados conectados y avisa a quien se haya suscrito. Incluye el modo de prueba con el teclado de la PC y dos utilidades (`nombreNota`, `leerNotas`). | Web MIDI |
 | `comparador.ts` | La regla de corrección: una nota tocada es correcta si hay una esperada con el mismo MIDI a menos de medio pulso de distancia; si no, es extra; lo que nunca llegó es fallido. | nada |
+| `sesion.ts` | Al terminar el ejercicio arma el JSON de la sesión (compás por compás: esperadas, tocadas, faltantes, extras y el instante de cada nota) y lo baja como archivo con fecha y hora en el nombre. Sin backend. | comparador |
 | `generador.ts` | Ruta 2 de B3: fabrica un MusicXML de N compases a partir de parámetros de dificultad y una semilla; devuelve también la lista de notas que escribió. Incluye `medirDificultad`. | nada |
 
 ### La medición por micrófono (B2), en `src/medicion/`

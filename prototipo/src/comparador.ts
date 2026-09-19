@@ -33,6 +33,8 @@ export interface ResultadoNota {
   estado: EstadoNota;
   /** Cuánto se adelantó (-) o atrasó (+) la nota tocada, en pulsos. */
   desvioPulsos?: number;
+  /** Pulso en que se tocó realmente (solo si estado === 'correcta'). */
+  pulsoTocado?: number;
 }
 
 export interface Resumen {
@@ -69,6 +71,7 @@ export class Comparador {
     if (mejor) {
       mejor.estado = 'correcta';
       mejor.desvioPulsos = tocada.pulso - mejor.esperada.pulso;
+      mejor.pulsoTocado = tocada.pulso;
       return mejor;
     }
     this.extras.push(tocada);

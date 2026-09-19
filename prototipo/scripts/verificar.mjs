@@ -24,24 +24,13 @@
 import { chromium } from 'playwright';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+// La pieza y cómo tocarla viven en un solo lugar (lo comparte verificar-sesion.mjs).
+import { BPM, tocarPieza } from './pieza-fija.mjs';
 
 const DIRECCION = process.env.URL ?? 'http://localhost:5173/';
 const SALIDA = fileURLToPath(new URL('../docs/resultados/', import.meta.url));
 mkdirSync(SALIDA, { recursive: true });
 
-// La pieza fija, nota por nota (misma tabla que pieza.ts, contada a mano).
-const NOTAS = [
-  [60, 0], [62, 1], [64, 2], [65, 3], [48, 0],
-  [67, 4], [64, 6], [48, 4], [52, 4], [55, 4],
-  [65, 8], [64, 9], [62, 10], [60, 11], [41, 8], [43, 10],
-  [62, 12], [67, 14], [43, 12], [47, 12], [50, 12],
-  [64, 16], [65, 17], [67, 18], [69, 19], [48, 16],
-  [67, 20], [72, 22], [52, 20], [55, 22],
-  [71, 24], [69, 25], [67, 26], [65, 27], [43, 24], [50, 24],
-  [64, 28], [60, 30], [64, 30], [67, 30], [48, 28], [55, 28],
-];
-const TECLA = { 60: 'a', 62: 's', 64: 'd', 65: 'f', 67: 'g', 69: 'h', 71: 'j', 72: 'k',
-  48: 'z', 50: 'x', 52: 'c', 53: 'v', 55: 'b', 57: 'n', 59: 'm', 41: 'q', 43: 'w', 45: 'e', 47: 'r' };
 
 // Mismos 20 acordes que src/medicion/sintetizador.ts (copiados: este script no importa TS).
 const ACORDES = [
@@ -50,8 +39,6 @@ const ACORDES = [
   [53, 57, 60, 64], [48, 52, 55, 60, 64], [45, 52, 60, 64], [50, 57, 65, 69], [59, 62, 67], [52, 55, 60], [47, 50, 55, 59],
 ];
 
-const BPM = 120;
-const MS_POR_PULSO = 60000 / BPM;
 const SOLO_MIC = process.env.SOLO_MIC === '1';
 const SOLO_OAF = process.env.SOLO_OAF === '1'; // solo el paso 7
 const ETIQUETA = process.env.ETIQUETA ?? '';
@@ -167,31 +154,7 @@ if (!SOLO_MIC && !SOLO_OAF) {
 // --- 2. tocar la pieza con el teclado de prueba ---------------------------------
 await pagina.check('input[type=checkbox]');
 await pagina.fill('input[type=number] >> nth=0', String(BPM));
-// Un observador DENTRO de la página anota performance.now() cuando aparece
-// "compás 1, pulso 1" (el pulso 0). Así no dependemos de la latencia de Playwright.
-await pagina.evaluate(() => {
-  window.__pulso0 = null;
-  new MutationObserver(() => {
-    if (window.__pulso0 === null && document.body.innerText.includes('compás 1, pulso 1')) window.__pulso0 = performance.now();
-  }).observe(document.body, { subtree: true, childList: true, characterData: true });
-});
-await pagina.click('#btn-iniciar');
-let pulso0Pagina = null;
-while (pulso0Pagina === null) {
-  await new Promise((r) => setTimeout(r, 15));
-  pulso0Pagina = await pagina.evaluate(() => window.__pulso0);
-}
-// Alinear el reloj de la página con el de este script.
-const ahoraPagina = await pagina.evaluate(() => performance.now());
-const t0 = Date.now() - (ahoraPagina - pulso0Pagina);
-const porPulso = new Map();
-for (const [midi, pulso] of NOTAS) porPulso.set(pulso, [...(porPulso.get(pulso) ?? []), midi]);
-for (const [pulso, midis] of [...porPulso.entries()].sort((a, b) => a[0] - b[0])) {
-  const espera = t0 + pulso * MS_POR_PULSO - Date.now();
-  if (espera > 0) await new Promise((r) => setTimeout(r, espera));
-  for (const m of midis) await pagina.keyboard.down(TECLA[m]);
-  for (const m of midis) await pagina.keyboard.up(TECLA[m]);
-}
+await tocarPieza(pagina);
 await pagina.waitForSelector('#estado:has-text("terminado")', { timeout: 15000 });
 await pagina.screenshot({ path: `${SALIDA}02-final.png`, fullPage: true });
 const tapas = await pagina.locator('.tapa').count();

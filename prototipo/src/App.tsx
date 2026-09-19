@@ -7,6 +7,7 @@
 //   metronomo.ts  → click con Web Audio + reloj musical (pulsos)
 //   midi.ts       → notas del teclado (Web MIDI o teclado de PC de prueba)
 //   comparador.ts → nota tocada vs nota esperada
+//   sesion.ts     → al terminar, arma el JSON de la sesión y lo baja
 //   medicion/     → pantalla B2 (basic-pitch)
 //
 // Flujo de una sesión:
@@ -14,7 +15,7 @@
 //     (a) se ocultan los compases que ya "tocan" según el desfase elegido,
 //     (b) el comparador marca como fallidas las notas cuyo momento pasó.
 //   Cada nota MIDI → se convierte a pulso (con decimales) → comparador.
-//   Al terminar → resumen por compás y total.
+//   Al terminar → resumen por compás y total, y se baja el JSON de la sesión.
 // ============================================================================
 
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -24,6 +25,7 @@ import { activarTecladoDePrueba, conectarMidi, nombreNota, suscribirNotas, type 
 import { Comparador, type NotaEsperada, type Resumen } from './comparador';
 import { PIEZA_MUSICXML, PIEZA_TOTAL_NOTAS, TEMPO_BPM } from './pieza';
 import { NIVELES, generarEjercicio, medirDificultad } from './generador';
+import { construirSesion, descargarSesion, type Sesion } from './sesion';
 import Medicion from './medicion/Medicion';
 
 export default function App() {
@@ -72,6 +74,10 @@ function Prototipo() {
   const [desvio, setDesvio] = useState<{ media: number; max: number; n: number } | null>(null);
   const [nivel, setNivel] = useState(Object.keys(NIVELES)[0]);
   const [semilla, setSemilla] = useState(1);
+  const [alumno, setAlumno] = useState('A1');
+  // Última sesión guardada: sirve para volver a bajarla si el navegador
+  // bloqueó la descarga automática.
+  const [guardado, setGuardado] = useState<{ sesion: Sesion; nombre: string } | null>(null);
 
   // Cargar (o recargar) la partitura cuando cambia la fuente.
   useEffect(() => {
@@ -154,7 +160,18 @@ function Prototipo() {
     p.mostrarTodo();
     const c = new Comparador(notasEsperadas);
     comparadorRef.current = c;
-    setRegistro([]); setDesvio(null);
+    setRegistro([]); setDesvio(null); setGuardado(null);
+    // Se congelan acá los datos de la sesión: son los ajustes con los que el
+    // alumno tocó, no los que queden en pantalla después.
+    const datosSesion = {
+      alumno,
+      tempo: bpm,
+      pulsosPorCompas: m.pulsosPorCompas,
+      numCompases: p.numCompases,
+      desfasePulsos: desfase,
+      pieza: fuente.nombre,
+      entrada: midiEstado.startsWith('conectado') ? 'MIDI' : tecladoPrueba ? 'teclado de PC' : 'sin entrada declarada',
+    };
     m.onPulso = (pu) => {
       setPulso(pu);
       // Regla de ocultamiento: el compás i se tapa cuando llega el pulso i*4 + desfase.
@@ -172,6 +189,9 @@ function Prototipo() {
       actualizarTablas();
       const d = m.desviosMs;
       if (d.length) setDesvio({ media: Math.round(d.reduce((s, x) => s + x, 0) / d.length * 10) / 10, max: Math.round(Math.max(...d) * 10) / 10, n: d.length });
+      // T1: la sesión se guarda sola, sin que nadie toque nada más.
+      const sesion = construirSesion(c, datosSesion);
+      setGuardado({ sesion, nombre: descargarSesion(sesion) });
     };
     tocandoRef.current = true;
     setEstado('tocando');
@@ -210,6 +230,7 @@ function Prototipo() {
       <p>
         <button id="btn-iniciar" onClick={iniciar} disabled={estado !== 'listo' && estado !== 'terminado'}>Iniciar</button>
         <button onClick={detener} disabled={estado !== 'tocando'}>Detener</button>
+        <label>alumno <input id="alumno" style={{ width: 60 }} value={alumno} onChange={(e) => setAlumno(e.target.value)} disabled={estado === 'tocando'} /></label>
         <label>bpm <input type="number" value={bpm} min={30} max={200} onChange={(e) => setBpm(Number(e.target.value))} disabled={estado === 'tocando'} /></label>
         <label>desfase de ocultamiento (pulsos) <input id="desfase" type="number" value={desfase} min={-8} max={8} onChange={(e) => setDesfase(Number(e.target.value))} disabled={estado === 'tocando'} /></label>
         estado: <b id="estado">{estado}</b>
@@ -220,6 +241,13 @@ function Prototipo() {
 
       <div id="partitura" ref={contenedorRef} />
       <p className="mono" id="chequeo">{fuente.nombre} · {chequeo}</p>
+
+      {guardado && (
+        <p className="mono" id="sesion-guardada">
+          sesión guardada: <b>{guardado.nombre}</b>{' '}
+          <button onClick={() => descargarSesion(guardado.sesion)}>descargar de nuevo</button>
+        </p>
+      )}
 
       {resumen && (
         <table id="tabla-resultados">

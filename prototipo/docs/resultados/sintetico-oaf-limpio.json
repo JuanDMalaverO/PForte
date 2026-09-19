@@ -23,7 +23,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 2018,
+      "msProceso": 2469,
       "detalle": "1 notas"
     },
     {
@@ -48,7 +48,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 273,
+      "msProceso": 434,
       "detalle": "3 notas"
     },
     {
@@ -72,7 +72,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 255,
+      "msProceso": 415,
       "detalle": "1 notas"
     },
     {
@@ -97,7 +97,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 258,
+      "msProceso": 319,
       "detalle": "3 notas"
     },
     {
@@ -122,7 +122,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 256,
+      "msProceso": 325,
       "detalle": "3 notas"
     },
     {
@@ -147,7 +147,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 252,
+      "msProceso": 349,
       "detalle": "2 notas"
     },
     {
@@ -174,7 +174,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 253,
+      "msProceso": 390,
       "detalle": "2 notas"
     },
     {
@@ -201,7 +201,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 249,
+      "msProceso": 381,
       "detalle": "2 notas"
     },
     {
@@ -229,7 +229,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 251,
+      "msProceso": 377,
       "detalle": "4 notas"
     },
     {
@@ -257,7 +257,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 248,
+      "msProceso": 346,
       "detalle": "3 notas"
     },
     {
@@ -282,7 +282,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 251,
+      "msProceso": 352,
       "detalle": "2 notas"
     },
     {
@@ -307,7 +307,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 261,
+      "msProceso": 355,
       "detalle": "3 notas"
     },
     {
@@ -335,7 +335,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 250,
+      "msProceso": 365,
       "detalle": "4 notas"
     },
     {
@@ -362,7 +362,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 250,
+      "msProceso": 354,
       "detalle": "2 notas"
     },
     {
@@ -393,7 +393,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 256,
+      "msProceso": 349,
       "detalle": "5 notas"
     },
     {
@@ -421,7 +421,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 251,
+      "msProceso": 422,
       "detalle": "3 notas"
     },
     {
@@ -449,7 +449,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 250,
+      "msProceso": 421,
       "detalle": "3 notas"
     },
     {
@@ -474,7 +474,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 254,
+      "msProceso": 385,
       "detalle": "2 notas"
     },
     {
@@ -499,7 +499,7 @@
         "extras": [],
         "exacto": true
       },
-      "msProceso": 259,
+      "msProceso": 429,
       "detalle": "3 notas"
     },
     {
@@ -527,7 +527,7 @@
         "extras": [],
         "exacto": false
       },
-      "msProceso": 271,
+      "msProceso": 413,
       "detalle": "3 notas"
     },
     {
@@ -553,6 +553,6 @@
     "aciertos": 54,
     "recall": 76.1,
     "precision": 100,
-    "msProcesoMedio": 327
+    "msProcesoMedio": 460
   }
 }

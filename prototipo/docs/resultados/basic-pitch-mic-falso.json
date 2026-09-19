@@ -1,19 +1,19 @@
 {
   "resumen": {
-    "acordesExactos": 18,
+    "acordesExactos": 8,
     "acordes": 20,
     "notasEsperadas": 71,
-    "recall": 95.8,
-    "precision": 98.6,
-    "latenciaReal_medianaMs": 287,
-    "latenciaReal_p90Ms": 317,
-    "latenciaReal_minMs": 265,
-    "latenciaReal_maxMs": 337,
-    "inferencia_mediaMs": 88,
-    "detecciones": 69,
-    "deteccionesRepetidasOFantasma": 0,
-    "deteccionesFueraDeAcordes": 0,
-    "desfaseCapturaSeg": -0.07,
+    "recall": 39.4,
+    "precision": 96.6,
+    "latenciaReal_medianaMs": 369,
+    "latenciaReal_p90Ms": 389,
+    "latenciaReal_minMs": 356,
+    "latenciaReal_maxMs": 1558,
+    "inferencia_mediaMs": 112,
+    "detecciones": 33,
+    "deteccionesRepetidasOFantasma": 4,
+    "deteccionesFueraDeAcordes": 1,
+    "desfaseCapturaSeg": -0.18,
     "continuo": {
       "ventanaSeg": 1,
       "intervaloMs": 100,
@@ -36,25 +36,17 @@
         64,
         67
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         60,
         64,
         67
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 3,
-      "latenciasPrimeraMs": [
-        305,
-        305,
-        306
-      ],
-      "latenciasMs": [
-        306,
-        282,
-        282
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 1,
@@ -82,25 +74,17 @@
         71,
         74
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         67,
         71,
         74
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 3,
-      "latenciasPrimeraMs": [
-        337,
-        337,
-        337
-      ],
-      "latenciasMs": [
-        322,
-        322,
-        322
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 3,
@@ -117,16 +101,19 @@
       "faltantes": [],
       "extras": [],
       "exacto": true,
-      "detecciones": 3,
+      "detecciones": 6,
       "latenciasPrimeraMs": [
-        285,
-        285,
-        286
+        389,
+        389,
+        388
       ],
       "latenciasMs": [
-        296,
-        284,
-        272
+        388,
+        354,
+        354,
+        329,
+        317,
+        317
       ]
     },
     {
@@ -136,25 +123,17 @@
         65,
         69
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         62,
         65,
         69
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 3,
-      "latenciasPrimeraMs": [
-        298,
-        298,
-        298
-      ],
-      "latenciasMs": [
-        279,
-        279,
-        279
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 5,
@@ -173,14 +152,14 @@
       "exacto": true,
       "detecciones": 3,
       "latenciasPrimeraMs": [
-        296,
-        296,
-        296
+        356,
+        356,
+        356
       ],
       "latenciasMs": [
-        314,
-        303,
-        291
+        306,
+        306,
+        306
       ]
     },
     {
@@ -192,26 +171,21 @@
         72
       ],
       "detectadas": [
-        60,
+        60
+      ],
+      "faltantes": [
         64,
         67,
         72
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 4,
+      "exacto": false,
+      "detecciones": 1,
       "latenciasPrimeraMs": [
-        298,
-        297,
-        297,
-        298
+        1558
       ],
       "latenciasMs": [
-        298,
-        287,
-        287,
-        275
+        296
       ]
     },
     {
@@ -233,16 +207,16 @@
       "exacto": true,
       "detecciones": 4,
       "latenciasPrimeraMs": [
-        278,
-        278,
-        278,
-        278
+        378,
+        378,
+        378,
+        378
       ],
       "latenciasMs": [
-        273,
-        261,
-        261,
-        261
+        359,
+        336,
+        324,
+        324
       ]
     },
     {
@@ -253,28 +227,18 @@
         59,
         62
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         43,
         50,
         59,
         62
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 4,
-      "latenciasPrimeraMs": [
-        266,
-        265,
-        265,
-        265
-      ],
-      "latenciasMs": [
-        274,
-        274,
-        263,
-        251
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 9,
@@ -284,32 +248,18 @@
         57,
         60
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         41,
         48,
-        53,
         57,
         60
       ],
-      "faltantes": [],
-      "extras": [
-        53
-      ],
+      "extras": [],
       "exacto": false,
-      "detecciones": 5,
-      "latenciasPrimeraMs": [
-        286,
-        285,
-        285,
-        285
-      ],
-      "latenciasMs": [
-        300,
-        265,
-        265,
-        254,
-        363
-      ]
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 10,
@@ -328,14 +278,14 @@
       "exacto": true,
       "detecciones": 3,
       "latenciasPrimeraMs": [
-        276,
-        276,
-        276
+        368,
+        368,
+        368
       ],
       "latenciasMs": [
-        293,
-        281,
-        281
+        317,
+        317,
+        317
       ]
     },
     {
@@ -355,14 +305,14 @@
       "exacto": true,
       "detecciones": 3,
       "latenciasPrimeraMs": [
-        277,
-        278,
-        277
+        356,
+        356,
+        356
       ],
       "latenciasMs": [
-        277,
-        265,
-        265
+        311,
+        311,
+        311
       ]
     },
     {
@@ -374,26 +324,22 @@
         65
       ],
       "detectadas": [
+        43
+      ],
+      "faltantes": [
         55,
         59,
         62,
         65
       ],
-      "faltantes": [],
-      "extras": [],
-      "exacto": true,
-      "detecciones": 4,
-      "latenciasPrimeraMs": [
-        286,
-        286,
-        287,
-        286
+      "extras": [
+        43
       ],
+      "exacto": false,
+      "detecciones": 1,
+      "latenciasPrimeraMs": [],
       "latenciasMs": [
-        281,
-        257,
-        257,
-        257
+        354
       ]
     },
     {
@@ -404,28 +350,18 @@
         60,
         64
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         53,
         57,
         60,
         64
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 4,
-      "latenciasPrimeraMs": [
-        317,
-        318,
-        317,
-        317
-      ],
-      "latenciasMs": [
-        325,
-        313,
-        313,
-        313
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 14,
@@ -448,18 +384,18 @@
       "exacto": true,
       "detecciones": 5,
       "latenciasPrimeraMs": [
-        305,
-        305,
-        306,
-        305,
-        305
+        369,
+        369,
+        369,
+        369,
+        369
       ],
       "latenciasMs": [
-        296,
-        272,
-        272,
-        272,
-        272
+        314,
+        314,
+        314,
+        314,
+        314
       ]
     },
     {
@@ -470,28 +406,18 @@
         60,
         64
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         45,
         52,
         60,
         64
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 4,
-      "latenciasPrimeraMs": [
-        285,
-        285,
-        285,
-        285
-      ],
-      "latenciasMs": [
-        258,
-        258,
-        258,
-        258
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 16,
@@ -501,28 +427,18 @@
         65,
         69
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         50,
         57,
         65,
         69
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 4,
-      "latenciasPrimeraMs": [
-        297,
-        297,
-        297,
-        297
-      ],
-      "latenciasMs": [
-        284,
-        272,
-        272,
-        272
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     },
     {
       "k": 17,
@@ -541,14 +457,14 @@
       "exacto": true,
       "detecciones": 3,
       "latenciasPrimeraMs": [
-        286,
-        286,
-        286
+        356,
+        357,
+        356
       ],
       "latenciasMs": [
-        255,
-        255,
-        255
+        323,
+        312,
+        300
       ]
     },
     {
@@ -568,14 +484,14 @@
       "exacto": true,
       "detecciones": 3,
       "latenciasPrimeraMs": [
-        287,
-        287,
-        287
+        368,
+        368,
+        369
       ],
       "latenciasMs": [
-        293,
-        293,
-        293
+        330,
+        318,
+        318
       ]
     },
     {
@@ -586,32 +502,22 @@
         55,
         59
       ],
-      "detectadas": [
+      "detectadas": [],
+      "faltantes": [
         47,
         50,
         55,
         59
       ],
-      "faltantes": [],
       "extras": [],
-      "exacto": true,
-      "detecciones": 4,
-      "latenciasPrimeraMs": [
-        296,
-        296,
-        296,
-        296
-      ],
-      "latenciasMs": [
-        262,
-        262,
-        262,
-        262
-      ]
+      "exacto": false,
+      "detecciones": 0,
+      "latenciasPrimeraMs": [],
+      "latenciasMs": []
     }
   ],
   "exportado": {
-    "fecha": "2026-09-18T03:40:38.931Z",
+    "fecha": "2026-09-19T00:17:37.102Z",
     "motor": "basic-pitch",
     "backend": "webgl",
     "umbrales": {
@@ -646,14 +552,14 @@
       "conRuido": true,
       "totales": {
         "acordes": 21,
-        "acordesExactos": 18,
-        "porcentajeExactos": 85.7,
+        "acordesExactos": 17,
+        "porcentajeExactos": 81,
         "notasEsperadas": 71,
-        "notasDetectadas": 76,
+        "notasDetectadas": 77,
         "aciertos": 71,
         "recall": 100,
-        "precision": 93.4,
-        "msProcesoMedio": 127
+        "precision": 92.2,
+        "msProcesoMedio": 191
       }
     },
     "precisionMicrofono": {
@@ -671,496 +577,244 @@
       }
     },
     "latencia": {
-      "muestras": 69,
-      "modelo_medianaMs": 274,
-      "modelo_p90Ms": 313,
+      "muestras": 33,
+      "modelo_medianaMs": 317,
+      "modelo_p90Ms": 354,
       "midi_muestras": 0,
       "midi_medianaMs": 0,
       "midi_p90Ms": 0,
-      "inferencia_mediaMs": 88,
+      "inferencia_mediaMs": 112,
       "detecciones": [
         {
-          "midi": 67,
-          "onsetSeg": 1.934421768707483,
-          "latenciaModeloMs": 306,
-          "latenciaMidiMs": null,
-          "msInferencia": 102
-        },
-        {
-          "midi": 60,
-          "onsetSeg": 1.957641723356009,
-          "latenciaModeloMs": 282,
-          "latenciaMidiMs": null,
-          "msInferencia": 102
-        },
-        {
           "midi": 64,
-          "onsetSeg": 1.957641723356009,
-          "latenciaModeloMs": 282,
+          "onsetSeg": 9.323591836734694,
+          "latenciaModeloMs": 388,
           "latenciaMidiMs": null,
-          "msInferencia": 102
-        },
-        {
-          "midi": 67,
-          "onsetSeg": 6.9496417233560095,
-          "latenciaModeloMs": 322,
-          "latenciaMidiMs": null,
-          "msInferencia": 137
-        },
-        {
-          "midi": 71,
-          "onsetSeg": 6.9496417233560095,
-          "latenciaModeloMs": 322,
-          "latenciaMidiMs": null,
-          "msInferencia": 137
-        },
-        {
-          "midi": 74,
-          "onsetSeg": 6.9496417233560095,
-          "latenciaModeloMs": 322,
-          "latenciaMidiMs": null,
-          "msInferencia": 137
-        },
-        {
-          "midi": 64,
-          "onsetSeg": 9.424308390022675,
-          "latenciaModeloMs": 296,
-          "latenciaMidiMs": null,
-          "msInferencia": 76
-        },
-        {
-          "midi": 60,
-          "onsetSeg": 9.435918367346938,
-          "latenciaModeloMs": 284,
-          "latenciaMidiMs": null,
-          "msInferencia": 76
+          "msInferencia": 135
         },
         {
           "midi": 57,
-          "onsetSeg": 9.447528344671202,
-          "latenciaModeloMs": 272,
+          "onsetSeg": 9.358421768707483,
+          "latenciaModeloMs": 354,
           "latenciaMidiMs": null,
-          "msInferencia": 76
-        },
-        {
-          "midi": 62,
-          "onsetSeg": 11.953251700680271,
-          "latenciaModeloMs": 279,
-          "latenciaMidiMs": null,
-          "msInferencia": 86
-        },
-        {
-          "midi": 65,
-          "onsetSeg": 11.953251700680271,
-          "latenciaModeloMs": 279,
-          "latenciaMidiMs": null,
-          "msInferencia": 86
-        },
-        {
-          "midi": 69,
-          "onsetSeg": 11.953251700680271,
-          "latenciaModeloMs": 279,
-          "latenciaMidiMs": null,
-          "msInferencia": 86
-        },
-        {
-          "midi": 64,
-          "onsetSeg": 14.416308390022676,
-          "latenciaModeloMs": 314,
-          "latenciaMidiMs": null,
-          "msInferencia": 94
-        },
-        {
-          "midi": 71,
-          "onsetSeg": 14.427918367346939,
-          "latenciaModeloMs": 303,
-          "latenciaMidiMs": null,
-          "msInferencia": 94
-        },
-        {
-          "midi": 67,
-          "onsetSeg": 14.439528344671203,
-          "latenciaModeloMs": 291,
-          "latenciaMidiMs": null,
-          "msInferencia": 94
-        },
-        {
-          "midi": 67,
-          "onsetSeg": 16.933641723356008,
-          "latenciaModeloMs": 298,
-          "latenciaMidiMs": null,
-          "msInferencia": 97
+          "msInferencia": 135
         },
         {
           "midi": 60,
-          "onsetSeg": 16.94525170068027,
-          "latenciaModeloMs": 287,
+          "onsetSeg": 9.358421768707483,
+          "latenciaModeloMs": 354,
           "latenciaMidiMs": null,
-          "msInferencia": 97
-        },
-        {
-          "midi": 72,
-          "onsetSeg": 16.94525170068027,
-          "latenciaModeloMs": 287,
-          "latenciaMidiMs": null,
-          "msInferencia": 97
+          "msInferencia": 135
         },
         {
           "midi": 64,
-          "onsetSeg": 16.956861678004532,
-          "latenciaModeloMs": 275,
+          "onsetSeg": 10.35136507936508,
+          "latenciaModeloMs": 329,
           "latenciaMidiMs": null,
-          "msInferencia": 97
+          "msInferencia": 110
+        },
+        {
+          "midi": 57,
+          "onsetSeg": 10.362975056689342,
+          "latenciaModeloMs": 317,
+          "latenciaMidiMs": null,
+          "msInferencia": 110
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 10.362975056689342,
+          "latenciaModeloMs": 317,
+          "latenciaMidiMs": null,
+          "msInferencia": 110
         },
         {
           "midi": 64,
-          "onsetSeg": 19.43936507936508,
-          "latenciaModeloMs": 273,
+          "onsetSeg": 14.373641723356009,
+          "latenciaModeloMs": 306,
           "latenciaMidiMs": null,
-          "msInferencia": 75
+          "msInferencia": 105
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 14.373641723356009,
+          "latenciaModeloMs": 306,
+          "latenciaMidiMs": null,
+          "msInferencia": 105
+        },
+        {
+          "midi": 71,
+          "onsetSeg": 14.373641723356009,
+          "latenciaModeloMs": 306,
+          "latenciaMidiMs": null,
+          "msInferencia": 105
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 18.08564172335601,
+          "latenciaModeloMs": 296,
+          "latenciaMidiMs": null,
+          "msInferencia": 103
+        },
+        {
+          "midi": 67,
+          "onsetSeg": 19.342421768707485,
+          "latenciaModeloMs": 359,
+          "latenciaMidiMs": null,
+          "msInferencia": 126
+        },
+        {
+          "midi": 64,
+          "onsetSeg": 19.36564172335601,
+          "latenciaModeloMs": 336,
+          "latenciaMidiMs": null,
+          "msInferencia": 126
         },
         {
           "midi": 48,
-          "onsetSeg": 19.45097505668934,
-          "latenciaModeloMs": 261,
+          "onsetSeg": 19.377251700680272,
+          "latenciaModeloMs": 324,
           "latenciaMidiMs": null,
-          "msInferencia": 75
+          "msInferencia": 126
         },
         {
           "midi": 55,
-          "onsetSeg": 19.45097505668934,
-          "latenciaModeloMs": 261,
+          "onsetSeg": 19.377251700680272,
+          "latenciaModeloMs": 324,
           "latenciaMidiMs": null,
-          "msInferencia": 75
-        },
-        {
-          "midi": 67,
-          "onsetSeg": 19.45097505668934,
-          "latenciaModeloMs": 261,
-          "latenciaMidiMs": null,
-          "msInferencia": 75
-        },
-        {
-          "midi": 50,
-          "onsetSeg": 21.92564172335601,
-          "latenciaModeloMs": 274,
-          "latenciaMidiMs": null,
-          "msInferencia": 69
-        },
-        {
-          "midi": 62,
-          "onsetSeg": 21.92564172335601,
-          "latenciaModeloMs": 274,
-          "latenciaMidiMs": null,
-          "msInferencia": 69
-        },
-        {
-          "midi": 43,
-          "onsetSeg": 21.93725170068027,
-          "latenciaModeloMs": 263,
-          "latenciaMidiMs": null,
-          "msInferencia": 69
-        },
-        {
-          "midi": 59,
-          "onsetSeg": 21.948861678004533,
-          "latenciaModeloMs": 251,
-          "latenciaMidiMs": null,
-          "msInferencia": 69
+          "msInferencia": 126
         },
         {
           "midi": 60,
-          "onsetSeg": 24.419755102040817,
-          "latenciaModeloMs": 300,
+          "onsetSeg": 26.874975056689344,
+          "latenciaModeloMs": 317,
           "latenciaMidiMs": null,
-          "msInferencia": 88
-        },
-        {
-          "midi": 48,
-          "onsetSeg": 24.454585034013604,
-          "latenciaModeloMs": 265,
-          "latenciaMidiMs": null,
-          "msInferencia": 88
-        },
-        {
-          "midi": 57,
-          "onsetSeg": 24.454585034013604,
-          "latenciaModeloMs": 265,
-          "latenciaMidiMs": null,
-          "msInferencia": 88
-        },
-        {
-          "midi": 41,
-          "onsetSeg": 24.466195011337867,
-          "latenciaModeloMs": 254,
-          "latenciaMidiMs": null,
-          "msInferencia": 88
-        },
-        {
-          "midi": 53,
-          "onsetSeg": 24.4586485260771,
-          "latenciaModeloMs": 363,
-          "latenciaMidiMs": null,
-          "msInferencia": 86
-        },
-        {
-          "midi": 60,
-          "onsetSeg": 26.91764172335601,
-          "latenciaModeloMs": 293,
-          "latenciaMidiMs": null,
-          "msInferencia": 81
+          "msInferencia": 113
         },
         {
           "midi": 63,
-          "onsetSeg": 26.929251700680272,
-          "latenciaModeloMs": 281,
+          "onsetSeg": 26.874975056689344,
+          "latenciaModeloMs": 317,
           "latenciaMidiMs": null,
-          "msInferencia": 81
+          "msInferencia": 113
         },
         {
           "midi": 67,
-          "onsetSeg": 26.929251700680272,
-          "latenciaModeloMs": 281,
+          "onsetSeg": 26.874975056689344,
+          "latenciaModeloMs": 317,
           "latenciaMidiMs": null,
-          "msInferencia": 81
+          "msInferencia": 113
+        },
+        {
+          "midi": 62,
+          "onsetSeg": 29.369088435374152,
+          "latenciaModeloMs": 311,
+          "latenciaMidiMs": null,
+          "msInferencia": 111
         },
         {
           "midi": 66,
-          "onsetSeg": 29.434975056689343,
-          "latenciaModeloMs": 277,
+          "onsetSeg": 29.369088435374152,
+          "latenciaModeloMs": 311,
           "latenciaMidiMs": null,
-          "msInferencia": 76
-        },
-        {
-          "midi": 62,
-          "onsetSeg": 29.446585034013605,
-          "latenciaModeloMs": 265,
-          "latenciaMidiMs": null,
-          "msInferencia": 76
+          "msInferencia": 111
         },
         {
           "midi": 69,
-          "onsetSeg": 29.446585034013605,
-          "latenciaModeloMs": 265,
+          "onsetSeg": 29.369088435374152,
+          "latenciaModeloMs": 311,
           "latenciaMidiMs": null,
-          "msInferencia": 76
+          "msInferencia": 111
         },
         {
-          "midi": 62,
-          "onsetSeg": 31.940698412698413,
-          "latenciaModeloMs": 281,
-          "latenciaMidiMs": null,
-          "msInferencia": 81
-        },
-        {
-          "midi": 55,
-          "onsetSeg": 31.96391836734694,
-          "latenciaModeloMs": 257,
-          "latenciaMidiMs": null,
-          "msInferencia": 81
-        },
-        {
-          "midi": 59,
-          "onsetSeg": 31.96391836734694,
-          "latenciaModeloMs": 257,
-          "latenciaMidiMs": null,
-          "msInferencia": 81
-        },
-        {
-          "midi": 65,
-          "onsetSeg": 31.96391836734694,
-          "latenciaModeloMs": 257,
-          "latenciaMidiMs": null,
-          "msInferencia": 81
-        },
-        {
-          "midi": 57,
-          "onsetSeg": 34.42697505668934,
-          "latenciaModeloMs": 325,
+          "midi": 43,
+          "onsetSeg": 31.936925170068026,
+          "latenciaModeloMs": 354,
           "latenciaMidiMs": null,
           "msInferencia": 105
-        },
-        {
-          "midi": 53,
-          "onsetSeg": 34.438585034013606,
-          "latenciaModeloMs": 313,
-          "latenciaMidiMs": null,
-          "msInferencia": 105
-        },
-        {
-          "midi": 60,
-          "onsetSeg": 34.438585034013606,
-          "latenciaModeloMs": 313,
-          "latenciaMidiMs": null,
-          "msInferencia": 105
-        },
-        {
-          "midi": 64,
-          "onsetSeg": 34.438585034013606,
-          "latenciaModeloMs": 313,
-          "latenciaMidiMs": null,
-          "msInferencia": 105
-        },
-        {
-          "midi": 55,
-          "onsetSeg": 36.94430839002267,
-          "latenciaModeloMs": 296,
-          "latenciaMidiMs": null,
-          "msInferencia": 100
         },
         {
           "midi": 48,
-          "onsetSeg": 36.9675283446712,
-          "latenciaModeloMs": 272,
+          "onsetSeg": 36.87842176870748,
+          "latenciaModeloMs": 314,
           "latenciaMidiMs": null,
-          "msInferencia": 100
+          "msInferencia": 108
         },
         {
           "midi": 52,
-          "onsetSeg": 36.9675283446712,
-          "latenciaModeloMs": 272,
+          "onsetSeg": 36.87842176870748,
+          "latenciaModeloMs": 314,
           "latenciaMidiMs": null,
-          "msInferencia": 100
+          "msInferencia": 108
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 36.87842176870748,
+          "latenciaModeloMs": 314,
+          "latenciaMidiMs": null,
+          "msInferencia": 108
         },
         {
           "midi": 60,
-          "onsetSeg": 36.9675283446712,
-          "latenciaModeloMs": 272,
+          "onsetSeg": 36.87842176870748,
+          "latenciaModeloMs": 314,
           "latenciaMidiMs": null,
-          "msInferencia": 100
+          "msInferencia": 108
         },
         {
           "midi": 64,
-          "onsetSeg": 36.9675283446712,
-          "latenciaModeloMs": 272,
+          "onsetSeg": 36.87842176870748,
+          "latenciaModeloMs": 314,
           "latenciaMidiMs": null,
-          "msInferencia": 100
-        },
-        {
-          "midi": 45,
-          "onsetSeg": 39.46164172335601,
-          "latenciaModeloMs": 258,
-          "latenciaMidiMs": null,
-          "msInferencia": 76
-        },
-        {
-          "midi": 52,
-          "onsetSeg": 39.46164172335601,
-          "latenciaModeloMs": 258,
-          "latenciaMidiMs": null,
-          "msInferencia": 76
-        },
-        {
-          "midi": 60,
-          "onsetSeg": 39.46164172335601,
-          "latenciaModeloMs": 258,
-          "latenciaMidiMs": null,
-          "msInferencia": 76
-        },
-        {
-          "midi": 64,
-          "onsetSeg": 39.46164172335601,
-          "latenciaModeloMs": 258,
-          "latenciaMidiMs": null,
-          "msInferencia": 76
-        },
-        {
-          "midi": 65,
-          "onsetSeg": 41.947918367346944,
-          "latenciaModeloMs": 284,
-          "latenciaMidiMs": null,
-          "msInferencia": 84
-        },
-        {
-          "midi": 50,
-          "onsetSeg": 41.959528344671206,
-          "latenciaModeloMs": 272,
-          "latenciaMidiMs": null,
-          "msInferencia": 84
-        },
-        {
-          "midi": 57,
-          "onsetSeg": 41.959528344671206,
-          "latenciaModeloMs": 272,
-          "latenciaMidiMs": null,
-          "msInferencia": 84
-        },
-        {
-          "midi": 69,
-          "onsetSeg": 41.959528344671206,
-          "latenciaModeloMs": 272,
-          "latenciaMidiMs": null,
-          "msInferencia": 84
-        },
-        {
-          "midi": 59,
-          "onsetSeg": 44.46525170068028,
-          "latenciaModeloMs": 255,
-          "latenciaMidiMs": null,
-          "msInferencia": 82
-        },
-        {
-          "midi": 62,
-          "onsetSeg": 44.46525170068028,
-          "latenciaModeloMs": 255,
-          "latenciaMidiMs": null,
-          "msInferencia": 82
+          "msInferencia": 108
         },
         {
           "midi": 67,
-          "onsetSeg": 44.46525170068028,
-          "latenciaModeloMs": 255,
+          "onsetSeg": 44.35669841269841,
+          "latenciaModeloMs": 323,
           "latenciaMidiMs": null,
-          "msInferencia": 82
+          "msInferencia": 97
         },
         {
-          "midi": 52,
-          "onsetSeg": 46.92830839002268,
-          "latenciaModeloMs": 293,
+          "midi": 62,
+          "onsetSeg": 44.368308390022676,
+          "latenciaModeloMs": 312,
           "latenciaMidiMs": null,
-          "msInferencia": 82
-        },
-        {
-          "midi": 55,
-          "onsetSeg": 46.92830839002268,
-          "latenciaModeloMs": 293,
-          "latenciaMidiMs": null,
-          "msInferencia": 82
-        },
-        {
-          "midi": 60,
-          "onsetSeg": 46.92830839002268,
-          "latenciaModeloMs": 293,
-          "latenciaMidiMs": null,
-          "msInferencia": 82
-        },
-        {
-          "midi": 47,
-          "onsetSeg": 49.46886167800454,
-          "latenciaModeloMs": 262,
-          "latenciaMidiMs": null,
-          "msInferencia": 91
-        },
-        {
-          "midi": 50,
-          "onsetSeg": 49.46886167800454,
-          "latenciaModeloMs": 262,
-          "latenciaMidiMs": null,
-          "msInferencia": 91
-        },
-        {
-          "midi": 55,
-          "onsetSeg": 49.46886167800454,
-          "latenciaModeloMs": 262,
-          "latenciaMidiMs": null,
-          "msInferencia": 91
+          "msInferencia": 97
         },
         {
           "midi": 59,
-          "onsetSeg": 49.46886167800454,
-          "latenciaModeloMs": 262,
+          "onsetSeg": 44.37991836734694,
+          "latenciaModeloMs": 300,
           "latenciaMidiMs": null,
-          "msInferencia": 91
+          "msInferencia": 97
+        },
+        {
+          "midi": 60,
+          "onsetSeg": 46.86242176870748,
+          "latenciaModeloMs": 330,
+          "latenciaMidiMs": null,
+          "msInferencia": 104
+        },
+        {
+          "midi": 52,
+          "onsetSeg": 46.87403174603174,
+          "latenciaModeloMs": 318,
+          "latenciaMidiMs": null,
+          "msInferencia": 104
+        },
+        {
+          "midi": 55,
+          "onsetSeg": 46.87403174603174,
+          "latenciaModeloMs": 318,
+          "latenciaMidiMs": null,
+          "msInferencia": 104
+        },
+        {
+          "midi": 32,
+          "onsetSeg": 52.56814512471655,
+          "latenciaModeloMs": 333,
+          "latenciaMidiMs": null,
+          "msInferencia": 117
         }
       ]
     }

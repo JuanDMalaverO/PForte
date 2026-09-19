@@ -1,0 +1,89 @@
+{
+  "fecha": "2026-09-18T19:17:29",
+  "alumno": "A2",
+  "tempo": 120,
+  "compasesOcultos": 0,
+  "compases": [
+    {
+      "n": 1,
+      "esperadas": [48, 60, 62, 64, 65],
+      "tocadas": [60, 48, 62, 64, 65],
+      "faltantes": [],
+      "extras": [],
+      "tiempos": [0.021, 0.037, 0.53, 1.021, 1.52],
+      "tiemposEsperados": [0, 0, 0.5, 1, 1.5]
+    },
+    {
+      "n": 2,
+      "esperadas": [48, 52, 55, 67, 64],
+      "tocadas": [67, 48, 52, 55, 64],
+      "faltantes": [],
+      "extras": [],
+      "tiempos": [0.021, 0.029, 0.04, 0.05, 1.021],
+      "tiemposEsperados": [0, 0, 0, 0, 1]
+    },
+    {
+      "n": 3,
+      "esperadas": [41, 65, 64, 43, 62, 60],
+      "tocadas": [65, 41, 64, 72, 62, 43, 60],
+      "faltantes": [],
+      "extras": [72],
+      "tiempos": [0.021, 0.039, 0.52, 0.53, 1.021, 1.029, 1.53],
+      "tiemposEsperados": [0, 0, 0.5, 1, 1, 1.5]
+    },
+    {
+      "n": 4,
+      "esperadas": [43, 47, 50, 62, 67],
+      "tocadas": [62, 43, 47, 50, 67],
+      "faltantes": [],
+      "extras": [],
+      "tiempos": [0.021, 0.039, 0.05, 0.061, 1.021],
+      "tiemposEsperados": [0, 0, 0, 0, 1]
+    },
+    {
+      "n": 5,
+      "esperadas": [48, 64, 65, 67, 69],
+      "tocadas": [64, 48, 65, 67, 69],
+      "faltantes": [],
+      "extras": [],
+      "tiempos": [0.021, 0.028, 0.52, 1.021, 1.52],
+      "tiemposEsperados": [0, 0, 0.5, 1, 1.5]
+    },
+    {
+      "n": 6,
+      "esperadas": [52, 67, 55, 72],
+      "tocadas": [67, 52, 72, 55],
+      "faltantes": [],
+      "extras": [],
+      "tiempos": [0.021, 0.029, 1.021, 1.038],
+      "tiemposEsperados": [0, 0, 1, 1]
+    },
+    {
+      "n": 7,
+      "esperadas": [43, 50, 71, 69, 67, 65],
+      "tocadas": [],
+      "faltantes": [43, 50, 71, 69, 67, 65],
+      "extras": [],
+      "tiempos": [],
+      "tiemposEsperados": [0, 0, 0, 0.5, 1, 1.5]
+    },
+    {
+      "n": 8,
+      "esperadas": [48, 55, 64, 60, 64, 67],
+      "tocadas": [64, 48, 55, 60, 64, 67],
+      "faltantes": [],
+      "extras": [],
+      "tiempos": [0.021, 0.028, 0.05, 1.021, 1.029, 1.049],
+      "tiemposEsperados": [0, 0, 0, 1, 1, 1]
+    }
+  ],
+  "total": {
+    "correctas": 36,
+    "faltantes": 6,
+    "extras": 1
+  },
+  "pieza": "pieza fija (pieza.ts)",
+  "entrada": "teclado de PC",
+  "desfasePulsos": 0,
+  "toleranciaPulsos": 0.5
+}
